@@ -120,11 +120,21 @@ public class Aventure {
 	 */
 	public int DeplacementHeros(int x_arr, int y_arr){
 		
-		if((this.perso.pos_x_heros=x_arr)||((this.perso.pos_x_heros)+1=x_arr)||((this.perso.pos_x_heros) - 1=x_arr))
-		
-		
-		return 0;
-		
+		if((this.perso.pos_x_heros==x_arr)||((this.perso.pos_x_heros)+1==x_arr)||((this.perso.pos_x_heros) - 1==x_arr)){
+			if((this.perso.pos_y_heros==y_arr)||((this.perso.pos_y_heros)+1==x_arr)||((this.perso.pos_y_heros) - 1==x_arr)){
+				if (this.carte.map[x_arr][y_arr]==1){
+					this.perso.pos_x_heros=x_arr;
+					this.perso.pos_y_heros=y_arr;
+				}
+				else return -1;/*la case est non praticable*/
+				
+				
+			}
+			else return -2;//ordonnes trop eloigne
+		}
+		else return -3;//abscisse trop eloigne
+
+		return 0;	
 	}
 	
 	
