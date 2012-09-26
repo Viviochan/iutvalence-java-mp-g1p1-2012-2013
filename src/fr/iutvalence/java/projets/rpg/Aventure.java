@@ -85,7 +85,7 @@ public class Aventure {
 	
 	
 	/**
-	 * Constructeurs/Methodes
+	 *Methodes ->Niveaux
 	 * 
 	 * level:
 	 * @return 1 si le tableau c'est bien remplie
@@ -106,7 +106,10 @@ public class Aventure {
 	}
 	
 	
+	
+	
 	/**
+	 * Methodes ->Heros
 	 * Deplacement:
 	 * on entre les coordonnes souhaiter
 	 * On verifie si ce sont des coordonnes proche du heros en premier
@@ -137,6 +140,20 @@ public class Aventure {
 		return 0;	
 	}
 	
+	
+	
+	
+	/**
+	 * Methodes PNJ
+	 * Placement du ou des pnj par defaut
+	 * 
+	 * 
+	 * 
+	 * @return 0
+	 */
+	public int placementPnj(){
+		return 0;
+	}
 
 	
 	
