@@ -16,6 +16,8 @@ public class Hero {
 	 * Abscisse du heros sur la map
 	 */
 	
+	// FIXME déclarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
+
 	public int pos_x_heros;
 	
 	/**
@@ -77,7 +79,7 @@ public class Hero {
 	
 
 	
-	
+	// FIXME définir des constantes pour les valeurs par défaut
 	/**
 	 * Constructeurs
 	 */	
@@ -97,7 +99,7 @@ public class Hero {
 		
 	}
 	
-	
+	// FIXME écrire un commentaire correct
 	/**
 	 * @param s  Nom du hero taper au clavier par le joueur ou definit par defaut
 	 * Initialisation a partir du constructeur par defaut 

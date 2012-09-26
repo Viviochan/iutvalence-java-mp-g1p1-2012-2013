@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.rpg;
 
 
+
 /**
  * @author goncalvs
  * 

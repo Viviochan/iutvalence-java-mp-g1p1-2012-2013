@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.rpg;
 
 
+// FIXME corriger le commentaire
 /**
  * @author goncalvs
  *
@@ -13,17 +14,20 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class PNJ {
 	
+	// FIXME écrire le commentaire
 	/**
 	 * Attributs
 	 */
 	public int pos_x_pnj;
-	
+
+	// FIXME écrire le commentaire
 	/**
 	 * 
 	 */
 	public int pos_y_pnj;
 	
 	
+	// FIXME Le personnage ne prononce qu'une seule phrase ? Il faudrait réfléchir à mieux modéliser le discours d'un personnage 
 	/**
 	 * Les paroles que vous dira le pnj lorsque le hero le solicitera
 	 */
@@ -37,12 +41,16 @@ public class PNJ {
 	 * Pose un pnj a cote du hero qui lui dira coucou
 	 */
 	public PNJ(){
+		
+		// FIXME et si le hero n'est plus à côté de (9,5) ?? A reprendre...
 		this.pos_x_pnj=9;
 		this.pos_y_pnj=5;
 		this.phrase="Hello World";
 		
 	}
 	
+	
+	// FIXME écrire le commentaire
 	/**
 	 * 
 	 * @param pos_x Abscisse x du pnj

@@ -33,7 +33,9 @@ public class PlateaudeJeu {
 	 *
 	 */
 	
-	
+	// FIXME si chaque valeur entière que peut prendre une case du tableau a uun sens particulier, il faut définir des constantes
+	// FIXME définir l'attribut privé, mettre un accesseur en lecture public sur le contenu d'une case
+	// FIXME pas d'initialisation à la déclaration (constructeur)
 	public int [] [] map = new int[LONGUEUR] [LONGUEUR];
 	
 	
@@ -48,6 +50,7 @@ public class PlateaudeJeu {
 	 * int j correspond aux oordonne
 	 */
 	public PlateaudeJeu(){
+		
 		for(int i=0;i<LONGUEUR;i++){
 			for(int j=0;j<LONGUEUR;j++){
 				this.map[i][j]=1;

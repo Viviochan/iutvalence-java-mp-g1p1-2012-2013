@@ -10,7 +10,7 @@ public class Niveau{
 	/**
 	 * Attribut
 	 */
-	
+	// FIXME déclarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * numeros du level atteins
 	 */
@@ -26,7 +26,7 @@ public class Niveau{
 	 * Constructeur
 	 */
 	
-	
+	// FIXME écrire un commentaire correct
 	/**
 	 * Initialise le niveau de depart
 	 */
@@ -35,6 +35,7 @@ public class Niveau{
 		this.taux_xp=0;
 	}
 	
+	// FIXME déclarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * definis les niveau avec leur taux de xp
 	 * @param num  numeros du lvl

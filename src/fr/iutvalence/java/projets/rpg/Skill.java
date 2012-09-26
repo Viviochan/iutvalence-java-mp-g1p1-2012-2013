@@ -1,6 +1,6 @@
 package fr.iutvalence.java.projets.rpg;
 
-
+// FIXME écrire le commentaire
 /**
  * @author goncalvs
  *
@@ -12,6 +12,7 @@ public class Skill {
 	 * Attribut
 	 */
 	
+	// FIXME déclarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * Nom du skill
 	 */
@@ -56,9 +57,12 @@ public class Skill {
 	 * qui regenere 30point de vie du hero et est deblocable au lvl 5
 	 */
 	public Skill(){
+		
+		// Dénifir une constante pour le nom par défaut
 		this.nom="Heal";
 		this.lvl=5;
 		this.cout_pm=3;
+		 
 		this.effet="regenere les pv de 30pts";
 	}
 	

@@ -7,6 +7,7 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Monstre {
 	
+	// FIXME déclarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * Attribut
 	 * Nom du montre en question
@@ -41,6 +42,7 @@ public class Monstre {
 
 
 
+	// FIXME écrire un commentaire correct
 	/**
 	 * Constructeur
 	 * 
@@ -48,7 +50,10 @@ public class Monstre {
 	 * Monstre de base du jeu
 	 */
 	public Monstre(){
+		// TODO définir une constante pour le nom par défaut
 		this.nom_monstre="Slim";
+		
+		// FIXME définir des constantes pour les valeurs par défaut
 		this.hp_monstre=10;
 		this.attaque_monstre=5;
 		this.defense_monstre=5;
@@ -57,6 +62,7 @@ public class Monstre {
 		
 	}
 	
+	// FIXME finir la documentation
 	/**
 	 * On cree le monstre souhaiter en definissant tous ces details
 	 * serviras a la base de donnees ou une collection de monstre
