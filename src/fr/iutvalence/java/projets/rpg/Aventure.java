@@ -137,6 +137,15 @@ public class Aventure {
 		return 0;	
 	}
 	
+	/**
+	 * positionHeros:
+	 * affiche a l'utilisateur les coordonnees du heros de facon a reussir a
+	 * manier ces deplacements
+	 */
+	public void positionHeros(){
+		System.out.printf("les coordonnees du heros sont (%d,%d)",this.perso.pos_x_heros,this.perso.pos_y_heros);
+		
+	}
 	
 	
 	
