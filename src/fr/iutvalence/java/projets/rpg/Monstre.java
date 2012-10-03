@@ -7,34 +7,44 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Monstre {
 	
-	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * Attribut
 	 * Nom du montre en question
 	 */
 	public String nom_monstre;
-	
+
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
 	public int hp_monstre;
-	
+
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * niveau d'attaque du monstre
 	 */
 	public int attaque_monstre;
 	
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * niveau de defense du monstre
 	 */
 	public int defense_monstre;
 	
-	
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
 	public int xp_monstre;
 	
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
@@ -42,7 +52,7 @@ public class Monstre {
 
 
 
-	// FIXME �crire un commentaire correct
+	// FIXME écrire un commentaire correct
 	/**
 	 * Constructeur
 	 * 
@@ -50,10 +60,10 @@ public class Monstre {
 	 * Monstre de base du jeu
 	 */
 	public Monstre(){
-		// TODO d�finir une constante pour le nom par d�faut
+		// FIXME définir une constante pour le nom par défaut
 		this.nom_monstre="Slim";
 		
-		// FIXME d�finir des constantes pour les valeurs par d�faut
+		// FIXME définir des constantes pour les valeurs par défaut
 		this.hp_monstre=10;
 		this.attaque_monstre=5;
 		this.defense_monstre=5;
@@ -85,7 +95,7 @@ public class Monstre {
 	}
 	
 
-
+	// FIXME méthodes ?
 	
 }
 	

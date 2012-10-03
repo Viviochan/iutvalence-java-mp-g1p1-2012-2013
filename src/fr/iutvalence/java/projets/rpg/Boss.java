@@ -19,11 +19,16 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Boss extends Monstre {
 
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 		/**
 		 * Attributs
 		 * Abscisse du boss
 		 */
 		public int pos_boss_x;
+
+		// FIXME réfléchir à la visibilité
+		// FIXME respecter les conventions d'écriture
 		/**
 		 * Oordonnes du boss
 		 */
@@ -42,6 +47,8 @@ public class Boss extends Monstre {
 		 * On integrera des sous boss pris dans la base de monstre
 		 */
 		public Boss(){
+			
+			// FIXME définir les valeurs par défaut sous forme de constantes
 			super("Lord Dragon",350,110, 110, 0, 0);
 			this.pos_boss_x= 500;
 			this.pos_boss_y=1000;
@@ -51,20 +58,7 @@ public class Boss extends Monstre {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// FIXME méthodes ?
+
 		
 }

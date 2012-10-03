@@ -1,6 +1,6 @@
 package fr.iutvalence.java.projets.rpg;
 
-// FIXME �crire le commentaire
+// FIXME écrire le commentaire
 /**
  * @author goncalvs
  *
@@ -12,23 +12,27 @@ public class Skill {
 	 * Attribut
 	 */
 	
-	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
+	// FIXME réfléchir à la visibilité
 	/**
 	 * Nom du skill
 	 */
 	public String nom;
-	
+
+	// FIXME réfléchir à la visibilité
 	/**
 	 * niveau pour debloquer la competence
 	 */
 	public int lvl;
 	
 	
+	// FIXME réfléchir à la visibilité
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * Cout en point de mana de la competence
 	 */
 	public int cout_pm;
 	
+	// FIXME réfléchir à la visibilité
 	/**
 	 * Effet du skill
 	 */
@@ -58,7 +62,7 @@ public class Skill {
 	 */
 	public Skill(){
 		
-		// D�nifir une constante pour le nom par d�faut
+		// Dénifir une constante pour le nom par défaut
 		this.nom="Heal";
 		this.lvl=5;
 		this.cout_pm=3;
@@ -66,5 +70,5 @@ public class Skill {
 		this.effet="regenere les pv de 30pts";
 	}
 	
-
+	// FIXME méthodes ?
 }

@@ -1,12 +1,13 @@
 package fr.iutvalence.java.projets.rpg;
 
-
+// FIXME √©crire un commentaire
 /**
  * @author goncalvs
  *
  */
 public class PlateaudeJeu {
 	
+	// FIXME corriger le commentaire
 	/**
 	 * Attribut
 	 * 
@@ -33,9 +34,9 @@ public class PlateaudeJeu {
 	 *
 	 */
 	
-	// FIXME si chaque valeur entière que peut prendre une case du tableau a uun sens particulier, il faut définir des constantes
-	// FIXME définir l'attribut privé, mettre un accesseur en lecture public sur le contenu d'une case
-	// FIXME pas d'initialisation à la déclaration (constructeur)
+	// FIXME si chaque valeur enti√®re que peut prendre une case du tableau a uun sens particulier, il faut d√©finir des constantes
+	// FIXME r√©fl√©chir √† la visibilit√©
+	// FIXME pas d'initialisation √† la d√©claration (constructeur)
 	public int [] [] map = new int[LONGUEUR] [LONGUEUR];
 	
 	
@@ -59,4 +60,5 @@ public class PlateaudeJeu {
 		
 	}
 
+		// FIXME m√©thodes ?
 }
