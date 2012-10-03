@@ -53,10 +53,10 @@ public class Skill {
 	 * @param nomEff effet de la competence
 	 */
 	public Skill(String s, int n,int  pm,String nomEff){
-		this.setNom(s);
-		this.setLvl(n);
-		this.setCout_pm(pm);
-		this.setEffet(nomEff);
+		this.nom= s;
+		this.lvl= n;
+		this.cout_pm= pm;
+		this.effet= nomEff;
 		}
 	
 	/**
@@ -64,11 +64,11 @@ public class Skill {
 	 * qui regenere 30point de vie du hero et est deblocable au lvl 5
 	 */
 	public Skill(){
-		this.nom= "Heal";
+		this.nom= NOM_DEFAUT;
 		this.lvl= 5;
 		this.cout_pm= 3;
 		 
-		this.setEffet("regenere les pv de 30pts");
+		this.effet= "regenere les pv de 30pts";
 	}
 
 	
