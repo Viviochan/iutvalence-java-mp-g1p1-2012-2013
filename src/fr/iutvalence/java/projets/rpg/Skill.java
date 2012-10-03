@@ -16,26 +16,31 @@ public class Skill {
 	/**
 	 * Nom du skill
 	 */
-	public String nom;
+	private String nom;
 
 	/**
 	 * niveau pour debloquer la competence
 	 */
-	public int lvl;
+	private int lvl;
 	
 	
 
 	/**
 	 * Cout en point de mana de la competence
 	 */
-	public int cout_pm;
+	private int cout_pm;
 	
 
 	/**
 	 * Effet du skill
 	 */
-	public String effet;
+	private String effet;
 	
+	/**
+	 * Constantes
+	 */
+	
+	final static String NOM_DEFAUT="HEAL";
 	
 	
 	/**
@@ -48,10 +53,10 @@ public class Skill {
 	 * @param nomEff effet de la competence
 	 */
 	public Skill(String s, int n,int  pm,String nomEff){
-		this.nom=s;
-		this.lvl=n;
-		this.cout_pm=pm;
-		this.effet=nomEff;
+		this.setNom(s);
+		this.setLvl(n);
+		this.setCout_pm(pm);
+		this.setEffet(nomEff);
 		}
 	
 	/**
@@ -59,12 +64,54 @@ public class Skill {
 	 * qui regenere 30point de vie du hero et est deblocable au lvl 5
 	 */
 	public Skill(){
-		this.nom="Heal";
-		this.lvl=5;
-		this.cout_pm=3;
+		this.setNom("Heal");
+		this.setLvl(5);
+		this.setCout_pm(3);
 		 
-		this.effet="regenere les pv de 30pts";
+		this.setEffet("regenere les pv de 30pts");
 	}
+
 	
+	/**
+	 * Accesseur
+	 */
+	
+	/**
+	 * 
+	 * @return nom
+	 */
+	
+	public String getNom() {
+		return nom;
+	}
+
+
+	/**
+	 * 
+	 * @return lvl
+	 */
+	public int getLvl() {
+		return lvl;
+	}
+
+	/**
+	 * 
+	 * @return cout_pm
+	 */
+
+	public int getCout_pm() {
+		return cout_pm;
+	}
+
+
+	/**
+	 * 
+	 * @return effet
+	 */
+	public String getEffet() {
+		return effet;
+	}
+
+
 
 }
