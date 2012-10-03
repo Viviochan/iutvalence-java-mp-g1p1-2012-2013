@@ -35,7 +35,10 @@ public class Hero {
 
 	private String nom_du_heros;
 
-	
+	/**
+	 * Nom par defaut du Heros
+	 */
+	final static String NOM_HERO="Vivio";
 	
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
@@ -83,9 +86,20 @@ public class Hero {
 	/**
 	 * Tableau des competence du heros
 	 * competences debloquer par le heros
-	public Skill[] competence;
-	*/
+	 * public Skill[] competence;
+	 */
+	final static int ABSCISSE_DEFAUT=10;
+	final static int OORDONNE_DEFAUT=5;
 	
+	final static int HP_HERO=35;
+	
+	final static int MP_HERO=6;
+	
+	final static int ATT_DEF_HERO=30;
+	
+	final static int NIV_BASE=1;
+	final static int XP_BASE=0;
+	final static int OR_BASE=500;
 
 	
 
@@ -96,15 +110,16 @@ public class Hero {
 	 * Initialise le heros sans specifier de nom
 	 */	
 	public Hero(){
-		this.pos_x_heros= 10;
-		this.pos_y_heros= 5;
-		this.point_de_vie= 30;
-		this.point_de_mana= 10;
-		this.niveauheros= 1;
-		this.attaque= 30;
-		this.defense= 30;
-		this.nb_xp= 0;
-		this.or= 500;
+		this.nom_du_heros=NOM_HERO;
+		this.pos_x_heros= ABSCISSE_DEFAUT;
+		this.pos_y_heros= OORDONNE_DEFAUT;
+		this.point_de_vie= HP_HERO;
+		this.point_de_mana= MP_HERO;
+		this.niveauheros= NIV_BASE;
+		this.attaque= ATT_DEF_HERO;
+		this.defense= ATT_DEF_HERO;
+		this.nb_xp= XP_BASE;
+		this.or= OR_BASE;
 		
 	}
 	
@@ -115,7 +130,7 @@ public class Hero {
 	 */
 	public Hero(String s){
 		this();	
-		this.setNom_du_heros(s);
+		this.nom_du_heros=s;
 		
 	}
 
