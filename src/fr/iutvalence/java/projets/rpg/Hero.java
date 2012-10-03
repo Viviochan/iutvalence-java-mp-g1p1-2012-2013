@@ -88,17 +88,48 @@ public class Hero {
 	 * competences debloquer par le heros
 	 * public Skill[] competence;
 	 */
+	
+	
+	/**
+	 * Constantes -> stats du Heros au niveau 1
+	 */
+	/**
+	 * Point d'abscisse de depart
+	 */
 	final static int ABSCISSE_DEFAUT=10;
+	/**
+	 * Point d'oordonne de depart
+	 */
 	final static int OORDONNE_DEFAUT=5;
 	
+	/**
+	 * Niveau de vie du hero au depart
+	 */
 	final static int HP_HERO=35;
 	
+	/**
+	 * Niveau de mana du hero au depart
+	 */
 	final static int MP_HERO=6;
 	
+	/**
+	 * Niveau d'attaque et de defense au depart
+	 */
 	final static int ATT_DEF_HERO=30;
 	
+	/**
+	 * Niveau de depart du jeu
+	 */
 	final static int NIV_BASE=1;
+	
+	/**
+	 * Xp au depart. Au debut de l'aventure le nombre d'xp est a 0
+	 */
 	final static int XP_BASE=0;
+	
+	/**
+	 * Niveau d'or au depart
+	 */
 	final static int OR_BASE=500;
 
 	
@@ -290,22 +321,5 @@ public class Hero {
 	}
 
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

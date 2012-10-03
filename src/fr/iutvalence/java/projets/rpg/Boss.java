@@ -36,19 +36,37 @@ public class Boss extends Monstre {
 		
 		
 		/**
-		 * 
+		 * Constantes de construction du boss
 		 */
-		public final static int hp_Boss=350;
+		/**
+		 * Nom du boss
+		 */
+		final static String NOM_BOSS="Dragon Lord";
 		
 		/**
-		 * 
+		 * Abscisse du boss sur la map
 		 */
-		public final static int att_def_Boss=110;
+		
+		final static int ABSCISSE_BOSS=500;
+		/**
+		 * Oordonne du boss sur la map
+		 */
+		final static int OORDONNE_BOSS=1000;
 		
 		/**
-		 * 
+		 * Point de vie du boss
 		 */
-		public final static int or_xp_Boss=0;
+		public final static int HP_BOSS=350;
+		
+		/**
+		 * Niveau d'attaque et de defense du boss
+		 */
+		public final static int ATT_DEF_BOSS=110;
+		
+		/**
+		 * Niveau d'or et d'xp donner par le boss
+		 */
+		public final static int OR_XP_BOSS=0;
 		
 		
 		/**
@@ -63,9 +81,9 @@ public class Boss extends Monstre {
 		 * On integrera des sous boss pris dans la base de monstre
 		 */
 		public Boss(){
-			super("Lord Dragon",hp_Boss,att_def_Boss, att_def_Boss, or_xp_Boss, or_xp_Boss);
-			this.pos_boss_x= 500;
-			this.pos_boss_y= 1000;
+			super(NOM_BOSS,HP_BOSS,ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS, OR_XP_BOSS);
+			this.pos_boss_x= ABSCISSE_BOSS;
+			this.pos_boss_y= OORDONNE_BOSS;
 
 			
 			
