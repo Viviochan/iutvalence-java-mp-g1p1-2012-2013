@@ -33,8 +33,21 @@ public class PlateaudeJeu {
 	 *
 	 */
 	
+	private int [] [] map;
 	
-	public int [] [] map = new int[LONGUEUR] [LONGUEUR];
+	/**
+	 * Valeurs des cases
+	 * A voi rsi on les geres avec un booleen ou pas
+	 * 
+	 * 0: si le hero ne peux pas etre possitionner sur la case
+	 *  un autre objet est deja dessus (PNJ,decor,...)
+	 */
+	public final static int NON_PRATICABLE=0;
+	
+	/**
+	 * 1: si le hero peux etre positionner sur la case
+	 */
+	public final static int PRATICABLE=1;
 	
 	
 	/**
@@ -48,12 +61,33 @@ public class PlateaudeJeu {
 	 * int j correspond aux oordonne
 	 */
 	public PlateaudeJeu(){
+		this.map= new int[LONGUEUR] [LONGUEUR];
 		for(int i=0;i<LONGUEUR;i++){
 			for(int j=0;j<LONGUEUR;j++){
-				this.map[i][j]=1;
+				this.map[i][j]=PRATICABLE;
 			}
 		}
 		
+	}
+	
+	
+	/**
+	 * @param x Abscisse sur la map
+	 * @param y Oordonnes sur la map
+	 * @return la valeur de la case 1 si elle est praticable 0 si un pnj ou un objet est poser dessus
+	 */
+	public int getCase(int x, int y){
+		return this.map[x][y];
+	
+	}
+	
+	/**
+	 * @param x Abscisse sur la map
+	 * @param y Oordonnes sur la map
+	 * @param Val La nouvel valeur de la case voir si on remplace cette valeur par un booleen ou pas
+	 */
+	public void setCase(int x, int y, int Val){
+		this.map[x][y]=Val;
 	}
 
 }

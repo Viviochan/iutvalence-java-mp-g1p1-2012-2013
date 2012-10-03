@@ -7,40 +7,42 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Monstre {
 	
+	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * Attribut
 	 * Nom du montre en question
 	 */
-	public String nom_monstre;
+	private String nom_monstre;
 	
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
-	public int hp_monstre;
+	private int hp_monstre;
 	
 	/**
 	 * niveau d'attaque du monstre
 	 */
-	public int attaque_monstre;
+	private int attaque_monstre;
 	
 	/**
 	 * niveau de defense du monstre
 	 */
-	public int defense_monstre;
+	private int defense_monstre;
 	
 	
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
-	public int xp_monstre;
+	private int xp_monstre;
 	
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
-	public int or_monstre;
+	private int or_monstre;
 
 
 
+	// FIXME �crire un commentaire correct
 	/**
 	 * Constructeur
 	 * 
@@ -48,7 +50,10 @@ public class Monstre {
 	 * Monstre de base du jeu
 	 */
 	public Monstre(){
+		// TODO d�finir une constante pour le nom par d�faut
 		this.nom_monstre="Slim";
+		
+		// FIXME d�finir des constantes pour les valeurs par d�faut
 		this.hp_monstre=10;
 		this.attaque_monstre=5;
 		this.defense_monstre=5;
@@ -57,6 +62,7 @@ public class Monstre {
 		
 	}
 	
+	// FIXME finir la documentation
 	/**
 	 * On cree le monstre souhaiter en definissant tous ces details
 	 * serviras a la base de donnees ou une collection de monstre
@@ -78,8 +84,52 @@ public class Monstre {
 		
 	}
 	
-
-
+	
+	/**
+	* Accesseur
+	* @return  le nom du monstre
+	*/
+	
+	public String get_Nom_monstre(){
+		return this.nom_monstre;
+	}
+	
+	/**
+	 * @return les point de vie du monstre
+	 */
+	public int get_Hp_monstre(){
+		return this.hp_monstre;
+	}
+	
+	
+	/**
+	 * @return l'attaque du monstre nous permettant plus loin le calcul des degats et diminution de degats
+	 */
+	public int get_Att_monstre(){
+		return this.attaque_monstre;
+	}
+	
+	
+	/**
+	 * @return la defense du monstre nous permettant plus loin le calcul des degats et diminution de degats
+	 */
+	public int get_Def_monstre(){
+		return this.defense_monstre;
+	}
+	
+	/**
+	 * @return l'or porter par le monstre que le heros pourra ajouter a sa bourse
+	 */
+	public int get_Or_monstre(){
+		return this.or_monstre;
+	}
+	
+	/**
+	 * @return le taux d'xp que le monstre donne au heros
+	 */
+	public int get_Xp_monstre(){
+		return this.xp_monstre;
+	}
 	
 }
 	

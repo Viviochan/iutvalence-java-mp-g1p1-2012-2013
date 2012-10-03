@@ -10,15 +10,15 @@ public class Niveau{
 	/**
 	 * Attribut
 	 */
-	
+	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * numeros du level atteins
 	 */
-	public int numlvl;
+	private int numlvl;
 	/**
 	 * xp necessaire pour atteindre le lvl
 	 */
-	public  int taux_xp;
+	private  int taux_xp;
 	
 
 
@@ -26,7 +26,7 @@ public class Niveau{
 	 * Constructeur
 	 */
 	
-	
+	// FIXME �crire un commentaire correct
 	/**
 	 * Initialise le niveau de depart
 	 */
@@ -35,6 +35,7 @@ public class Niveau{
 		this.taux_xp=0;
 	}
 	
+	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * definis les niveau avec leur taux de xp
 	 * @param num  numeros du lvl
@@ -45,6 +46,21 @@ public class Niveau{
 		this.taux_xp=taux;
 	}
 	
+	/**
+	 * @param num
+	 * @return taux_xp
+	 */
+	public int getNiveau(int num){
+		return this.taux_xp;
+	}
 	
+	
+	/**
+	 * @param taux
+	 * @return numlvl
+	 */
+	public int getTaux(int taux){
+		return this.numlvl;
+	}
 	
 }

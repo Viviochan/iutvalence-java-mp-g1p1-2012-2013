@@ -23,11 +23,11 @@ public class Boss extends Monstre {
 		 * Attributs
 		 * Abscisse du boss
 		 */
-		public int pos_boss_x;
+		private int pos_boss_x;
 		/**
 		 * Oordonnes du boss
 		 */
-		public int pos_boss_y;
+		private int pos_boss_y;
 		
 		
 		/**
@@ -44,16 +44,38 @@ public class Boss extends Monstre {
 		public Boss(){
 			super("Lord Dragon",350,110, 110, 0, 0);
 			this.pos_boss_x= 500;
-			this.pos_boss_y=1000;
+			this.pos_boss_y= 1000;
+
 			
 			
 		}
+
+
+		/**
+		 * Accesseur du Boss
+		 * peut ne pas avoir d'utilite dans le jeu
+		 */
+		
+		/**
+		 * @return pos_boss_x
+		 */
+		public int getPos_boss_x() {
+			return pos_boss_x;
+		}
+
+
+		/**
+		 * @return pos_boss_y
+		 */
+		public int getPos_boss_y() {
+			return pos_boss_y;
+		}
+
+
 		
 		
 		
-		
-		
-		
+				
 		
 		
 		

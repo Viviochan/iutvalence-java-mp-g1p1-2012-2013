@@ -1,10 +1,15 @@
 package fr.iutvalence.java.projets.rpg;
 
 
+
+// FIXME Le commentaire de classe n'est pas clair
+// FIXME si cette classe repr�sente la gestion d'une partie, comment une partie d�marre ?
 /**
  * @author goncalvs
  *
- *Corresponds aux donnes d'une parties lancer
+ *La classe Aventure s'occupera de lancer une partie 
+ *
+ *Pour la gestion de celle-ci on creera une classe partie
  *
  */
 public class Aventure {
@@ -13,43 +18,39 @@ public class Aventure {
 	 * Attribut
 	 */
 
+	// FIXME passer les attributs en public � moins que vous puissiez expliquer pour quelle raison ils doivent �tre n�cessairement publics 
+	// FIXME les attributs ne doivent pas �tre initialis�s ici, c'est le r�le du constructeur
 	
+	// FIXME �crire un commentaire correct
 	/**
-	 * Creation de la carte
-	 * 1000*1000 ou de LONGUEUR*LONGUEUR
+	 * L'attribut qui nous permettrat de gerer la carte pendant une aventure
+	 * 
 	 */
-	public PlateaudeJeu carte= new PlateaudeJeu();
+	public PlateaudeJeu carte;
 	
+	// FIXME �crire un commentaire correct
 	/**
-	 * Creation du heros
+	 * Le Hero de notre aventure
 	 */
-	public Hero perso= new Hero();
+	public Hero perso;
 	
+	// FIXME �crire un commentaire correct
 	/**
-	 * Creation du boss final
-	 * position fixe sur la map et provoque un combat lorsque le joueurs s'approche de lui
+	 *Boss de l'aventure
 	 */
-	public Boss demon= new Boss();
-	
-	
-	/**
-	 * Ennemi creer lors du combat contre le joueur et recup d'une base de donnes
-	 *
-	 * public Monstre mob= new Monstre();
-	*/
+	public Boss demon;
 	
 	
 	/**
 	 * Personnage vendeur et non vendeur du jeux(non jouable par le joueur)
 	 */
-	public PNJ npc=new PNJ();
+	public PNJ npc;
 	
 	
-	
+	// FIXME �crire un commentaire correct
 	/**
-	 * Tableau contenant un exemplaire de chaque montre du jeu
-	 * servant de base de donnees. L'indice du tableau pourra indiquer le level du monstre
-	 * Donc a trier selon les hp att et def
+	 * Collection ou tableau servant de base de donnes de monstre
+	 * On la consultera pour chaque combat pour definir qui affronte le hero
 	 */
 	public Monstre[] Tab_Monstre;
 	
@@ -59,6 +60,11 @@ public class Aventure {
 	public Niveau[] level;
 	
 	
+	/**
+	 * Le niveau maximal que le heros pourra atteindre
+	 */
+	public final static int NIVEAU_MAX=99;
+	
 	
 	/**
 	 * Tableau des competence du Jeu
@@ -67,15 +73,18 @@ public class Aventure {
 	
 	
 	
-	
+	// FIXME �crire un commentaire correct
 	/**
 	 * Constructeur
 	 * 
-	 * Genere les elements necessaire a une aventure
+	 * Initialise les elements necessaire pour debuter une aventure
 	 * 
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
 	 */
-	public Aventure(){
+	public Aventure(){ 
+		this.carte= new PlateaudeJeu();
+		this.perso= new Hero();
+		this.demon= new Boss();
 		int error_code=level();
 		if(error_code!=1) System.out.println("Le Tableau de niveau ne c'ets pas generer convenablement" ); ;
 
@@ -83,7 +92,7 @@ public class Aventure {
 		
 	}
 	
-	
+	// FIXME �crire un commentaire correct
 	/**
 	 *Methodes ->Niveaux
 	 * 
@@ -97,18 +106,22 @@ public class Aventure {
 	public int level(){
 		int i=1;
 		int xp=20;
+		this.level=new Niveau[NIVEAU_MAX+1];
+		this.level[0]=new Niveau(0,0);
+		// FIXME � cet endroit le tableau n'existe pas (il n'est pas allou�)
 		this.level[1]=new Niveau();
-		for (i=2;i<99;i++){
+		for (i=2;i<NIVEAU_MAX;i++){
 			this.level[i]= new Niveau(i,xp);
 			xp=(int) (xp + Math.floor(0.75*xp));
 		}
 		return 1;
 	}
 	
-	
-	
-	
+
+
 	/**
+	 * 
+	 * Attention methode de gestion a passer dans la classe Partie lorsqu on la creera
 	 * Methodes ->Heros
 	 * Deplacement:
 	 * on entre les coordonnes souhaiter
@@ -122,13 +135,16 @@ public class Aventure {
 	 * @return 0
 	 */
 	public int DeplacementHeros(int x_arr, int y_arr){
-		
-		if((this.perso.pos_x_heros==x_arr)||((this.perso.pos_x_heros)+1==x_arr)||((this.perso.pos_x_heros) - 1==x_arr)){
-			if((this.perso.pos_y_heros==y_arr)||((this.perso.pos_y_heros)+1==x_arr)||((this.perso.pos_y_heros) - 1==x_arr)){
-				if (this.carte.map[x_arr][y_arr]==1){
-					this.perso.pos_x_heros=x_arr;
-					this.perso.pos_y_heros=y_arr;
+		int val_case;
+		if((this.perso.getPos_x_heros()==x_arr)||((this.perso.getPos_x_heros())+1==x_arr)||((this.perso.getPos_x_heros()) - 1==x_arr)){
+			if((this.perso.getPos_y_heros()==y_arr)||((this.perso.getPos_y_heros())+1==x_arr)||((this.perso.getPos_y_heros()) - 1==x_arr)){
+				val_case=this.carte.getCase(x_arr, y_arr);
+				if (val_case==1){
+					this.perso.setPos_x_heros(x_arr);
+					this.perso.setPos_y_heros(y_arr);
 				}
+				// TODO g�rer les erreurs avec des exceptions
+				
 				else return -1;/*la case est non praticable*/
 				
 				
