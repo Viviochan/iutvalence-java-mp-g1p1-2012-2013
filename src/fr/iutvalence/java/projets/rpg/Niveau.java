@@ -23,7 +23,21 @@ public class Niveau{
 	 */
 	private  int taux_xp;
 	
+	
+	/**
+	 * Constantes
+	 */
+	/**
+	 * Niveau de base du Jeu
+	 * Toute aventure commence au niveau 1
+	 */
 
+	final static int NIVEAU_DEPART=1;
+	
+	/**
+	 * Niveau d'xp au debut de l'aventure
+	 */
+	final static int XP_DEPART=0;
 
 	/**
 	 * Constructeur
@@ -31,11 +45,11 @@ public class Niveau{
 	
 
 	/**
-	 * Initialise le niveau de depart
+	 * Initialisation du NIVEAU_DEPART avec XP_DEPART
 	 */
 	public Niveau(){
-		this.numlvl=1;
-		this.taux_xp=0;
+		this.numlvl=NIVEAU_DEPART;
+		this.taux_xp=XP_DEPART;
 	}
 	
 
