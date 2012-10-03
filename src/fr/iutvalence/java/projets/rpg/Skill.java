@@ -39,8 +39,23 @@ public class Skill {
 	/**
 	 * Constantes
 	 */
-	
+	/**
+	 * Nom de la competence par defaut
+	 */
 	final static String NOM_DEFAUT="HEAL";
+	
+	/**
+	 * Niveau de base de la competence par defaut
+	 */
+	final static int NIV_COMT_BASE=5;
+	/**
+	 * Cout en pm de la competence par defaut
+	 */
+	final static int COUT_COMPT_BASE=3;
+	/**
+	 * Effet de la competence par defaut
+	 */
+	final static String EFF_COMPT_BASE="regenere les pv de 30pts";
 	
 	
 	/**
@@ -65,10 +80,9 @@ public class Skill {
 	 */
 	public Skill(){
 		this.nom= NOM_DEFAUT;
-		this.lvl= 5;
-		this.cout_pm= 3;
-		 
-		this.effet= "regenere les pv de 30pts";
+		this.lvl=NIV_COMT_BASE;
+		this.cout_pm= COUT_COMPT_BASE;
+		this.effet= EFF_COMPT_BASE;
 	}
 
 	
@@ -77,7 +91,7 @@ public class Skill {
 	 */
 	
 	/**
-	 * 
+	 * Donne le nom de la competence
 	 * @return nom
 	 */
 	
@@ -87,7 +101,7 @@ public class Skill {
 
 
 	/**
-	 * 
+	 * retourne le niveau necessaire pour utiliser la competence
 	 * @return lvl
 	 */
 	public int getLvl() {
@@ -95,7 +109,7 @@ public class Skill {
 	}
 
 	/**
-	 * 
+	 * retourne le cout en point de mana de la competence
 	 * @return cout_pm
 	 */
 
@@ -105,7 +119,7 @@ public class Skill {
 
 
 	/**
-	 * 
+	 * Donne l'effet de la competence
 	 * @return effet
 	 */
 	public String getEffet() {
