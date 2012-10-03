@@ -46,21 +46,40 @@ public class Monstre {
 	 */
 	private int or_monstre;
 
+	
+	
+	/**
+	 * Nom du monstre creer par defaut
+	 */
+	final static String NOM_MOB="Slim";
+	/**
+	 * Niveau de vie du monstre par defaut
+	 */
+	final static int HP_MOB=10;
+	/**
+	 * attaque et defense du monstre par defaut
+	 */
+	final static int ATT_DEF_MOB=5;
+	/**
+	 * or et xp donner par le monstre par defaut
+	 */
+	final static int OR_XP_MOB=3;
 
 
 	/**
 	 * Constructeur
 	 * 
-	 * si rien est definis on creera un slim / gluant
-	 * Monstre de base du jeu
+	 * On definie deux constructeurs
+	 * Par defaut on construira un slim avec ces stats de bases
+	 * sinon on construit un monstre en fonction des parametres donnes
 	 */
 	public Monstre(){
-		this.nom_monstre="Slim";
-		this.hp_monstre=10;
-		this.attaque_monstre=5;
-		this.defense_monstre=5;
-		this.or_monstre=3;
-		this.xp_monstre=5;
+		this.nom_monstre=NOM_MOB;
+		this.hp_monstre=HP_MOB;
+		this.attaque_monstre=ATT_DEF_MOB;
+		this.defense_monstre=ATT_DEF_MOB;
+		this.or_monstre=OR_XP_MOB;
+		this.xp_monstre=OR_XP_MOB;
 		
 	}
 	
@@ -68,12 +87,12 @@ public class Monstre {
 	/**
 	 * On cree le monstre souhaiter en definissant tous ces details
 	 * serviras a la base de donnees ou une collection de monstre
-	 * @param nomM 
-	 * @param hp_mob 
-	 * @param att_mob 
-	 * @param def_mob 
-	 * @param or_mob 
-	 * @param xp_mob 
+	 * @param nomM   Nom du monstre a creer
+	 * @param hp_mob  Niveau de vie du monstre a creer
+	 * @param att_mob  Niveau d'attaque du monstre a creer
+	 * @param def_mob  Niveau de defense du monstre a creer
+	 * @param or_mob  Or donner par le monstre a creer
+	 * @param xp_mob  xp donner par le monstre a creer
 	 */
 	
 	public Monstre(String nomM,int hp_mob,int att_mob, int def_mob, int or_mob, int xp_mob){
