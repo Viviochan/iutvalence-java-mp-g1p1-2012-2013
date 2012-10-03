@@ -10,10 +10,16 @@ public class PlateaudeJeu {
 
 	/**
 	 * Attribut
-	 * 
-	 * LONGUER d'un cote du tableau on pretend que la carre formeras un carre
 	 */
 	
+	/**
+	 * Definira la dimmension de notre map
+	 * 
+	 * la carte aura la forme d'un carre de :
+	 * 1000*1000
+	 * que l'on gerera comme un tableau multidimensionnel a 2dimensios(Longueur definissant la taille
+	 * des deux dimensios)
+	 */
 	public final static int LONGUEUR=1000;
 	
 	/**
@@ -77,6 +83,10 @@ public class PlateaudeJeu {
 	
 	
 	/**
+	 * Accesseur
+	 */
+	
+	/**
 	 * @param x Abscisse sur la map
 	 * @param y Oordonnes sur la map
 	 * @return la valeur de la case 1 si elle est praticable 0 si un pnj ou un objet est poser dessus
@@ -95,5 +105,5 @@ public class PlateaudeJeu {
 		this.map[x][y]=Val;
 	}
 
-		// FIXME méthodes ?
+
 }
