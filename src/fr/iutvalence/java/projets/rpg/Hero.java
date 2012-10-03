@@ -16,55 +16,64 @@ public class Hero {
 	 * Abscisse du heros sur la map
 	 */
 	
-	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
+
 
 	private int pos_x_heros;
+
 	
+
 	/**
 	 * Ordonnes du heros sur la map
 	 * Le couple pos_x_heros et pos_y_heros donnerons les coordonnees de celuici sur la carte du jeu
 	 */
+
 	private int pos_y_heros;
+
 	/**
 	 * Nom du hero donner soit par le joueur soit definie par le constructeur
 	 */
+
 	private String nom_du_heros;
+
+	
+	
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
 	 */
 	private int point_de_vie;
 	
+
 	/**
 	 * Niveau de magie du heros, permet le lancement de sort et autre magies
 	 */
 	private int point_de_mana;
 	
-	
+
 	/**
 	 * Niveau d'attaque du heros permet de determiner la force de frappe lors des combats
 	 */
 	private int attaque;
 	
-	
+
 	/**
 	 * Niveau de defense du heros permet de determiner la diminution des degat subis par l'adversaire
 	 */
 	private int defense;
 	
-	
+
 	/**
 	 * Niveau du heros.
 	 */
 	private int niveauheros;
 	
-	
+
 	/**
 	 * Experience du heros. Certains palier d'xp permettent de debloquer un niveau avec les bonus lui correspondant
 	 */
 	private int nb_xp;
 	
 	
-	
+
 	/**
 	 * Monnaie du heros. Permet l'achat de divers items dans le jeu
 	 */
@@ -79,7 +88,7 @@ public class Hero {
 	
 
 	
-	// FIXME d�finir des constantes pour les valeurs par d�faut
+
 	/**
 	 * Constructeurs
 	 */	
@@ -99,7 +108,7 @@ public class Hero {
 		
 	}
 	
-	// FIXME �crire un commentaire correct
+
 	/**
 	 * @param s  Nom du heros
 	 * Initialisation a partir du constructeur par defaut 
@@ -109,6 +118,7 @@ public class Hero {
 		this.setNom_du_heros(s);
 		
 	}
+
 
 	/**
 	 * @return l'xp que possede le hero
@@ -263,6 +273,7 @@ public class Hero {
 	public void setPos_y_heros(int y) {
 		this.pos_y_heros = pos_y_heros+y;
 	}
+
 
 
 	

@@ -2,8 +2,6 @@ package fr.iutvalence.java.projets.rpg;
 
 
 
-// FIXME Le commentaire de classe n'est pas clair
-// FIXME si cette classe repr�sente la gestion d'une partie, comment une partie d�marre ?
 /**
  * @author goncalvs
  *
@@ -18,28 +16,26 @@ public class Aventure {
 	 * Attribut
 	 */
 
-	// FIXME passer les attributs en public � moins que vous puissiez expliquer pour quelle raison ils doivent �tre n�cessairement publics 
-	// FIXME les attributs ne doivent pas �tre initialis�s ici, c'est le r�le du constructeur
+
 	
-	// FIXME �crire un commentaire correct
+
 	/**
 	 * L'attribut qui nous permettrat de gerer la carte pendant une aventure
 	 * 
 	 */
 	public PlateaudeJeu carte;
 	
-	// FIXME �crire un commentaire correct
+
 	/**
 	 * Le Hero de notre aventure
 	 */
 	public Hero perso;
 	
-	// FIXME �crire un commentaire correct
+
 	/**
 	 *Boss de l'aventure
 	 */
 	public Boss demon;
-	
 	
 	/**
 	 * Personnage vendeur et non vendeur du jeux(non jouable par le joueur)
@@ -47,7 +43,7 @@ public class Aventure {
 	public PNJ npc;
 	
 	
-	// FIXME �crire un commentaire correct
+
 	/**
 	 * Collection ou tableau servant de base de donnes de monstre
 	 * On la consultera pour chaque combat pour definir qui affronte le hero
@@ -73,7 +69,7 @@ public class Aventure {
 	
 	
 	
-	// FIXME �crire un commentaire correct
+
 	/**
 	 * Constructeur
 	 * 
@@ -92,7 +88,6 @@ public class Aventure {
 		
 	}
 	
-	// FIXME �crire un commentaire correct
 	/**
 	 *Methodes ->Niveaux
 	 * 
@@ -108,15 +103,19 @@ public class Aventure {
 		int xp=20;
 		this.level=new Niveau[NIVEAU_MAX+1];
 		this.level[0]=new Niveau(0,0);
-		// FIXME � cet endroit le tableau n'existe pas (il n'est pas allou�)
 		this.level[1]=new Niveau();
 		for (i=2;i<NIVEAU_MAX;i++){
-			this.level[i]= new Niveau(i,xp);
-			xp=(int) (xp + Math.floor(0.75*xp));
+			for (i=2;i<99;i++){
+				this.level[i]= new Niveau(i,xp);
+				xp=(int) (xp + Math.floor(0.75*xp));
+			}
 		}
 		return 1;
+		
 	}
 	
+
+
 
 
 	/**
@@ -143,8 +142,6 @@ public class Aventure {
 					this.perso.setPos_x_heros(x_arr);
 					this.perso.setPos_y_heros(y_arr);
 				}
-				// TODO g�rer les erreurs avec des exceptions
-				
 				else return -1;/*la case est non praticable*/
 				
 				
@@ -153,7 +150,7 @@ public class Aventure {
 		}
 		else return -3;//abscisse trop eloigne
 
-		return 0;	
+	return 0;	
 	}
 	
 	

@@ -7,6 +7,7 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class PlateaudeJeu {
 	
+
 	/**
 	 * Attribut
 	 * 
@@ -32,8 +33,8 @@ public class PlateaudeJeu {
 	 * map[x][y]=0 -> case non praticable (un obstacle gene le hero du genre rocher arbre pnj,...)
 	 *
 	 */
-	
-	private int [] [] map;
+	private int[][] map;
+
 	
 	/**
 	 * Valeurs des cases
@@ -48,6 +49,10 @@ public class PlateaudeJeu {
 	 * 1: si le hero peux etre positionner sur la case
 	 */
 	public final static int PRATICABLE=1;
+
+	
+
+
 	
 	
 	/**
@@ -90,4 +95,5 @@ public class PlateaudeJeu {
 		this.map[x][y]=Val;
 	}
 
+		// FIXME méthodes ?
 }

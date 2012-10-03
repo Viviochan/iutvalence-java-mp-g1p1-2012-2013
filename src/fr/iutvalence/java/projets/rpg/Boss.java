@@ -19,15 +19,36 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Boss extends Monstre {
 
+
 		/**
 		 * Attributs
 		 * Abscisse du boss
 		 */
+
 		private int pos_boss_x;
+
+
+
 		/**
 		 * Oordonnes du boss
 		 */
 		private int pos_boss_y;
+		
+		
+		/**
+		 * 
+		 */
+		public final static int hp_Boss=350;
+		
+		/**
+		 * 
+		 */
+		public final static int att_def_Boss=110;
+		
+		/**
+		 * 
+		 */
+		public final static int or_xp_Boss=0;
 		
 		
 		/**
@@ -42,7 +63,7 @@ public class Boss extends Monstre {
 		 * On integrera des sous boss pris dans la base de monstre
 		 */
 		public Boss(){
-			super("Lord Dragon",350,110, 110, 0, 0);
+			super("Lord Dragon",hp_Boss,att_def_Boss, att_def_Boss, or_xp_Boss, or_xp_Boss);
 			this.pos_boss_x= 500;
 			this.pos_boss_y= 1000;
 
@@ -72,20 +93,6 @@ public class Boss extends Monstre {
 		}
 
 
-		
-		
-		
-				
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

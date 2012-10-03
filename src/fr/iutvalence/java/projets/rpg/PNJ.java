@@ -1,7 +1,7 @@
 package fr.iutvalence.java.projets.rpg;
 
 
-// FIXME corriger le commentaire
+
 /**
  * @author goncalvs
  *
@@ -18,7 +18,9 @@ public class PNJ {
 	/**
 	 * Attributs
 	 */
-	
+
+
+
 	/**
 	 * Abscisse du pnj
 	 */
@@ -31,7 +33,7 @@ public class PNJ {
 	private int pos_y_pnj;
 	
 	
-	// FIXME Le personnage ne prononce qu'une seule phrase ? Il faudrait r�fl�chir � mieux mod�liser le discours d'un personnage 
+
 	/**
 	 * Les paroles que vous dira le pnj lorsque le hero le solicitera
 	 */
@@ -46,16 +48,15 @@ public class PNJ {
 	 * Le pnj est statique il ne bougera pas
 	 */
 	public PNJ(){
-		
-		// FIXME et si le hero n'est plus � c�t� de (9,5) ?? A reprendre...
 		this.pos_x_pnj= 9;
 		this.pos_y_pnj= 5;
+		this.pos_x_pnj=9;
+		this.pos_y_pnj=5;
 		this.phrase="Hello World";
 		
 	}
 	
 	
-	// FIXME �crire le commentaire
 	/**
 	 * 
 	 * @param pos_x Abscisse x du pnj

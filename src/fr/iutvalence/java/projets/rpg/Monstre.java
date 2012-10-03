@@ -7,34 +7,40 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Monstre {
 	
-	// FIXME d�clarer les attributs en private et ajouter si besoin des accesseurs en lecture publics
 	/**
 	 * Attribut
 	 * Nom du montre en question
 	 */
+
 	private String nom_monstre;
 	
+
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
+
 	private int hp_monstre;
 	
+
+
 	/**
 	 * niveau d'attaque du monstre
 	 */
 	private int attaque_monstre;
 	
+
 	/**
 	 * niveau de defense du monstre
 	 */
 	private int defense_monstre;
 	
-	
+
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
 	private int xp_monstre;
 	
+
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
@@ -42,7 +48,6 @@ public class Monstre {
 
 
 
-	// FIXME �crire un commentaire correct
 	/**
 	 * Constructeur
 	 * 
@@ -50,10 +55,7 @@ public class Monstre {
 	 * Monstre de base du jeu
 	 */
 	public Monstre(){
-		// TODO d�finir une constante pour le nom par d�faut
 		this.nom_monstre="Slim";
-		
-		// FIXME d�finir des constantes pour les valeurs par d�faut
 		this.hp_monstre=10;
 		this.attaque_monstre=5;
 		this.defense_monstre=5;
@@ -62,7 +64,7 @@ public class Monstre {
 		
 	}
 	
-	// FIXME finir la documentation
+
 	/**
 	 * On cree le monstre souhaiter en definissant tous ces details
 	 * serviras a la base de donnees ou une collection de monstre
@@ -84,6 +86,7 @@ public class Monstre {
 		
 	}
 	
+
 	
 	/**
 	* Accesseur
@@ -130,6 +133,7 @@ public class Monstre {
 	public int get_Xp_monstre(){
 		return this.xp_monstre;
 	}
+
 	
 }
 	
