@@ -64,9 +64,9 @@ public class Skill {
 	 * qui regenere 30point de vie du hero et est deblocable au lvl 5
 	 */
 	public Skill(){
-		this.setNom("Heal");
-		this.setLvl(5);
-		this.setCout_pm(3);
+		this.nom= "Heal";
+		this.lvl= 5;
+		this.cout_pm= 3;
 		 
 		this.setEffet("regenere les pv de 30pts");
 	}
