@@ -19,22 +19,22 @@ public class Aventure {
 	 * Correspond a une direction que prend le hero
 	 * Direction: Gauche
 	 */
-	final static String GAUCHE="gauche";
+	private static String GAUCHE="gauche";
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Droite
 	 */
-	final static String DROITE="droite";
+	private static String DROITE="droite";
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Haut
 	 */
-	final static String HAUT="haut";
+	private static String HAUT="haut";
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Bas
 	 */
-	final static String BAS="bas";
+	private static String BAS="bas";
 	
 
 	/**
@@ -203,25 +203,25 @@ public class Aventure {
 	public int DeplacementHeros(String s){
 		int x=this.perso.getPos_x_heros();
 		int y=this.perso.getPos_y_heros();
-		if(s==this.GAUCHE){
+		if(s.equals(this.GAUCHE)){
 			if(this.carte.getCase(x-1, y)==1){
 				this.perso.setPos_x_heros(x-1);
 			}
 			else return -1;
 		}
-		if(s==this.DROITE){
+		if(s.equals(this.DROITE)){
 			if(this.carte.getCase(x+1, y)==1){
 				this.perso.setPos_x_heros(x+1);
 			}
 			else return -2;
 		}
-		if(s==this.HAUT){
+		if(s.equals(this.HAUT)){
 			if(this.carte.getCase(x-1, y)==1){
 				this.perso.setPos_y_heros(y+1);
 			}
 			else return -3;
 		}
-		if(s==this.BAS){
+		if(s.equals(this.BAS)){
 			if(this.carte.getCase(x-1, y)==1){
 				this.perso.setPos_y_heros(x-1);
 			}

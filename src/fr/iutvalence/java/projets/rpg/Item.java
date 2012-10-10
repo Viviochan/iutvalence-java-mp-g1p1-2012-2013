@@ -26,7 +26,7 @@ public class Item {
 	 * 
 	 * Equipement pour le bras/ la tete/ le buste / les jambes
 	 */
-	private String type_item;
+	private type_item typeitem;
 	
 	/**
 	 * Pour le type d'item on aura besoin d'un enum
@@ -72,9 +72,9 @@ public class Item {
 	 * @param prix   prix de l item peut etre null
 	 * @param valeur  valeur de l item
 	 */
-	public Item(String nI, String type, int bonus, int prix, int valeur){
+	public Item(String nI, type_item type, int bonus, int prix, int valeur){
 		this.nom_item=nI;
-		this.type_item=type;
+		this.typeitem=type;
 		this.bonus_item=bonus;
 		this.prix_item=prix;
 		this.val_item=valeur;
@@ -98,9 +98,11 @@ public class Item {
 	/**
 	 * retourne le type de l item
 	 * @return type_item
+	 * 
+	 * A etudier pour le type enum
 	 */
-	public String getType_item() {
-		return this.type_item;
+	public String gettypeitem() {
+		return "coucou";
 	}
 
 
