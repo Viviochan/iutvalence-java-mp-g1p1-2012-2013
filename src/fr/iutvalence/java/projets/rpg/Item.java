@@ -59,46 +59,53 @@ public class Item {
 	/**
 	 * Accesseur (creer avec la commande par defaut)
 	 * Pet etre retirer ou modifier dans les seances futur
-	 * 
 	 */
-	public String getNom_item() {
+	/**
+	* @return nom_item
+	*  
+	*/
+	public String get_Nom_item() {
 		return nom_item;
 	}
 
-	public void setNom_item(String nom_item) {
-		this.nom_item = nom_item;
-	}
 
+	/**
+	 * @return type_item
+	 */
 	public String getType_item() {
 		return type_item;
 	}
 
+	/**
+	 * @param type_item
+	 */
 	public void setType_item(String type_item) {
 		this.type_item = type_item;
 	}
 
+	/**
+	 * @return bonus_item
+	 */
 	public int getBonus_item() {
 		return bonus_item;
 	}
 
-	public void setBonus_item(int bonus_item) {
-		this.bonus_item = bonus_item;
-	}
 
+
+	/**
+	 * @return val_item
+	 */
 	public int getVal_item() {
 		return val_item;
 	}
 
-	public void setVal_item(int val_item) {
-		this.val_item = val_item;
-	}
 
+	/**
+	 * @return prix_item
+	 */
 	public int getPrix_item() {
 		return prix_item;
 	}
 
-	public void setPrix_item(int prix_item) {
-		this.prix_item = prix_item;
-	}
 	
 }
