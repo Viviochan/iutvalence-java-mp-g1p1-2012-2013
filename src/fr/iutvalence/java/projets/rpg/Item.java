@@ -44,67 +44,91 @@ public class Item {
 	
 	/**
 	 * Valeur marchande de l'item
+	 * Tous les items auront une valeur marchande
+	 * 
 	 */
 	private int val_item;
 	
 	/**
 	 * Valeur de l'item s'il est vendue par un pnj vendeur
+	 * 
+	 * Certains items n auront un prix null 
+	 * il ne seront recuperable que par les montres
 	 */
 	private int prix_item;
 
 	
 	
-	
+	/**
+	 * Constructeur
+	 * 
+	 * Les donnees des items seront stocker dans un fichier txt ou une base de donnees 
+	 * lors du lancement d une aventure on ouvre la base pour creer un table d item qui servira
+	 * base de donne dynamique
+	 * 
+	 * @param nI  nom de l item
+	 * @param type  type de l item
+	 * @param bonus bonus conferer par l item
+	 * @param prix   prix de l item peut etre null
+	 * @param valeur  valeur de l item
+	 */
+	public Item(String nI, String type, int bonus, int prix, int valeur){
+		this.nom_item=nI;
+		this.type_item=type;
+		this.bonus_item=bonus;
+		this.prix_item=prix;
+		this.val_item=valeur;
+		
+	}
 	
 	/**
 	 * Accesseur (creer avec la commande par defaut)
 	 * Pet etre retirer ou modifier dans les seances futur
 	 */
 	/**
+	 * Retourne le nom de l item
 	* @return nom_item
 	*  
 	*/
 	public String get_Nom_item() {
-		return nom_item;
+		return this.nom_item;
 	}
 
 
 	/**
+	 * retourne le type de l item
 	 * @return type_item
 	 */
 	public String getType_item() {
-		return type_item;
+		return this.type_item;
 	}
 
-	/**
-	 * @param type_item
-	 */
-	public void setType_item(String type_item) {
-		this.type_item = type_item;
-	}
 
 	/**
+	 * Retourne le bonus de l item
 	 * @return bonus_item
 	 */
 	public int getBonus_item() {
-		return bonus_item;
+		return this.bonus_item;
 	}
 
 
 
 	/**
+	 * retourne la valeur de l item
 	 * @return val_item
 	 */
 	public int getVal_item() {
-		return val_item;
+		return this.val_item;
 	}
 
 
 	/**
+	 * retourne le prix de l item
 	 * @return prix_item
 	 */
 	public int getPrix_item() {
-		return prix_item;
+		return this.prix_item;
 	}
 
 	
