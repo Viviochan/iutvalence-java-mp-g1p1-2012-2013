@@ -4,6 +4,8 @@ package fr.iutvalence.java.projets.rpg;
 /**
  * Structure de niveau.
  * un niveau demande int xp et debloque divers bonus voir une competence
+ * 
+ * @author goncalvs
  */
 public class Niveau{
 	

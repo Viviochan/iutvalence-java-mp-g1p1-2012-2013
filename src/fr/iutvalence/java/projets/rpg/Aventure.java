@@ -3,12 +3,13 @@ package fr.iutvalence.java.projets.rpg;
 
 
 /**
- * @author goncalvs
+ * 
  *
  *La classe Aventure s'occupera de lancer une partie 
  *
  *Pour la gestion de celle-ci on creera une classe partie
  *
+ * @author goncalvs
  */
 public class Aventure {
 	

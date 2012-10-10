@@ -1,10 +1,13 @@
 package fr.iutvalence.java.projets.rpg;
 
 /**
- * @author goncalvs
+ *
  * 
  * Type enum qui  nous servira a differencier chaque item
  * Et la gestion de ceux-ci se fera en fonction de ce type
+ * 
+ * 
+ *  @author goncalvs
  *
  */
 public enum type_item {

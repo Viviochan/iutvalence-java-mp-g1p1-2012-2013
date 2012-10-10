@@ -2,7 +2,7 @@ package fr.iutvalence.java.projets.rpg;
 
 
 /**
- * @author goncalvs
+ * 
  * Boss final du jeu 
  * il correspond au dernier element du jeu, une fois que le heros l'aura battue le jeu sera finis
  * ces stats sont hors normes mais tout de meme abordable avec un minimum de strategie.
@@ -16,6 +16,8 @@ package fr.iutvalence.java.projets.rpg;
  *
  *
  *Le boss est une extension de monstre il est differencier d'eux car il possede une position fixe sur la map
+ *
+ *@author goncalvs
  */
 public class Boss extends Monstre {
 

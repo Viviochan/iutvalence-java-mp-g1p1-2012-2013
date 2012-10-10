@@ -2,8 +2,10 @@ package fr.iutvalence.java.projets.rpg;
 
 
 /**
- * @author goncalvs
+ * 
  *Classe des monstres qui serviront a la base de donnes
+ *
+ *@author goncalvs
  */
 public class Monstre {
 	
