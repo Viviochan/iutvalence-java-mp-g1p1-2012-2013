@@ -15,8 +15,26 @@ public class Aventure {
 	/**
 	 * Attribut
 	 */
-
-
+	/**
+	 * Correspond a une direction que prend le hero
+	 * Direction: Gauche
+	 */
+	final static String GAUCHE="gauche";
+	/**
+	 * Correspond a une direction que prend le hero
+	 * Direction: Droite
+	 */
+	final static String DROITE="droite";
+	/**
+	 * Correspond a une direction que prend le hero
+	 * Direction: Haut
+	 */
+	final static String HAUT="haut";
+	/**
+	 * Correspond a une direction que prend le hero
+	 * Direction: Bas
+	 */
+	final static String BAS="bas";
 	
 
 	/**
@@ -92,9 +110,10 @@ public class Aventure {
 	 *Methodes ->Niveaux
 	 * 
 	 * level:
+	 * Tableau qui nous permettra de gerer le niveau du hero en le comparant a celui-ci
 	 * @return 1 si le tableau c'est bien remplie
 	 * 
-	 * construis le tableau de valeur des niveau avec leur taux d'xp respectif
+	 * construis le tableau de niveaux avec leur taux d'xp respectif
 	 * 
 	 * Pour chaque niveau on aura besoin de 75% d'xp en plus
 	 */
@@ -138,7 +157,6 @@ public class Aventure {
 
 	/**
 	 * 
-	 * Attention methode de gestion a passer dans la classe Partie lorsqu on la creera
 	 * Methodes ->Heros
 	 * Deplacement:
 	 * on entre les coordonnes souhaiter
@@ -169,6 +187,47 @@ public class Aventure {
 		else return -3;//abscisse trop eloigne
 
 	return 0;	
+	}
+	
+	
+	/**
+	 * On gere le deplacement du heros a partir de constante placer en parametre
+	 * En fonction de la direction donner on change les coordonnes du hero
+	 * 
+	 * @param s Une direction (GAUCHE,DROITE,HAUT,BAS)
+	 * @return 0 si le deplacement a bien ete effectuer
+	 * 
+	 * 
+	 * Attention il manque encore gerer les exceptions
+	 */
+	public int DeplacementHeros(String s){
+		int x=this.perso.getPos_x_heros();
+		int y=this.perso.getPos_y_heros();
+		if(s==this.GAUCHE){
+			if(this.carte.getCase(x-1, y)==1){
+				this.perso.setPos_x_heros(x-1);
+			}
+			else return -1;
+		}
+		if(s==this.DROITE){
+			if(this.carte.getCase(x+1, y)==1){
+				this.perso.setPos_x_heros(x+1);
+			}
+			else return -2;
+		}
+		if(s==this.HAUT){
+			if(this.carte.getCase(x-1, y)==1){
+				this.perso.setPos_y_heros(y+1);
+			}
+			else return -3;
+		}
+		if(s==this.BAS){
+			if(this.carte.getCase(x-1, y)==1){
+				this.perso.setPos_y_heros(x-1);
+			}
+			else return -4;
+		}
+		return 0;
 	}
 	
 	
