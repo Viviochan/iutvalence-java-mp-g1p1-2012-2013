@@ -114,7 +114,25 @@ public class Aventure {
 		
 	}
 	
-
+	/**
+	 * Methode permettant de gerer la monter de niveau du heros
+	 * On test le taux de xp sur la table level et en fonction de celui ci
+	 * On augmente le niveau du heros ou pas
+	 * @return le nouveau niveau du heros
+	 */
+	public int level_up(){
+		int lvlheros=this.perso.getNb_xp();
+		int tauxlvlsuiv=this.level[lvlheros+1].getTaux();
+		while(lvlheros>=tauxlvlsuiv){
+			lvlheros++;
+			tauxlvlsuiv=this.level[lvlheros+1].getTaux();
+		}
+		while(lvlheros>this.perso.getNb_xp()){
+			this.perso.setNiveauheros();
+		}	
+		return (this.perso.getNb_xp());
+		
+	}
 
 
 

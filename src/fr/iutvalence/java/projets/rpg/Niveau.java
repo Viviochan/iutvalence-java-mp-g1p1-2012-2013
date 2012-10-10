@@ -65,21 +65,23 @@ public class Niveau{
 	
 
 	/**
-	 * @param num
+	 * retourne le niveau
+	 * 
 	 * @return taux_xp
 	 */
-	public int getNiveau(int num){
-		return this.taux_xp;
+	public int getNiveau(){
+		return this.numlvl;
 	}
 	
 
 	
 	/**
-	 * @param taux
+	 * retourne le taux xp necessaire au niveau
+	 * 
 	 * @return numlvl
 	 */
-	public int getTaux(int taux){
-		return this.numlvl;
+	public int getTaux(){
+		return this.taux_xp;
 	}
 	
 }
