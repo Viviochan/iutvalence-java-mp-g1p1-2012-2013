@@ -1,7 +1,7 @@
 package fr.iutvalence.java.projets.rpg;
 
 
-
+// FIXME essayer d'écrire correctement (quand même)
 /**
  * 
  *
@@ -16,12 +16,7 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class PNJ {
 	
-
-	/**
-	 * Attributs
-	 */
-
-
+	// FIXME regrouper abscisse et ordonnée dans une classe "Position"
 
 	/**
 	 * Abscisse du pnj
@@ -39,6 +34,7 @@ public class PNJ {
 	/**
 	 * Les paroles que vous dira le pnj lorsque le hero le solicitera
 	 */
+	// FIXME (non résolu) le personnage ne prononce qu'une seule phrase ? (à discuter)
 	private String phrase;
 	
 	
@@ -59,12 +55,14 @@ public class PNJ {
 	}
 	
 	
+	// FIXME compléter le commentaire
 	/**
 	 * 
 	 * @param pos_x Abscisse x du pnj
 	 * @param pos_y Ordonnes y du pnj
 	 * @param ph Phrase qu'il se gardera de dire
 	 */
+	// FIXME respecter les conventions d'écriture
 	public PNJ(int pos_x, int pos_y, String ph){
 		this.pos_x_pnj=pos_x;
 		this.pos_y_pnj= pos_y;
@@ -73,9 +71,11 @@ public class PNJ {
 
 
 	/**
-	 * @return pos_x_pnj
 	 * Abscisse du PNJ
+	 * @return pos_x_pnj
+	 * 
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int getPos_x_pnj() {
 		return pos_x_pnj;
 	}
@@ -84,9 +84,11 @@ public class PNJ {
 
 
 	/**
+	 * Ordonnee du PNJ
 	 * @return pos_y_pnj
-	 * Oordonnes du PNJ
+	 * 
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int getPos_y_pnj() {
 		return pos_y_pnj;
 	}
@@ -94,10 +96,11 @@ public class PNJ {
 
 
 
-
+	// FIXME corriger le commentaire (regarder ce que cela produit en sortie de Javadoc) 
 	/**
-	 * @return phrase
 	 * La phrase que le pnj dira lorsque on interrargira avec celui-ci 
+	 * @return phrase
+	 * 
 	 *
 	 */
 	public String getPhrase() {

@@ -1,3 +1,4 @@
+// FIXME déplacer dans un autre paquetage
 package fr.iutvalence.java.projets.rpg;
 
 /**

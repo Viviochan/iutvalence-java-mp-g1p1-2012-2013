@@ -15,6 +15,7 @@ public class Item {
 	/**
 	 * Nom de l'item
 	 */
+	// FIXME respecter les conventions d'écriture
 	private String nom_item;
 	
 	
@@ -26,8 +27,11 @@ public class Item {
 	 * 
 	 * Equipement pour le bras/ la tete/ le buste / les jambes
 	 */
+	// FIXME respecter les conventions d'écriture
 	private type_item typeitem;
 	
+	
+	// FIXME ne aps définir comme un commentaire JavaDoc
 	/**
 	 * Pour le type d'item on aura besoin d'un enum
 	 * 
@@ -38,15 +42,16 @@ public class Item {
 	 */
 	
 	/**
-	 * bonus donner par l'item varie en fonction du type de celui-ci
+	 * bonus donné par l'item varie en fonction du type de celui-ci
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int bonus_item;
 	
 	/**
 	 * Valeur marchande de l'item
-	 * Tous les items auront une valeur marchande
 	 * 
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int val_item;
 	
 	/**
@@ -55,10 +60,11 @@ public class Item {
 	 * Certains items n auront un prix null 
 	 * il ne seront recuperable que par les montres
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int prix_item;
 
 	
-	
+	// FISME corriger le commentaire (parler de fichier texte n'a pas de sens ici)
 	/**
 	 * Constructeur
 	 * 
@@ -72,6 +78,7 @@ public class Item {
 	 * @param prix   prix de l item peut etre null
 	 * @param valeur  valeur de l item
 	 */
+	// FIXME respecter les conventions d'écriture (paramètres)
 	public Item(String nI, type_item type, int bonus, int prix, int valeur){
 		this.nom_item=nI;
 		this.typeitem=type;
@@ -81,15 +88,13 @@ public class Item {
 		
 	}
 	
-	/**
-	 * Accesseur (creer avec la commande par defaut)
-	 * Pet etre retirer ou modifier dans les seances futur
-	 */
+	// FIXME corriger le commentaire
 	/**
 	 * Retourne le nom de l item
 	* @return nom_item
 	*  
 	*/
+	// FIXME respecter les conventions d'écriture
 	public String get_Nom_item() {
 		return this.nom_item;
 	}
@@ -98,9 +103,9 @@ public class Item {
 	/**
 	 * retourne le type de l item
 	 * @return type_item
-	 * 
-	 * A etudier pour le type enum
+	 * 	 
 	 */
+	// FIXME respecter les conventions d'écriture
 	public String gettypeitem() {
 		return "coucou";
 	}
@@ -110,6 +115,7 @@ public class Item {
 	 * Retourne le bonus de l item
 	 * @return bonus_item
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int getBonus_item() {
 		return this.bonus_item;
 	}
@@ -120,6 +126,7 @@ public class Item {
 	 * retourne la valeur de l item
 	 * @return val_item
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int getVal_item() {
 		return this.val_item;
 	}
@@ -129,9 +136,10 @@ public class Item {
 	 * retourne le prix de l item
 	 * @return prix_item
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int getPrix_item() {
 		return this.prix_item;
 	}
 
-	
+	// FIXME redéfinir toString
 }

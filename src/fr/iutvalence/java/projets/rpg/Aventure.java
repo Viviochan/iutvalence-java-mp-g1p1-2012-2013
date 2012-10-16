@@ -1,7 +1,6 @@
 package fr.iutvalence.java.projets.rpg;
 
-
-
+// FIXME corriger le commentaire (à discuter)
 /**
  * 
  *
@@ -13,33 +12,43 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Aventure {
 	
-	/**
-	 * Attribut
-	 */
+	
+	// FIXME regroudper ces constantes dans une classe "Direction"
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Gauche
 	 */
+	// FIXME si c'est une constante, la définir comme telle
+	// FIXME ne pas utiliser le type String ici, préférer des entiers 
 	private static String GAUCHE="gauche";
+
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Droite
 	 */
+	// FIXME si c'est une constante, la définir comme telle
+	// FIXME ne pas utiliser le type String ici, préférer des entiers 
 	private static String DROITE="droite";
+	
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Haut
 	 */
+	// FIXME si c'est une constante, la définir comme telle
+	// FIXME ne pas utiliser le type String ici, préférer des entiers 
 	private static String HAUT="haut";
+
 	/**
 	 * Correspond a une direction que prend le hero
 	 * Direction: Bas
 	 */
+	// FIXME si c'est une constante, la définir comme telle
+	// FIXME ne pas utiliser le type String ici, préférer des entiers 
 	private static String BAS="bas";
 	
-
+	// FIXME écrire plus simplement le commentaire (à discuter)
 	/**
-	 * L'attribut qui nous permettrat de gerer la carte pendant une aventure
+	 * L'attribut qui nous permettra de gerer la carte pendant une aventure
 	 * 
 	 */
 	public PlateaudeJeu carte;
@@ -57,24 +66,26 @@ public class Aventure {
 	public Boss demon;
 	
 	/**
-	 * Personnage vendeur et non vendeur du jeux(non jouable par le joueur)
+	 * Personnage vendeur et non vendeur du jeu (non jouable par le joueur)
 	 */
 	public PNJ npc;
 	
 	
-
 	/**
 	 * Collection ou tableau servant de base de donnes de monstre
 	 * On la consultera pour chaque combat pour definir qui affronte le hero
 	 */
+	// FIXME respecter les conventions d'écriture
+	// FIXME renommer l'attribut (il y a plusieurs monstres)
 	public Monstre[] Tab_Monstre;
 	
 	/**
 	 * Tableau des niveaux du jeu
 	 */
+	// FIXME renommer l'attribut (il y a plusieurs niveaux)
 	public Niveau[] level;
 	
-	
+	// FIXME regrouper les définitions de constantes (avant les attributs)
 	/**
 	 * Le niveau maximal que le heros pourra atteindre
 	 */
@@ -84,11 +95,11 @@ public class Aventure {
 	/**
 	 * Tableau des competence du Jeu
 	 */
+	// FIXME renommer l'attribut (il y a plusieurs compétences)
 	public Skill[] competence;
 	
 	
 	
-
 	/**
 	 * Constructeur
 	 * 
@@ -96,17 +107,17 @@ public class Aventure {
 	 * 
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
 	 */
+	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions
 	public Aventure(){ 
 		this.carte= new PlateaudeJeu();
 		this.perso= new Hero();
 		this.demon= new Boss();
 		int error_code=level();
-		if(error_code!=1) System.out.println("Le Tableau de niveau ne c'ets pas generer convenablement" ); ;
-
-		
-		
+		if(error_code!=1) System.out.println("Le Tableau de niveau ne c'ets pas generer convenablement" ); 		
 	}
 	
+	// FIXME corriger le commentaire (la méthode n'est pas un tableau), c'est trop ambigü pour être compris
+	// FIXME génerer la javadoc au moins une fois pour voir là où ça ne colle pas
 	/**
 	 *Methodes ->Niveaux
 	 * 
@@ -134,8 +145,9 @@ public class Aventure {
 		
 	}
 	
+	
 	/**
-	 * Methode permettant de gerer la monter de niveau du heros
+	 * Methode permettant de gerer la montée de niveau du heros
 	 * On test le taux de xp sur la table level et en fonction de celui ci
 	 * On augmente le niveau du heros ou pas
 	 * @return le nouveau niveau du heros
@@ -154,8 +166,7 @@ public class Aventure {
 		
 	}
 
-
-
+	// FIXME corriger/compléter le commentaire
 	/**
 	 * 
 	 * Methodes ->Heros
@@ -170,6 +181,8 @@ public class Aventure {
 	 * 
 	 * @return 0
 	 */
+	// FIXME respecter les conventions d'écriture (nom méthode, paramètres)
+	// FIXME gérer les erreurs avec des exceptions
 	public int DeplacementHeros(int x_arr, int y_arr){
 		int val_case;
 		if((this.perso.getPos_x_heros()==x_arr)||((this.perso.getPos_x_heros())+1==x_arr)||((this.perso.getPos_x_heros()) - 1==x_arr)){
@@ -201,6 +214,7 @@ public class Aventure {
 	 * 
 	 * Attention il manque encore gerer les exceptions
 	 */
+	// FIXME gérer les erreurs avec des exceptions
 	public int DeplacementHeros(String s){
 		int x=this.perso.getPos_x_heros();
 		int y=this.perso.getPos_y_heros();

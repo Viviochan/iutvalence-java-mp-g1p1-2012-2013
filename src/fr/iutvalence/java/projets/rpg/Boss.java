@@ -1,10 +1,11 @@
 package fr.iutvalence.java.projets.rpg;
 
 
+// FIXME corriger le commentaire (ne pas utiliser le commentaire Javadoc pour indiquer comment on va faire évoluer la classe par la suite)
 /**
  * 
  * Boss final du jeu 
- * il correspond au dernier element du jeu, une fois que le heros l'aura battue le jeu sera finis
+ * il correspond au dernier element du jeu, une fois que le heros l'aura battu le jeu sera fini
  * ces stats sont hors normes mais tout de meme abordable avec un minimum de strategie.
  * 
  * IA basique 
@@ -15,25 +16,27 @@ package fr.iutvalence.java.projets.rpg;
  * si plus de temps complexifier l'ia du boss
  *
  *
- *Le boss est une extension de monstre il est differencier d'eux car il possede une position fixe sur la map
+ *Le boss est une extension de monstre il est differencié d'eux car il possede une position fixe sur la map
  *
  *@author goncalvs
  */
 public class Boss extends Monstre {
 
 
+	
+		// FIXME regrouper abscisse et ordonnée dans une classe "Position"
 		/**
-		 * Attributs
+		 * 
 		 * Abscisse du boss
 		 */
-
+		// FIXME (non résolu) respecter les conventions d'écriture
 		private int pos_boss_x;
 
 
-
 		/**
-		 * Oordonnes du boss
+		 * Ordonnees du boss
 		 */
+		// FIXME (non résolu) respecter les conventions d'écriture
 		private int pos_boss_y;
 		
 		
@@ -43,20 +46,24 @@ public class Boss extends Monstre {
 		/**
 		 * Nom du boss
 		 */
+		// FIXME indiquer une visibilité
 		final static String NOM_BOSS="Dragon Lord";
 		
+		// FIXME indiquer une visibilité
 		/**
 		 * Abscisse du boss sur la map
 		 */
-		
 		final static int ABSCISSE_BOSS=500;
+		
+		// FIXME indiquer une visibilité
 		/**
-		 * Oordonne du boss sur la map
+		 * Ordonnee du boss sur la map
 		 */
+		// FIXME renommer la constante
 		final static int OORDONNE_BOSS=1000;
 		
 		/**
-		 * Point de vie du boss
+		 * Points de vie du boss
 		 */
 		public final static int HP_BOSS=350;
 		
@@ -92,11 +99,7 @@ public class Boss extends Monstre {
 		}
 
 
-		/**
-		 * Accesseur du Boss
-		 * peut ne pas avoir d'utilite dans le jeu
-		 */
-		
+		// FIXME compléter le commentaire
 		/**
 		 * @return pos_boss_x
 		 */
@@ -104,16 +107,13 @@ public class Boss extends Monstre {
 			return pos_boss_x;
 		}
 
-
+		// FIXME compléter le commentaire
 		/**
 		 * @return pos_boss_y
 		 */
 		public int getPos_boss_y() {
 			return pos_boss_y;
 		}
-
-
 		
-		
-		
+		// FIXME redéfinir toString
 }

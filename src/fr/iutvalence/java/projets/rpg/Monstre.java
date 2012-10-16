@@ -10,17 +10,17 @@ package fr.iutvalence.java.projets.rpg;
 public class Monstre {
 	
 	/**
-	 * Attribut
+	 * 
 	 * Nom du montre en question
 	 */
-
+	// FIXME respecter les conventions d'écriture
 	private String nom_monstre;
 	
 
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
-
+	// FIXME respecter les conventions d'écriture
 	private int hp_monstre;
 	
 
@@ -28,24 +28,28 @@ public class Monstre {
 	/**
 	 * niveau d'attaque du monstre
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int attaque_monstre;
 	
 
 	/**
 	 * niveau de defense du monstre
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int defense_monstre;
 	
 
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int xp_monstre;
 	
 
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int or_monstre;
 
 	
@@ -53,21 +57,29 @@ public class Monstre {
 	/**
 	 * Nom du monstre creer par defaut
 	 */
+	// FIXME visibilité
 	final static String NOM_MOB="Slim";
+	
 	/**
 	 * Niveau de vie du monstre par defaut
 	 */
+	// FIXME visibilité
 	final static int HP_MOB=10;
+	
 	/**
 	 * attaque et defense du monstre par defaut
 	 */
+	// FIXME visibilité
 	final static int ATT_DEF_MOB=5;
+	
 	/**
 	 * or et xp donner par le monstre par defaut
 	 */
+	// FIXME visibilité
 	final static int OR_XP_MOB=3;
 
 
+	// FIXME corriger le commentaire
 	/**
 	 * Constructeur
 	 * 
@@ -96,7 +108,7 @@ public class Monstre {
 	 * @param or_mob  Or donner par le monstre a creer
 	 * @param xp_mob  xp donner par le monstre a creer
 	 */
-	
+	// FIXME respecter les conventions d'écriture (paramètres)
 	public Monstre(String nomM,int hp_mob,int att_mob, int def_mob, int or_mob, int xp_mob){
 		this.nom_monstre=nomM;
 		this.hp_monstre=hp_mob;
@@ -109,53 +121,62 @@ public class Monstre {
 	
 
 	
+	// FIXME corriger le commentaire
 	/**
 	* Accesseur
 	* @return  le nom du monstre
-	*/
-	
+	*/	
+	// FIXME respecter les conventions d'écriture
 	public String get_Nom_monstre(){
 		return this.nom_monstre;
 	}
 	
+	// FIXME compléter le commentaire
 	/**
 	 * @return les point de vie du monstre
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int get_Hp_monstre(){
 		return this.hp_monstre;
 	}
 	
-	
+	// FIXME compléter le commentaire
 	/**
 	 * @return l'attaque du monstre nous permettant plus loin le calcul des degats et diminution de degats
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int get_Att_monstre(){
 		return this.attaque_monstre;
 	}
 	
-	
+	// FIXME compléter le commentaire
 	/**
 	 * @return la defense du monstre nous permettant plus loin le calcul des degats et diminution de degats
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int get_Def_monstre(){
 		return this.defense_monstre;
 	}
 	
+	// FIXME compléter le commentaire
 	/**
 	 * @return l'or porter par le monstre que le heros pourra ajouter a sa bourse
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int get_Or_monstre(){
 		return this.or_monstre;
 	}
+	// FIXME compléter le commentaire
 	
 	/**
 	 * @return le taux d'xp que le monstre donne au heros
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int get_Xp_monstre(){
 		return this.xp_monstre;
 	}
 
-	
+	// FIXME redéfinir toString
 }
 	
 	

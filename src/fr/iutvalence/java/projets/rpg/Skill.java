@@ -9,11 +9,6 @@ public class Skill {
 	
 	
 	/**
-	 * Attribut
-	 */
-	
-
-	/**
 	 * Nom du skill
 	 */
 	private String nom;
@@ -28,6 +23,7 @@ public class Skill {
 	/**
 	 * Cout en point de mana de la competence
 	 */
+	// FIXME respecter les conventions d'écriture 
 	private int cout_pm;
 	
 
@@ -36,25 +32,31 @@ public class Skill {
 	 */
 	private String effet;
 	
-	/**
-	 * Constantes
-	 */
+	// FIXME déplacer les définitions des constantes avant celles des attributs
+
+	
 	/**
 	 * Nom de la competence par defaut
 	 */
+	// FIXME visibilité
 	final static String NOM_DEFAUT="HEAL";
 	
 	/**
 	 * Niveau de base de la competence par defaut
 	 */
+	// FIXME visibilité
 	final static int NIV_COMT_BASE=5;
+	
 	/**
 	 * Cout en pm de la competence par defaut
 	 */
+	// FIXME visibilité
 	final static int COUT_COMPT_BASE=3;
+	
 	/**
 	 * Effet de la competence par defaut
 	 */
+	// FIXME visibilité
 	final static String EFF_COMPT_BASE="regenere les pv de 30pts";
 	
 	
@@ -86,9 +88,6 @@ public class Skill {
 	}
 
 	
-	/**
-	 * Accesseur
-	 */
 	
 	/**
 	 * Donne le nom de la competence
@@ -112,7 +111,7 @@ public class Skill {
 	 * retourne le cout en point de mana de la competence
 	 * @return cout_pm
 	 */
-
+	// FIXME Respecter les conventions d'écriture
 	public int getCout_pm() {
 		return cout_pm;
 	}

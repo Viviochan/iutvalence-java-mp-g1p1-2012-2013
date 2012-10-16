@@ -7,11 +7,6 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class PlateaudeJeu {
 	
-
-	/**
-	 * Attribut
-	 */
-	
 	/**
 	 * Definira la dimmension de notre map
 	 * 
@@ -42,6 +37,7 @@ public class PlateaudeJeu {
 	private int[][] map;
 
 	
+	// FIXME déplacer les définitions des constantes avant celles des attributs
 	/**
 	 * Valeurs des cases
 	 * A voi rsi on les geres avec un booleen ou pas
@@ -60,7 +56,7 @@ public class PlateaudeJeu {
 
 
 	
-	
+	// FIXME corriger le commentaire (ne pas dire à quoi servent les variables locales !!)
 	/**
 	 * Constructeurs
 	 * On construit un plateau et on rend toutes les cases praticables pour le hero
@@ -82,10 +78,7 @@ public class PlateaudeJeu {
 	}
 	
 	
-	/**
-	 * Accesseur
-	 */
-	
+	// FIXME compléter le commentaire
 	/**
 	 * @param x Abscisse sur la map
 	 * @param y Oordonnes sur la map
@@ -95,7 +88,8 @@ public class PlateaudeJeu {
 		return this.map[x][y];
 	
 	}
-	
+
+	// FIXME compléter le commentaire
 	/**
 	 * @param x Abscisse sur la map
 	 * @param y Oordonnes sur la map

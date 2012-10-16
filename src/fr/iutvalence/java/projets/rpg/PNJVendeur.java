@@ -18,6 +18,7 @@ public class PNJVendeur extends PNJ {
 	/**
 	 * Definie le nombre de item que peut vendre le PNJ Vendeur
 	 */
+	// FIXME respecter les conventions d'écriture
 	private int taille_mag;
 	
 	
@@ -38,11 +39,13 @@ public class PNJVendeur extends PNJ {
 	public PNJVendeur(int pos_x, int pos_y, String ph, int nb_item){
 		super(pos_x,pos_y,ph);
 		this.taille_mag=nb_item;
+		
+		// FIXME doit être appelée en dehors du constructeur
 		vend();
 		
 	}
 	
-	
+	// FIXME compléter le commentaire
 	/**
 	 * 
 	 */
@@ -57,31 +60,14 @@ public class PNJVendeur extends PNJ {
 	}
 	
 	
-	/**
-	 * Accesseur
-	 */
+
 	/**
 	 *Retourne le nombre d item que le vendeur peut vendres 
 	 */
+	// FIXME respecter les conventions d'écriture
 	public int gettaille_mag(){
 		return this.taille_mag;
 	}
-	
-	
-	/**
-	 * Faire un get pour le tableau d items
-	 */
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

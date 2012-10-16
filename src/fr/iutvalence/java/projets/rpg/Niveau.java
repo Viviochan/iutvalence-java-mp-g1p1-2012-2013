@@ -9,42 +9,34 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Niveau{
 	
-	/**
-	 * Attribut
-	 */
-
+	// FIXME essayer d'écrire sans faute d'orrhographe (merci)
 	/**
 	 * numeros du level atteins
 	 */
-
+	// FIXME respecter les conventions d'écriture
 	private int numlvl;
 	
 
 	/**
 	 * xp necessaire pour atteindre le lvl
 	 */
+	// FIXME respecter les conventions d'écriture
 	private  int taux_xp;
 	
-	
-	/**
-	 * Constantes
-	 */
 	/**
 	 * Niveau de base du Jeu
 	 * Toute aventure commence au niveau 1
 	 */
 
+	// FIXME visibilité
 	final static int NIVEAU_DEPART=1;
 	
 	/**
 	 * Niveau d'xp au debut de l'aventure
 	 */
+	// FIXME visibilité
 	final static int XP_DEPART=0;
 
-	/**
-	 * Constructeur
-	 */
-	
 
 	/**
 	 * Initialisation du NIVEAU_DEPART avec XP_DEPART
@@ -66,6 +58,7 @@ public class Niveau{
 	}
 	
 
+	// FIXME corriger le commentaire
 	/**
 	 * retourne le niveau
 	 * 
@@ -76,7 +69,7 @@ public class Niveau{
 	}
 	
 
-	
+	// FIXME corriger le commentaire
 	/**
 	 * retourne le taux xp necessaire au niveau
 	 * 
