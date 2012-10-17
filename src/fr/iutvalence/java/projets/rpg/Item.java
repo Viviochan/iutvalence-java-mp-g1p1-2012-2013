@@ -31,7 +31,7 @@ public class Item {
 	private typeitem typeitem;
 	
 	
-	// FIXME ne aps définir comme un commentaire JavaDoc
+	// FIXME ne aps définir comme un commentaire JavaDoc(comment ecrire les commentaire concernant l'avancement du travail)
 	/**
 	 * Pour le type d'item on aura besoin d'un enum
 	 * 
@@ -67,9 +67,7 @@ public class Item {
 	/**
 	 * Constructeur
 	 * 
-	 * Les donnees des items seront stocker dans un fichier txt ou une base de donnees 
-	 * lors du lancement d une aventure on ouvre la base pour creer un table d item qui servira
-	 * base de donne dynamique
+	 * Construit l'item selon les parametres donnees
 	 * 
 	 * @param nI  nom de l item
 	 * @param type  type de l item
@@ -139,6 +137,15 @@ public class Item {
 	public int getPrixitem() {
 		return this.prixitem;
 	}
+
+	/**
+	 * donne le type de l'item
+	 * @return typeitem
+	 */
+	public typeitem getTypeitem() {
+		return this.typeitem;
+	}
+
 
 	// FIXME redéfinir toString
 }

@@ -9,62 +9,64 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Hero {
 	
-	// FIXME placer les définitions des constantes avant celles des attributs
-	/**
-	 * Nom par defaut du Heros
-	 */
-	final static String NOMHERO="Vivio";
+
 	
-	// FIXME regrouper les définitions des constantes (avant celles des attributs)
+	// FIXME (FIXED)regrouper les définitions des constantes (avant celles des attributs)
 	
 	
 	/**
 	 * Point d'abscisse de depart
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static int ABSCISSE_DEFAUT=10;
 
 	/**
 	 * Point d'oordonne de depart
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static int ORDONNE_DEFAUT=5;
 	
 	/**
 	 * Niveau de vie du hero au depart
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED) indiquer une visibilité
 	public final static int HP_HERO=35;
 	
 	/**
 	 * Niveau de mana du hero au depart
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static int MP_HERO=6;
 	
 	/**
 	 * Niveau d'attaque et de defense au depart
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static int ATT_DEF_HERO=30;
 	
 	/**
 	 * Niveau de depart du jeu
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static int NIV_BASE=1;
 	
 	/**
 	 * Xp au depart. Au debut de l'aventure le nombre d'xp est a 0
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static int XP_BASE=0;
 	
 	/**
 	 * Niveau d'or au depart
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED) indiquer une visibilité
 	public final static int OR_BASE=500;
+	
+	// FIXME (FIXED)placer les définitions des constantes avant celles des attributs
+	/**
+	 * Nom par defaut du Heros
+	 */
+	public final static String NOMHERO="Vivio";
 	
 	/**
 	 * Definie la position du hero sur le plateaudejeu
@@ -77,9 +79,6 @@ public class Hero {
 	 */
 	// FIXME (non résolu) respecter les conventions d'écriture
 	private String nomduheros;
-
-	
-
 	
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
@@ -151,6 +150,7 @@ public class Hero {
 	/**
 	 * Initialisation a partir du constructeur par defaut 
 	 * @param s  Nom du heros
+	 * @throws CoordonneesInvalideException 
 	 * 
 	 */
 	public Hero(String s) throws CoordonneesInvalideException{

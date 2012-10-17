@@ -9,13 +9,18 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Niveau{
 	
-	// FIXME visibilité
+	
+	/**
+	 * Niveau de base du Jeu
+	 * Toute aventure commence au niveau 1
+	 */
+	// FIXME (FIXED)visibilité
 	final static int NIVEAU_DEPART=1;
 	
 	/**
 	 * Niveau d'xp au debut de l'aventure
 	 */
-	// FIXME visibilité
+	// FIXME (FIXED)visibilité
 	final static int XP_DEPART=0;
 	
 	// FIXME essayer d'écrire sans faute d'orrhographe (merci)
@@ -32,10 +37,7 @@ public class Niveau{
 	// FIXME respecter les conventions d'écriture
 	private  int tauxxp;
 	
-	/**
-	 * Niveau de base du Jeu
-	 * Toute aventure commence au niveau 1
-	 */
+
 
 
 

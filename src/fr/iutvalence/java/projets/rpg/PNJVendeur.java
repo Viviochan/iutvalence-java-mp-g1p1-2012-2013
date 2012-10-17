@@ -32,15 +32,17 @@ public class PNJVendeur extends PNJ {
 	
 	/**
 	 * Constructeur
-	 * @param pos_x Abscisse x du pnj
-	 * @param pos_y Ordonnes y du pnj
+	 * @param posx Abscisse x du pnj
+	 * @param posy Ordonnes y du pnj
 	 * @param ph Phrase qu'il se gardera de dire
+	 * @param nbitem nombre d'items differents a vendre
 	 */
-	public PNJVendeur(int pos_x, int pos_y, String ph, int nb_item){
-		super(pos_x,pos_y,ph);
-		this.taillemag=nb_item;
+	public PNJVendeur(int posx, int posy, String ph, int nbitem){
+		super(posx,posy,ph);
+		this.taillemag=nbitem;
+		vend();
 		
-		// FIXME doit être appelée en dehors du constructeur(FIXED)
+		// FIXME (FIXED)doit être appelée en dehors du constructeur(FIXED)
 		//vend();On placeras la methode vend dans le constructeur d'aventure
 		
 	}
@@ -71,5 +73,12 @@ public class PNJVendeur extends PNJ {
 		return this.taillemag;
 	}
 
+	/**
+	 * Donne la liste des items vendue par le PNJVendeur
+	 * @return vend
+	 */
+	public Item[] getVend(){
+		return this.vend;
+	}
 	
 }

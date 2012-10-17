@@ -69,6 +69,7 @@ public class Boss extends Monstre {
 		 * xp:0
 		 * Un seul et unique boss sera inclus dans le jeu
 		 * On integrera des sous boss pris dans la base de monstre
+		 * @throws CoordonneesInvalideException 
 		 */
 		public Boss() throws CoordonneesInvalideException{
 			super(NOM_BOSS,HP_BOSS,ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS, OR_XP_BOSS);

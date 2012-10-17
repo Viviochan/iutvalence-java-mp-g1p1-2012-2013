@@ -12,14 +12,14 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Aventure {
 	
-	// FIXME regrouper les définitions de constantes (avant les attributs)
+	// FIXME regrouper les définitions de constantes (avant les attributs)(FIXED)
 	/**
 	 * Le niveau maximal que le heros pourra atteindre
 	 */
 	public final static int NIVEAU_MAX=99;
 	
 	
-	// FIXME écrire plus simplement le commentaire (à discuter)
+	// FIXME (FIXED)écrire plus simplement le commentaire (à discuter)
 	/**
 	 *La carte du jeu
 	 * 
@@ -73,6 +73,7 @@ public class Aventure {
 	 * Initialise les elements necessaire pour debuter une aventure
 	 * 
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
+	 * @throws CoordonneesInvalideException 
 	 */
 	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions
 	public Aventure() throws CoordonneesInvalideException { 
@@ -135,13 +136,7 @@ public class Aventure {
 
 	// FIXME corriger/compléter le commentaire
 	/**
-	 * 
-	 * Methodes ->Heros
-	 * Deplacement:
-	 * on entre les coordonnes souhaiter
-	 * On verifie si ce sont des coordonnes proche du heros en premier
-	 * et ensuite on test si on peux se deplacer sur la case
-	 * sinon on redemende de taper les coordonnees et on envoie un message expliquant pourquoi
+	 * Modifie la position du hero
 	 * @param x_arr 
 	 * @param y_arr 
 	 * 

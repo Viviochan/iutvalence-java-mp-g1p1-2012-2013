@@ -106,11 +106,11 @@ public class Monstre {
 	 * On cree le monstre souhaiter en definissant tous ces details
 	 * serviras a la base de donnees ou une collection de monstre
 	 * @param nomM   Nom du monstre a creer
-	 * @param hp_mob  Niveau de vie du monstre a creer
-	 * @param att_mob  Niveau d'attaque du monstre a creer
-	 * @param def_mob  Niveau de defense du monstre a creer
-	 * @param or_mob  Or donner par le monstre a creer
-	 * @param xp_mob  xp donner par le monstre a creer
+	 * @param hpmob  Niveau de vie du monstre a creer
+	 * @param attmob  Niveau d'attaque du monstre a creer
+	 * @param defmob  Niveau de defense du monstre a creer
+	 * @param ormob  Or donner par le monstre a creer
+	 * @param xpmob  xp donner par le monstre a creer
 	 */
 	// FIXME respecter les conventions d'écriture (paramètres)
 	public Monstre(String nomM,int hpmob,int attmob, int defmob, int ormob, int xpmob){
