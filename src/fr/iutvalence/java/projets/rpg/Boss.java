@@ -1,13 +1,9 @@
 package fr.iutvalence.java.projets.rpg;
 
 
-// FIXME corriger le commentaire (ne pas utiliser le commentaire Javadoc pour indiquer comment on va faire évoluer la classe par la suite)
+// FIXME (FIXED)corriger le commentaire (ne pas utiliser le commentaire Javadoc pour indiquer comment on va faire évoluer la classe par la suite)
 /**
- * 
- * Boss final du jeu 
- * il correspond au dernier element du jeu
- * 
- *Le boss est une extension de monstre il est differencié d'eux car il possede une position fixe sur la map
+ * Boss/Monstre final du jeu 
  *
  *@author goncalvs
  */
@@ -19,16 +15,16 @@ public class Boss extends Monstre {
 	/**
 	 * Nom du boss
 	 */
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	public final static String NOM_BOSS="Dragon Lord";
 	
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	/**
 	 * Abscisse du boss sur la map
 	 */
 	public final static int ABSCISSE_BOSS=500;
 	
-	// FIXME indiquer une visibilité
+	// FIXME (FIXED)indiquer une visibilité
 	/**
 	 * Ordonnee du boss sur la map
 	 */

@@ -75,29 +75,22 @@ public class Aventure {
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
 	 * @throws CoordonneesInvalideException 
 	 */
-	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions
+	// FIXME (FIXED)(non résolu) gérer les erreurs en utilisant des exceptions
 	public Aventure() throws CoordonneesInvalideException { 
 		this.carte= new PlateaudeJeu();
 		this.perso= new Hero();
 		this.demon= new Boss();
-		int error_code=level();
-		if(error_code!=1) System.out.println("Le Tableau de niveau ne c'est pas generer convenablement" ); 		
+		level();
 	}
 	
-	// FIXME corriger le commentaire (la méthode n'est pas un tableau), c'est trop ambigü pour être compris
+	// FIXME (FIXED)corriger le commentaire (la méthode n'est pas un tableau), c'est trop ambigü pour être compris
 	// FIXME génerer la javadoc au moins une fois pour voir là où ça ne colle pas
 	/**
-	 *Methodes ->Niveaux
-	 * 
-	 * level:
-	 * Tableau qui nous permettra de gerer le niveau du hero en le comparant a celui-ci
-	 * @return 1 si le tableau c'est bien remplie
-	 * 
-	 * construis le tableau de niveaux avec leur taux d'xp respectif
+	 * construis et remplie le tableau de niveaux avec leur taux d'xp respectif
 	 * 
 	 * Pour chaque niveau on aura besoin de 75% d'xp en plus
 	 */
-	public int level(){
+	public void level(){
 		int i=1;
 		int xp=20;
 		this.level=new Niveau[NIVEAU_MAX+1];
@@ -109,8 +102,6 @@ public class Aventure {
 				xp=(int) (xp + Math.floor(0.75*xp));
 			}
 		}
-		return 1;
-		
 	}
 	
 	
@@ -134,37 +125,34 @@ public class Aventure {
 		
 	}
 
-	// FIXME corriger/compléter le commentaire
+	// FIXME (FIXED)corriger/compléter le commentaire
 	/**
 	 * Modifie la position du hero
-	 * @param x_arr 
-	 * @param y_arr 
+	 * @param xarr 
+	 * @param yarr 
 	 * 
-	 * 
-	 * @return 0
+	 * @return Posheros
+	 * @throws CoordonneesInvalideException 
 	 */
-	// FIXME respecter les conventions d'écriture (nom méthode, paramètres)
-	// FIXME gérer les erreurs avec des exceptions
-	/*public int DeplacementHeros(int x_arr, int y_arr){
-		int val_case;
-		if((this.perso.getPos_x_heros()==x_arr)||((this.perso.getPos_x_heros())+1==x_arr)||((this.perso.getPos_x_heros()) - 1==x_arr)){
-			if((this.perso.getPos_y_heros()==y_arr)||((this.perso.getPos_y_heros())+1==x_arr)||((this.perso.getPos_y_heros()) - 1==x_arr)){
-				val_case=this.carte.getCase(x_arr, y_arr);
-				if (val_case==1){
-					this.perso.setPos_x_heros(x_arr);
-					this.perso.setPos_y_heros(y_arr);
-				}
-				else return -1;/*la case est non praticable*/
-				
-				
-			/*}
-			else return -2;//ordonnes trop eloigne
+	// FIXME (FIXED)respecter les conventions d'écriture (nom méthode, paramètres)
+	// FIXME (FIXED)gérer les erreurs avec des exceptions
+	public Position DeplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException{
+		if((xarr>PlateaudeJeu.LONGUEUR)||(xarr>PlateaudeJeu.LONGUEUR)){
+			throw new CoordonneesInvalideException();
 		}
-		else return -3;//abscisse trop eloigne
-
-	return 0;	
-	}*/
-	
+		if((this.perso.getPosheros().getX()==xarr)||((this.perso.getPosheros().getX())+1==xarr)||((this.perso.getPosheros().getX()) - 1==xarr)){
+			if((this.perso.getPosheros().getY()==yarr)||((this.perso.getPosheros().getY())+1==yarr)||((this.perso.getPosheros().getY()) - 1==yarr)){
+				if(this.carte.getCase(xarr, yarr)==1){
+					this.perso.getPosheros().setX(xarr);
+					this.perso.getPosheros().setY(yarr);
+					
+				}
+				throw new CoordonneesInvalideException();//case non praticable
+			}
+			throw new CoordonneesInvalideException();
+		}
+		return this.perso.getPosheros();
+	}
 	
 	/**
 	 * On gere le deplacement du heros a partir de constante placer en parametre

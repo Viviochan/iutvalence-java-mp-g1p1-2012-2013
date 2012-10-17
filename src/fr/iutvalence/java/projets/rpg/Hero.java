@@ -130,6 +130,16 @@ public class Hero {
 	// FIXME compléter le commentaire (indiquer dans quel étate est l'objet créé)
 	/**
 	 * Initialise le heros sans specifier de nom
+	 * 
+	 * poshero: (10,5)
+	 * nomduhero: "Vivio"
+	 * pointdevie: 35
+	 * pointdemana: 6
+	 * niveauheros: 1
+	 * attaque: 30
+	 * defense: 30
+	 * nbxp: 0
+	 * or: 500
 	 * @throws CoordonneesInvalideException 
 	 */	
 	public Hero() throws CoordonneesInvalideException{
@@ -162,6 +172,7 @@ public class Hero {
 
 	// FIXME compléter le commentaire
 	/**
+	 * retounre le nombre d'xp du hero
 	 * @return l'xp que possede le hero
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -170,7 +181,7 @@ public class Hero {
 	}
 
 	/**
-	 * On l'ajoute a l'xp qu ele hero possede deja
+	 * On l'ajoute a l'xp que le hero possede deja
 	 * @param exp l'xp recue soit par un item soit apres un combat
 	 * 
 	 */
@@ -181,6 +192,7 @@ public class Hero {
 
 	// FIXME compléter le commentaire
 	/**
+	 * Retourne la quantite d'or que le hero possede
 	 * @return or Donne l'or que le hero porte
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -200,6 +212,7 @@ public class Hero {
 	
 	// FIXME respecter les conventions d'écriture
 	/**
+	 * Retourne le niveau actuel du hero
 	 * @return niveauheros Donne le niveau actuel du Hero
 	 */
 	public int getNiveauHeros() {
@@ -215,6 +228,7 @@ public class Hero {
 	}
 
 	/**
+	 * Donner le nom du hero
 	 * @return nom_du_heros Donne le nom du hero
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -222,8 +236,9 @@ public class Hero {
 		return nomduheros;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
+	 * Modifie le nom du hero
 	 * @param s Change le nom du hero
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -231,17 +246,19 @@ public class Hero {
 		this.nomduheros = s;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
-	 * @return point_de_vie
+	 * retourne les point de vie du hero
+	 * @return pointdevie
 	 */
 	// FIXME respecter les conventions d'écriture
 	public int getPointdevie() {
 		return pointdevie;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
+	 * modifie les point de vie du hero
 	 * @param pdv
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -249,7 +266,7 @@ public class Hero {
 		this.pointdevie = this.pointdevie+pdv;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * @return point_de_mana
 	 */
@@ -258,8 +275,9 @@ public class Hero {
 		return pointdemana;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
+	 * Retourne les point de mana du hero
 	 * @param pdm
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -276,9 +294,9 @@ public class Hero {
 		return attaque;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
-	 * Lors des lvl up on augmente l'attaque du heros de att
+	 * Augemente l'attaque du hero
 	 * @param att
 	 * 
 	 */
@@ -296,9 +314,9 @@ public class Hero {
 		return defense;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
-	 * Lors des lvl up on augmente la defense du heros de def
+	 * Augmente le niveau de defense du hero
 	 * @param def
 	 * 
 	 */
