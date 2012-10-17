@@ -50,20 +50,20 @@ public class Aventure {
 	 */
 	// FIXME respecter les conventions d'écriture
 	// FIXME renommer l'attribut (il y a plusieurs monstres)
-	public Monstre[] TabMonstre;
+	public Monstre[] TabMonstres;
 	
 	/**
 	 * Tableau des niveaux du jeu
 	 */
 	// FIXME renommer l'attribut (il y a plusieurs niveaux)
-	public Niveau[] level;
+	public Niveau[] levels;
 	
 	
 	/**
 	 * Tableau des competence du Jeu
 	 */
 	// FIXME renommer l'attribut (il y a plusieurs compétences)
-	public Skill[] competence;
+	public Skill[] competences;
 	
 	
 	
@@ -93,12 +93,12 @@ public class Aventure {
 	public void level(){
 		int i=1;
 		int xp=20;
-		this.level=new Niveau[NIVEAU_MAX+1];
-		this.level[0]=new Niveau(0,0);
-		this.level[1]=new Niveau();
+		this.levels=new Niveau[NIVEAU_MAX+1];
+		this.levels[0]=new Niveau(0,0);
+		this.levels[1]=new Niveau();
 		for (i=2;i<NIVEAU_MAX;i++){
 			for (i=2;i<99;i++){
-				this.level[i]= new Niveau(i,xp);
+				this.levels[i]= new Niveau(i,xp);
 				xp=(int) (xp + Math.floor(0.75*xp));
 			}
 		}
@@ -111,12 +111,12 @@ public class Aventure {
 	 * On augmente le niveau du heros ou pas
 	 * @return le nouveau niveau du heros
 	 */
-	public int level_up(){
+	public int levelup(){
 		int lvlheros=this.perso.getNbxp();
-		int tauxlvlsuiv=this.level[lvlheros+1].getTaux();
+		int tauxlvlsuiv=this.levels[lvlheros+1].getTaux();
 		while(lvlheros>=tauxlvlsuiv){
 			lvlheros++;
-			tauxlvlsuiv=this.level[lvlheros+1].getTaux();
+			tauxlvlsuiv=this.levels[lvlheros+1].getTaux();
 		}
 		while(lvlheros>this.perso.getNbxp()){
 			this.perso.setNiveauheros();
@@ -155,46 +155,36 @@ public class Aventure {
 	}
 	
 	/**
-	 * On gere le deplacement du heros a partir de constante placer en parametre
-	 * En fonction de la direction donner on change les coordonnes du hero
-	 * 
-	 * @param s Une direction (GAUCHE,DROITE,HAUT,BAS)
-	 * @return 0 si le deplacement a bien ete effectuer
+	 * Gere le deplacement du hero a partir d'une direction donnee
+	 * @param dir Une direction (GAUCHE,DROITE,HAUT,BAS)
 	 * 
 	 * 
-	 * Attention il manque encore gerer les exceptions
+	 * @return poshero la nouvelle position du hero
+	 * 
+	 * @throws DirectionInvalideException 
+	 * @throws CoordonneesInvalideException 
 	 */
-	// FIXME gérer les erreurs avec des exceptions
-	/*public int DeplacementHeros(String s){
-		int x=this.perso.getPos_x_heros();
-		int y=this.perso.getPos_y_heros();
-		if(s.equals(this.GAUCHE)){
-			if(this.carte.getCase(x-1, y)==1){
-				this.perso.setPos_x_heros(x-1);
-			}
-			else return -1;
+	// FIXME (FIXED) gérer les erreurs avec des exceptions
+	public Position DeplacementHeros(int dir) throws DirectionInvalideException, CoordonneesInvalideException {
+		Position poshero= this.perso.getPosheros();
+		if(dir!=Direction.BAS){
+			poshero.setY(poshero.getY()-1);
 		}
-		if(s.equals(this.DROITE)){
-			if(this.carte.getCase(x+1, y)==1){
-				this.perso.setPos_x_heros(x+1);
-			}
-			else return -2;
+		if(dir!=Direction.DROITE){
+			poshero.setX(poshero.getX()+1);
 		}
-		if(s.equals(this.HAUT)){
-			if(this.carte.getCase(x-1, y)==1){
-				this.perso.setPos_y_heros(y+1);
-			}
-			else return -3;
+		if(dir!=Direction.GAUCHE){
+			poshero.setX(poshero.getX()-1);
 		}
-		if(s.equals(this.BAS)){
-			if(this.carte.getCase(x-1, y)==1){
-				this.perso.setPos_y_heros(x-1);
-			}
-			else return -4;
+		if(dir!=Direction.HAUT){
+			poshero.setX(poshero.getY()+1);
 		}
-		return 0;
+		else{
+			throw new DirectionInvalideException();
+		}
+		this.perso.setPosshero(poshero);
+		return this.perso.getPosheros();
 	}
-	*/
 	
 	
 	

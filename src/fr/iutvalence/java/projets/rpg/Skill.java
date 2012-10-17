@@ -14,26 +14,26 @@ public class Skill {
 	/**
 	 * Nom de la competence par defaut
 	 */
-	// FIXME visibilité
-	final static String NOM_DEFAUT="HEAL";
+	// FIXME (FIXED)visibilité
+	public final static String NOM_DEFAUT="HEAL";
 	
 	/**
 	 * Niveau de base de la competence par defaut
 	 */
-	// FIXME visibilité
-	final static int NIV_COMT_BASE=5;
+	// FIXME (FIXED)visibilité
+	public final static int NIV_COMT_BASE=5;
 	
 	/**
 	 * Cout en pm de la competence par defaut
 	 */
-	// FIXME visibilité
-	final static int COUT_COMPT_BASE=3;
+	// FIXME (FIXED)visibilité
+	public final static int COUT_COMPT_BASE=3;
 	
 	/**
 	 * Effet de la competence par defaut
 	 */
-	// FIXME visibilité
-	final static String EFF_COMPT_BASE="regenere les pv de 30pts";
+	// FIXME (FIXED)visibilité
+	public final static String EFF_COMPT_BASE="regenere les pv de 30pts";
 	
 	/**
 	 * Nom du skill

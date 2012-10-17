@@ -338,13 +338,23 @@ public class Hero {
 	 * change la position du heros
 	 * @param x Nouvelle abscisse
 	 * @param y Nouvelles Ordonnees
+	 * @throws CoordonneesInvalideException 
 	 * 
 	 */
-	public void setPosheros(int x, int y) {
+	public void setPosheros(int x, int y) throws CoordonneesInvalideException {
 		this.posheros.setX(x);
 		this.posheros.setY(y);
 	}
 
+	/**
+	 * change la position du heros
+	 * @param p La nouvelle position
+	 * 
+	 * 
+	 */
+	public void setPosshero(Position p){
+		this.posheros=p;
+	}
 
 
 	// FIXME redéfinir toString

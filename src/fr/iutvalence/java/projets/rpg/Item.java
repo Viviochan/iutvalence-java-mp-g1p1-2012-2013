@@ -32,14 +32,14 @@ public class Item {
 	
 	
 	// FIXME ne aps définir comme un commentaire JavaDoc(comment ecrire les commentaire concernant l'avancement du travail)
-	/**
-	 * Pour le type d'item on aura besoin d'un enum
-	 * 
-	 * public enum type={"Equipement_Bras";"Equipement_Jambes";"Equipement_Tete";...};
-	 * et type_item prendras une des valeurs contenue dans l'enum de type
-	 * 
-	 * A definir dans une sous classe
-	 */
+	//
+	// Pour le type d'item on aura besoin d'un enum
+	//  
+	//  public enum type={"Equipement_Bras";"Equipement_Jambes";"Equipement_Tete";...};
+	//  et type_item prendras une des valeurs contenue dans l'enum de type
+	//  
+	//  A definir dans une sous classe
+	// 
 	
 	/**
 	 * bonus donné par l'item varie en fonction du type de celui-ci
@@ -88,11 +88,11 @@ public class Item {
 	// FIXME corriger le commentaire
 	/**
 	 * Retourne le nom de l item
-	* @return nom_item
+	* @return nomitem
 	*  
 	*/
 	// FIXME respecter les conventions d'écriture
-	public String get_Nom_item() {
+	public String getNomitem() {
 		return this.nomitem;
 	}
 
@@ -102,9 +102,10 @@ public class Item {
 	 * @return type_item
 	 * 	 
 	 */
+	//a completer quand la class typeitem sera complete
 	// FIXME respecter les conventions d'écriture
-	public String gettypeitem() {
-		return "coucou";
+	public typeitem gettypeitem() {
+		return this.typeitem;
 	}
 
 

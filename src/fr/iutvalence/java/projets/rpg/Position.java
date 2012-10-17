@@ -6,6 +6,7 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Position {
 	
+	//FIXME (FIXED)regrouper les attribut y et x en une classe position
 	/**
 	 * Abscisse de l'objet
 	 */
@@ -49,8 +50,12 @@ public class Position {
 	/**
 	 * Modifie l'abscisse de la position
 	 * @param x
+	 * @throws CoordonneesInvalideException 
 	 */
-	public void setX(int x) {
+	public void setX(int x) throws CoordonneesInvalideException {
+		if(x>PlateaudeJeu.LONGUEUR){
+			throw new CoordonneesInvalideException();
+		}
 		this.x = x;
 	}
 
@@ -67,8 +72,12 @@ public class Position {
 	/**
 	 * Modifie l'ordonnee de la position
 	 * @param y
+	 * @throws CoordonneesInvalideException 
 	 */
-	public void setY(int y) {
+	public void setY(int y) throws CoordonneesInvalideException {
+		if(y>PlateaudeJeu.LONGUEUR){
+			throw new CoordonneesInvalideException();		
+		}
 		this.y = y;
 	}
 	
