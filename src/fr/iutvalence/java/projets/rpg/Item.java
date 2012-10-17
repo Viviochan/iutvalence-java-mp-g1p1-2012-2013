@@ -16,7 +16,7 @@ public class Item {
 	 * Nom de l'item
 	 */
 	// FIXME respecter les conventions d'écriture
-	private String nom_item;
+	private String nomitem;
 	
 	
 	/**
@@ -28,7 +28,7 @@ public class Item {
 	 * Equipement pour le bras/ la tete/ le buste / les jambes
 	 */
 	// FIXME respecter les conventions d'écriture
-	private type_item typeitem;
+	private typeitem typeitem;
 	
 	
 	// FIXME ne aps définir comme un commentaire JavaDoc
@@ -45,14 +45,14 @@ public class Item {
 	 * bonus donné par l'item varie en fonction du type de celui-ci
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int bonus_item;
+	private int bonusitem;
 	
 	/**
 	 * Valeur marchande de l'item
 	 * 
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int val_item;
+	private int valitem;
 	
 	/**
 	 * Valeur de l'item s'il est vendue par un pnj vendeur
@@ -61,8 +61,7 @@ public class Item {
 	 * il ne seront recuperable que par les montres
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int prix_item;
-
+	private int prixitem;
 	
 	// FISME corriger le commentaire (parler de fichier texte n'a pas de sens ici)
 	/**
@@ -79,12 +78,12 @@ public class Item {
 	 * @param valeur  valeur de l item
 	 */
 	// FIXME respecter les conventions d'écriture (paramètres)
-	public Item(String nI, type_item type, int bonus, int prix, int valeur){
-		this.nom_item=nI;
+	public Item(String nI, typeitem type, int bonus, int prix, int valeur){
+		this.nomitem=nI;
 		this.typeitem=type;
-		this.bonus_item=bonus;
-		this.prix_item=prix;
-		this.val_item=valeur;
+		this.bonusitem=bonus;
+		this.prixitem=prix;
+		this.valitem=valeur;
 		
 	}
 	
@@ -96,7 +95,7 @@ public class Item {
 	*/
 	// FIXME respecter les conventions d'écriture
 	public String get_Nom_item() {
-		return this.nom_item;
+		return this.nomitem;
 	}
 
 
@@ -116,8 +115,8 @@ public class Item {
 	 * @return bonus_item
 	 */
 	// FIXME respecter les conventions d'écriture
-	public int getBonus_item() {
-		return this.bonus_item;
+	public int getBonusitem() {
+		return this.bonusitem;
 	}
 
 
@@ -127,8 +126,8 @@ public class Item {
 	 * @return val_item
 	 */
 	// FIXME respecter les conventions d'écriture
-	public int getVal_item() {
-		return this.val_item;
+	public int getValitem() {
+		return this.valitem;
 	}
 
 
@@ -137,8 +136,8 @@ public class Item {
 	 * @return prix_item
 	 */
 	// FIXME respecter les conventions d'écriture
-	public int getPrix_item() {
-		return this.prix_item;
+	public int getPrixitem() {
+		return this.prixitem;
 	}
 
 	// FIXME redéfinir toString

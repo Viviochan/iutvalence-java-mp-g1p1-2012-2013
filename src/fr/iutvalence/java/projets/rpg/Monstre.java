@@ -13,25 +13,25 @@ public class Monstre {
 	 * Nom du monstre creer par defaut
 	 */
 	// FIXME visibilité
-	final static String NOM_MOB="Slim";
+	public final static String NOM_MOB="Slim";
 	
 	/**
 	 * Niveau de vie du monstre par defaut
 	 */
 	// FIXME visibilité
-	final static int HP_MOB=10;
+	public final static int HP_MOB=10;
 	
 	/**
 	 * attaque et defense du monstre par defaut
 	 */
 	// FIXME visibilité
-	final static int ATT_DEF_MOB=5;
+	public final static int ATT_DEF_MOB=5;
 	
 	/**
 	 * or et xp donner par le monstre par defaut
 	 */
 	// FIXME visibilité
-	final static int OR_XP_MOB=3;
+	public final static int OR_XP_MOB=3;
 	
 	
 	/**

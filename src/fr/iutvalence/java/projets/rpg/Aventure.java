@@ -12,43 +12,16 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Aventure {
 	
+	// FIXME regrouper les définitions de constantes (avant les attributs)
+	/**
+	 * Le niveau maximal que le heros pourra atteindre
+	 */
+	public final static int NIVEAU_MAX=99;
 	
-	// FIXME regroudper ces constantes dans une classe "Direction"
-	/**
-	 * Correspond a une direction que prend le hero
-	 * Direction: Gauche
-	 */
-	// FIXME si c'est une constante, la définir comme telle
-	// FIXME ne pas utiliser le type String ici, préférer des entiers 
-	private static String GAUCHE="gauche";
-
-	/**
-	 * Correspond a une direction que prend le hero
-	 * Direction: Droite
-	 */
-	// FIXME si c'est une constante, la définir comme telle
-	// FIXME ne pas utiliser le type String ici, préférer des entiers 
-	private static String DROITE="droite";
-	
-	/**
-	 * Correspond a une direction que prend le hero
-	 * Direction: Haut
-	 */
-	// FIXME si c'est une constante, la définir comme telle
-	// FIXME ne pas utiliser le type String ici, préférer des entiers 
-	private static String HAUT="haut";
-
-	/**
-	 * Correspond a une direction que prend le hero
-	 * Direction: Bas
-	 */
-	// FIXME si c'est une constante, la définir comme telle
-	// FIXME ne pas utiliser le type String ici, préférer des entiers 
-	private static String BAS="bas";
 	
 	// FIXME écrire plus simplement le commentaire (à discuter)
 	/**
-	 * L'attribut qui nous permettra de gerer la carte pendant une aventure
+	 *La carte du jeu
 	 * 
 	 */
 	public PlateaudeJeu carte;
@@ -77,19 +50,13 @@ public class Aventure {
 	 */
 	// FIXME respecter les conventions d'écriture
 	// FIXME renommer l'attribut (il y a plusieurs monstres)
-	public Monstre[] Tab_Monstre;
+	public Monstre[] TabMonstre;
 	
 	/**
 	 * Tableau des niveaux du jeu
 	 */
 	// FIXME renommer l'attribut (il y a plusieurs niveaux)
 	public Niveau[] level;
-	
-	// FIXME regrouper les définitions de constantes (avant les attributs)
-	/**
-	 * Le niveau maximal que le heros pourra atteindre
-	 */
-	public final static int NIVEAU_MAX=99;
 	
 	
 	/**
@@ -108,7 +75,7 @@ public class Aventure {
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
 	 */
 	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions
-	public Aventure(){ 
+	public Aventure() throws CoordonneesInvalideException { 
 		this.carte= new PlateaudeJeu();
 		this.perso= new Hero();
 		this.demon= new Boss();
@@ -153,16 +120,16 @@ public class Aventure {
 	 * @return le nouveau niveau du heros
 	 */
 	public int level_up(){
-		int lvlheros=this.perso.getNb_xp();
+		int lvlheros=this.perso.getNbxp();
 		int tauxlvlsuiv=this.level[lvlheros+1].getTaux();
 		while(lvlheros>=tauxlvlsuiv){
 			lvlheros++;
 			tauxlvlsuiv=this.level[lvlheros+1].getTaux();
 		}
-		while(lvlheros>this.perso.getNb_xp()){
+		while(lvlheros>this.perso.getNbxp()){
 			this.perso.setNiveauheros();
 		}	
-		return (this.perso.getNb_xp());
+		return (this.perso.getNbxp());
 		
 	}
 
@@ -183,7 +150,7 @@ public class Aventure {
 	 */
 	// FIXME respecter les conventions d'écriture (nom méthode, paramètres)
 	// FIXME gérer les erreurs avec des exceptions
-	public int DeplacementHeros(int x_arr, int y_arr){
+	/*public int DeplacementHeros(int x_arr, int y_arr){
 		int val_case;
 		if((this.perso.getPos_x_heros()==x_arr)||((this.perso.getPos_x_heros())+1==x_arr)||((this.perso.getPos_x_heros()) - 1==x_arr)){
 			if((this.perso.getPos_y_heros()==y_arr)||((this.perso.getPos_y_heros())+1==x_arr)||((this.perso.getPos_y_heros()) - 1==x_arr)){
@@ -195,13 +162,13 @@ public class Aventure {
 				else return -1;/*la case est non praticable*/
 				
 				
-			}
+			/*}
 			else return -2;//ordonnes trop eloigne
 		}
 		else return -3;//abscisse trop eloigne
 
 	return 0;	
-	}
+	}*/
 	
 	
 	/**
@@ -215,7 +182,7 @@ public class Aventure {
 	 * Attention il manque encore gerer les exceptions
 	 */
 	// FIXME gérer les erreurs avec des exceptions
-	public int DeplacementHeros(String s){
+	/*public int DeplacementHeros(String s){
 		int x=this.perso.getPos_x_heros();
 		int y=this.perso.getPos_y_heros();
 		if(s.equals(this.GAUCHE)){
@@ -244,7 +211,7 @@ public class Aventure {
 		}
 		return 0;
 	}
-	
+	*/
 	
 	
 	
