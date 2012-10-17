@@ -18,8 +18,8 @@ public class PNJVendeur extends PNJ {
 	/**
 	 * Definie le nombre de item que peut vendre le PNJ Vendeur
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int taille_mag;
+	// FIXME respecter les conventions d'écriture(FIXED)
+	private int taillemag;
 	
 	
 	/**
@@ -38,21 +38,22 @@ public class PNJVendeur extends PNJ {
 	 */
 	public PNJVendeur(int pos_x, int pos_y, String ph, int nb_item){
 		super(pos_x,pos_y,ph);
-		this.taille_mag=nb_item;
+		this.taillemag=nb_item;
 		
-		// FIXME doit être appelée en dehors du constructeur
-		vend();
+		// FIXME doit être appelée en dehors du constructeur(FIXED)
+		//vend();On placeras la methode vend dans le constructeur d'aventure
 		
 	}
 	
-	// FIXME compléter le commentaire
+	// FIXME compléter le commentaire(FIXED)
 	/**
-	 * 
+	 * Methode qui nous donne la listes des items vendables par le PNJVendeur
+	 * A completer quand on aura trouver une methode de stockage des items
 	 */
 	public void vend(){
-		this.vend= new Item[taille_mag];
+		this.vend= new Item[taillemag];
 		int i=0;
-		while(i<=taille_mag){
+		while(i<=taillemag){
 			//on construits des items predefinies dans une base ou un autre elements qui stocke
 		}
 		
@@ -63,10 +64,11 @@ public class PNJVendeur extends PNJ {
 
 	/**
 	 *Retourne le nombre d item que le vendeur peut vendres 
+	 * @return taillmag
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int gettaille_mag(){
-		return this.taille_mag;
+	// FIXME respecter les conventions d'écriture(FIXED)
+	public int gettaillemag(){
+		return this.taillemag;
 	}
 
 	

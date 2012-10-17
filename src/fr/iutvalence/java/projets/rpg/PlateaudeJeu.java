@@ -7,6 +7,22 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class PlateaudeJeu {
 	
+	
+	// FIXME déplacer les définitions des constantes avant celles des attributs
+	/**
+	 * Valeurs des cases
+	 * A voi rsi on les geres avec un booleen ou pas
+	 * 
+	 * 0: si le hero ne peux pas etre possitionner sur la case
+	 *  un autre objet est deja dessus (PNJ,decor,...)
+	 */
+	public final static int NON_PRATICABLE=0;
+	
+	/**
+	 * 1: si le hero peux etre positionner sur la case
+	 */
+	public final static int PRATICABLE=1;
+	
 	/**
 	 * Definira la dimmension de notre map
 	 * 
@@ -37,20 +53,7 @@ public class PlateaudeJeu {
 	private int[][] map;
 
 	
-	// FIXME déplacer les définitions des constantes avant celles des attributs
-	/**
-	 * Valeurs des cases
-	 * A voi rsi on les geres avec un booleen ou pas
-	 * 
-	 * 0: si le hero ne peux pas etre possitionner sur la case
-	 *  un autre objet est deja dessus (PNJ,decor,...)
-	 */
-	public final static int NON_PRATICABLE=0;
-	
-	/**
-	 * 1: si le hero peux etre positionner sur la case
-	 */
-	public final static int PRATICABLE=1;
+
 
 	
 
@@ -64,8 +67,6 @@ public class PlateaudeJeu {
 	 * 
 	 *  exception: La casse du boss final est praticable mais elle declenche un combat
 	 * 
-	 * int i correspond aux abscisse
-	 * int j correspond aux oordonne
 	 */
 	public PlateaudeJeu(){
 		this.map= new int[LONGUEUR] [LONGUEUR];
@@ -78,8 +79,11 @@ public class PlateaudeJeu {
 	}
 	
 	
-	// FIXME compléter le commentaire
+	// FIXME compléter le commentaire(FIXED)
 	/**
+	 * Methode retournant la valeur de la case
+	 * - 1 si elle est praticable 
+	 * - 0 si un pnj ou un objet est poser dessus
 	 * @param x Abscisse sur la map
 	 * @param y Oordonnes sur la map
 	 * @return la valeur de la case 1 si elle est praticable 0 si un pnj ou un objet est poser dessus
@@ -89,14 +93,22 @@ public class PlateaudeJeu {
 	
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME compléter le commentaire(FIXED)
 	/**
+	 * Methode permettant de changer la valeur de la case
+	 * - si PRATICABLE on la change par NON_PRATICABLE
+	 * - si NON_PRATICABLE on la change par PRATICABLE
 	 * @param x Abscisse sur la map
 	 * @param y Oordonnes sur la map
 	 * @param Val La nouvel valeur de la case voir si on remplace cette valeur par un booleen ou pas
 	 */
-	public void setCase(int x, int y, int Val){
-		this.map[x][y]=Val;
+	public void setCase(int x, int y){
+		if(this.map[x][y]==NON_PRATICABLE){
+			this.map[x][y]=PRATICABLE;
+		}
+		else{
+			this.map[x][y]=NON_PRATICABLE;
+		}
 	}
 
 

@@ -1,15 +1,16 @@
 package fr.iutvalence.java.projets.rpg;
 
 
-// FIXME essayer d'écrire correctement (quand même)
+// FIXME essayer d'écrire correctement (quand même)(FIXED)
 /**
  * 
  *
- *Un PNJ (personnage non-joueur) sont capable soit de parler quand le heros les sollicite
- *soit de vendre des items avec l'extensions PNJVendeur
+ *Un PNJ (personnage non-joueur) est capable
+ *soit de parler quand le heros le sollicite
+ *soit de vendre de items avec l'extensions PNJVendeur
  *
- *Il aideront le hero a comprendre le contexte/l'histoire/probleme dans lequelle il se situe
- *et le guideras dans sa quetes
+ *Ils aideront le hero a comprendre le contexte/l'histoire/probleme dans lequelle il se situe
+ *et le guideront dans sa quetes
  *
  *@author goncalvs
  *
@@ -76,7 +77,7 @@ public class PNJ {
 	 * 
 	 */
 	// FIXME respecter les conventions d'écriture
-	public int getPos_x_pnj() {
+	public int getPosxpnj() {
 		return pos_x_pnj;
 	}
 
@@ -89,7 +90,7 @@ public class PNJ {
 	 * 
 	 */
 	// FIXME respecter les conventions d'écriture
-	public int getPos_y_pnj() {
+	public int getPosypnj() {
 		return pos_y_pnj;
 	}
 

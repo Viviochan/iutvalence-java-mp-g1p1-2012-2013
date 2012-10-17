@@ -11,50 +11,50 @@ package fr.iutvalence.java.projets.rpg;
  *
  */
 // FIXME respecter les conventions d'écriture
-public enum type_item {
+public enum typeitem {
 	/**
 	 * Definie le type d'objet: soin
 	 * Augmente/Redonne les hp de la valeur bonus_item
 	 */
 	//FIXME respecter les conventions d'écriture
-	objet_de_soin,
+	objetdesoin,
 	/**
 	 * Definie le type d'objet: recup
 	 * Augmente/Redonne les mp de la valeur bonus_item
 	 */
 	//FIXME respecter les conventions d'écriture
-	objet_de_recup,
+	objetderecup,
 	/**
 	 * FIXME respecter les conventions d'écriture
 	 * Definie le type d'objet: soutien
 	 * Augmente/Redonne les ' ' de la valeur bonus_item
 	 */
 	//FIXME respecter les conventions d'écriture
-	objet_de_soutien,
+	objetdesoutien,
 	/**
 	 *Definie le type d'objet: equipement poru la tete
 	 * Augmente la defense du hero de la valeur bonus_item 
 	 */
 	//FIXME respecter les conventions d'écriture
-	equipement_tete,
+	equipementtete,
 	/**
 	 * Definie le type d'objet: equipement pour le bras
 	 * Augmente la defense du hero de la valeur bonus_item
 	 */
 	//FIXME respecter les conventions d'écriture
-	equipement_bras,
+	equipementbras,
 	/**
 	 * Definie le type d'objet: equipement pour le corps/buste
 	 * Augmente la defense du hero de la valeur bonus_item
 	 */
 	//FIXME respecter les conventions d'écriture
-	equipement_corps,
+	equipementcorps,
 	/**
 	 * Definie le type d'objet: equipement pour le pied
 	 * Augmente la defense du hero de la valeur bonus_item
 	 */
 	//FIXME respecter les conventions d'écriture
-	equipement_pied,
+	equipementpied,
 	/**
 	 * Definie le type d'objet: arme
 	 * Augmente l'attaque du hero de la valeur bonus_item
@@ -69,3 +69,5 @@ public enum type_item {
 	bouclier;
 
 }
+
+

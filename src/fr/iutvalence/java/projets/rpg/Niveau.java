@@ -9,9 +9,18 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Niveau{
 	
+	// FIXME visibilité
+	final static int NIVEAU_DEPART=1;
+	
+	/**
+	 * Niveau d'xp au debut de l'aventure
+	 */
+	// FIXME visibilité
+	final static int XP_DEPART=0;
+	
 	// FIXME essayer d'écrire sans faute d'orrhographe (merci)
 	/**
-	 * numeros du level atteins
+	 * numero du level atteint
 	 */
 	// FIXME respecter les conventions d'écriture
 	private int numlvl;
@@ -21,21 +30,14 @@ public class Niveau{
 	 * xp necessaire pour atteindre le lvl
 	 */
 	// FIXME respecter les conventions d'écriture
-	private  int taux_xp;
+	private  int tauxxp;
 	
 	/**
 	 * Niveau de base du Jeu
 	 * Toute aventure commence au niveau 1
 	 */
 
-	// FIXME visibilité
-	final static int NIVEAU_DEPART=1;
-	
-	/**
-	 * Niveau d'xp au debut de l'aventure
-	 */
-	// FIXME visibilité
-	final static int XP_DEPART=0;
+
 
 
 	/**
@@ -43,7 +45,7 @@ public class Niveau{
 	 */
 	public Niveau(){
 		this.numlvl=NIVEAU_DEPART;
-		this.taux_xp=XP_DEPART;
+		this.tauxxp=XP_DEPART;
 	}
 	
 
@@ -54,7 +56,7 @@ public class Niveau{
 	 */
 	public Niveau(int num, int taux){
 		this.numlvl=num;
-		this.taux_xp=taux;
+		this.tauxxp=taux;
 	}
 	
 
@@ -62,7 +64,7 @@ public class Niveau{
 	/**
 	 * retourne le niveau
 	 * 
-	 * @return taux_xp
+	 * @return numlvl
 	 */
 	public int getNiveau(){
 		return this.numlvl;
@@ -73,10 +75,10 @@ public class Niveau{
 	/**
 	 * retourne le taux xp necessaire au niveau
 	 * 
-	 * @return numlvl
+	 * @return tauxxp
 	 */
 	public int getTaux(){
-		return this.taux_xp;
+		return this.tauxxp;
 	}
 	
 }

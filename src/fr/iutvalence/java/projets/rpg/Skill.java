@@ -8,32 +8,8 @@ package fr.iutvalence.java.projets.rpg;
 public class Skill {
 	
 	
-	/**
-	 * Nom du skill
-	 */
-	private String nom;
-
-	/**
-	 * niveau pour debloquer la competence
-	 */
-	private int lvl;
 	
 	
-
-	/**
-	 * Cout en point de mana de la competence
-	 */
-	// FIXME respecter les conventions d'écriture 
-	private int cout_pm;
-	
-
-	/**
-	 * Effet du skill
-	 */
-	private String effet;
-	
-	// FIXME déplacer les définitions des constantes avant celles des attributs
-
 	
 	/**
 	 * Nom de la competence par defaut
@@ -59,6 +35,33 @@ public class Skill {
 	// FIXME visibilité
 	final static String EFF_COMPT_BASE="regenere les pv de 30pts";
 	
+	/**
+	 * Nom du skill
+	 */
+	private String nom;
+
+	/**
+	 * niveau pour debloquer la competence
+	 */
+	private int lvl;
+	
+	
+
+	/**
+	 * Cout en point de mana de la competence
+	 */
+	// FIXME respecter les conventions d'écriture (FIXED)
+	private int coutpm;
+	
+
+	/**
+	 * Effet du skill
+	 */
+	private String effet;
+	
+	// FIXME déplacer les définitions des constantes avant celles des attributs(FIXED)
+
+
 	
 	/**
 	 * Constructeur
@@ -72,7 +75,7 @@ public class Skill {
 	public Skill(String s, int n,int  pm,String nomEff){
 		this.nom= s;
 		this.lvl= n;
-		this.cout_pm= pm;
+		this.coutpm= pm;
 		this.effet= nomEff;
 		}
 	
@@ -83,7 +86,7 @@ public class Skill {
 	public Skill(){
 		this.nom= NOM_DEFAUT;
 		this.lvl=NIV_COMT_BASE;
-		this.cout_pm= COUT_COMPT_BASE;
+		this.coutpm= COUT_COMPT_BASE;
 		this.effet= EFF_COMPT_BASE;
 	}
 
@@ -111,9 +114,9 @@ public class Skill {
 	 * retourne le cout en point de mana de la competence
 	 * @return cout_pm
 	 */
-	// FIXME Respecter les conventions d'écriture
-	public int getCout_pm() {
-		return cout_pm;
+	// FIXME Respecter les conventions d'écriture(FIXED)
+	public int getCoutpm() {
+		return coutpm;
 	}
 
 
