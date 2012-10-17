@@ -80,7 +80,7 @@ public class Aventure {
 		this.perso= new Hero();
 		this.demon= new Boss();
 		int error_code=level();
-		if(error_code!=1) System.out.println("Le Tableau de niveau ne c'ets pas generer convenablement" ); 		
+		if(error_code!=1) System.out.println("Le Tableau de niveau ne c'est pas generer convenablement" ); 		
 	}
 	
 	// FIXME corriger le commentaire (la méthode n'est pas un tableau), c'est trop ambigü pour être compris

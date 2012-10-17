@@ -79,8 +79,12 @@ public class Boss extends Monstre {
 		}
 
 
+		/**
+		 * Donne la position du boss
+		 * @return posboss
+		 */
 		public Position getpossboss(){
-			return this.posboss.getX(),this.posboss.getY();
+			return this.posboss;
 		}
 		
 		// FIXME redéfinir toString

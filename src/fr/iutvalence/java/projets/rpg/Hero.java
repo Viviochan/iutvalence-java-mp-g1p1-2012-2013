@@ -312,13 +312,15 @@ public class Hero {
 	 * @return (this.posheros.getX(),this.posheros.getY())
 	 */
 	public Position getPosheros() {
-		return (this.posheros.getX(),this.posheros.getY());
+		return this.posheros;
 	}
 
 
 	/**
 	 * change la position du heros
-	 * @param posheros
+	 * @param x Nouvelle abscisse
+	 * @param y Nouvelles Ordonnees
+	 * 
 	 */
 	public void setPosheros(int x, int y) {
 		this.posheros.setX(x);
