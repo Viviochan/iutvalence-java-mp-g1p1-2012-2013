@@ -1,4 +1,6 @@
 // FIXME déplacer dans un autre paquetage
+
+// FIXME la classe partie ne doit pas contenir de main.
 package fr.iutvalence.java.projets.rpg;
 
 /**

@@ -17,6 +17,7 @@ public class Position {
 	 */
 	private int y;
 	
+	// FIXME compléter le commentaire (balises)
 	
 	/**
 	 * Construit la position d'abscisse xd et d'ordonnees yd mais si xd ou yd depasse la LONGUEUR du tableau

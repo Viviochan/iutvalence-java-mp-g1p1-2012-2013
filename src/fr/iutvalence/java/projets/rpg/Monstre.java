@@ -12,25 +12,21 @@ public class Monstre {
 	/**
 	 * Nom du monstre creer par defaut
 	 */
-	// FIXME visibilité
 	public final static String NOM_MOB="Slim";
 	
 	/**
 	 * Niveau de vie du monstre par defaut
 	 */
-	// FIXME visibilité
 	public final static int HP_MOB=10;
 	
 	/**
 	 * attaque et defense du monstre par defaut
 	 */
-	// FIXME visibilité
 	public final static int ATT_DEF_MOB=5;
 	
 	/**
 	 * or et xp donner par le monstre par defaut
 	 */
-	// FIXME visibilité
 	public final static int OR_XP_MOB=3;
 	
 	
@@ -77,9 +73,6 @@ public class Monstre {
 	// FIXME respecter les conventions d'écriture
 	private int ormonstre;
 
-	
-	
-
 
 
 	// FIXME corriger le commentaire
@@ -123,10 +116,6 @@ public class Monstre {
 		
 	}
 	
-	// FIXME corriger le commentaire
-	/**
-	* Accesseur
-	*/
 	/**
 	 * retourne le nom du monstre
 	* @return  le nom du monstre
@@ -136,7 +125,6 @@ public class Monstre {
 		return this.nommonstre;
 	}
 	
-	// FIXME compléter le commentaire
 	/**
 	 * retourne les point de vie du monstre
 	 * @return les point de vie du monstre
@@ -146,7 +134,6 @@ public class Monstre {
 		return this.hpmonstre;
 	}
 	
-	// FIXME compléter le commentaire
 	/**
 	 * retourne l'attaque du monstre
 	 * @return l'attaque du monstre nous permettant plus loin le calcul des degats et diminution de degats
@@ -156,7 +143,6 @@ public class Monstre {
 		return this.attaquemonstre;
 	}
 	
-	// FIXME compléter le commentaire
 	/**
 	 * retourne la defense du monstre
 	 * @return la defense du monstre nous permettant plus loin le calcul des degats et diminution de degats
@@ -166,7 +152,6 @@ public class Monstre {
 		return this.defensemonstre;
 	}
 	
-	// FIXME compléter le commentaire
 	/**
 	 * retourne la quantite d'or porter par le monstre
 	 * @return l'or porter par le monstre que le heros pourra ajouter a sa bourse
@@ -175,7 +160,6 @@ public class Monstre {
 	public int getOrmonstre(){
 		return this.ormonstre;
 	}
-	// FIXME compléter le commentaire
 	
 	/**
 	 * retourne le taux d'xp donner par le monstre

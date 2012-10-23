@@ -9,71 +9,58 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Hero {
 	
-
-	
-	// FIXME (FIXED)regrouper les définitions des constantes (avant celles des attributs)
-	
 	
 	/**
 	 * Point d'abscisse de depart
 	 */
-	// FIXME (FIXED)indiquer une visibilité
 	public final static int ABSCISSE_DEFAUT=10;
 
 	/**
 	 * Point d'oordonne de depart
 	 */
-	// FIXME (FIXED)indiquer une visibilité
 	public final static int ORDONNE_DEFAUT=5;
 	
 	/**
 	 * Niveau de vie du hero au depart
 	 */
-	// FIXME (FIXED) indiquer une visibilité
 	public final static int HP_HERO=35;
 	
 	/**
 	 * Niveau de mana du hero au depart
 	 */
-	// FIXME (FIXED)indiquer une visibilité
 	public final static int MP_HERO=6;
 	
 	/**
 	 * Niveau d'attaque et de defense au depart
 	 */
-	// FIXME (FIXED)indiquer une visibilité
 	public final static int ATT_DEF_HERO=30;
 	
 	/**
 	 * Niveau de depart du jeu
 	 */
-	// FIXME (FIXED)indiquer une visibilité
 	public final static int NIV_BASE=1;
 	
 	/**
 	 * Xp au depart. Au debut de l'aventure le nombre d'xp est a 0
 	 */
-	// FIXME (FIXED)indiquer une visibilité
 	public final static int XP_BASE=0;
 	
 	/**
 	 * Niveau d'or au depart
 	 */
-	// FIXME (FIXED) indiquer une visibilité
 	public final static int OR_BASE=500;
 	
-	// FIXME (FIXED)placer les définitions des constantes avant celles des attributs
 	/**
 	 * Nom par defaut du Heros
 	 */
 	public final static String NOMHERO="Vivio";
-	
+
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * Definie la position du hero sur le plateaudejeu
 	 */
 	private Position posheros;
 
-	// FIXME corriger le commentaire (on ne doit pas dire qui fixe la valeur)(FIXED)
 	/**
 	 * Nom du hero
 	 */
@@ -106,6 +93,7 @@ public class Hero {
 	private int defense;
 	
 
+	// FIXME respecter les conventions d'écriture
 	/**
 	 * Niveau du heros.
 	 */
@@ -125,9 +113,6 @@ public class Hero {
 	 */
 	private int or;
 	
-
-
-	// FIXME compléter le commentaire (indiquer dans quel étate est l'objet créé)
 	/**
 	 * Initialise le heros sans specifier de nom
 	 * 
@@ -156,7 +141,7 @@ public class Hero {
 	}
 	
 
-	// FIXME corriger le commentaire (indiquer dans quel étate est l'objet créé)
+	// FIXME compléter le commentaire (documenter @throws)
 	/**
 	 * Initialisation a partir du constructeur par defaut 
 	 * @param s  Nom du heros
@@ -170,9 +155,8 @@ public class Hero {
 	}
 
 
-	// FIXME compléter le commentaire
 	/**
-	 * retounre le nombre d'xp du hero
+	 * retourne le nombre d'xp du hero
 	 * @return l'xp que possede le hero
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -190,12 +174,10 @@ public class Hero {
 		this.nbxp = nbxp+exp;
 	}
 
-	// FIXME compléter le commentaire
 	/**
 	 * Retourne la quantite d'or que le hero possede
 	 * @return or Donne l'or que le hero porte
 	 */
-	// FIXME respecter les conventions d'écriture
 	public int getOrHero() {
 		return or;
 	}
@@ -210,7 +192,6 @@ public class Hero {
 		this.or = this.or+piece;
 	}
 	
-	// FIXME respecter les conventions d'écriture
 	/**
 	 * Retourne le niveau actuel du hero
 	 * @return niveauheros Donne le niveau actuel du Hero
@@ -236,7 +217,6 @@ public class Hero {
 		return nomduheros;
 	}
 
-	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * Modifie le nom du hero
 	 * @param s Change le nom du hero
@@ -246,20 +226,19 @@ public class Hero {
 		this.nomduheros = s;
 	}
 
-	// FIXME (FIXED)compléter le commentaire
+	
 	/**
-	 * retourne les point de vie du hero
-	 * @return pointdevie
+	 * retourne les points de vie du hero
+	 * @return les points de vie du hero
 	 */
 	// FIXME respecter les conventions d'écriture
 	public int getPointdevie() {
 		return pointdevie;
 	}
 
-	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * modifie les point de vie du hero
-	 * @param pdv
+	 * @param pdv les point de vie du hero
 	 */
 	// FIXME respecter les conventions d'écriture
 	public void setPointdevie(int pdv) {
@@ -275,10 +254,9 @@ public class Hero {
 		return pointdemana;
 	}
 
-	// FIXME (FIXED)compléter le commentaire
 	/**
-	 * Retourne les point de mana du hero
-	 * @param pdm
+	 * Retourne les points de mana du hero
+	 * @param les points de mana du hero
 	 */
 	// FIXME respecter les conventions d'écriture
 	public void setPointdemana(int pdm) {
@@ -287,17 +265,16 @@ public class Hero {
 	
 	/**
 	 * Le niveau d'attaque du heros
-	 * @return attaque
+	 * @return le niveau d'attaque du heros
 	 * 
 	 */
 	public int getAttaque() {
 		return attaque;
 	}
 
-	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * Augemente l'attaque du hero
-	 * @param att
+	 * @param l'attaque du hero
 	 * 
 	 */
 	public void setAttaque(int att) {
@@ -307,17 +284,16 @@ public class Hero {
 	
 	/**
 	 * Le niveau de defense du heros
-	 * @return defense
+	 * @return le niveau de defense du heros
 	 * 
 	 */
 	public int getDefense() {
 		return defense;
 	}
 
-	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * Augmente le niveau de defense du hero
-	 * @param def
+	 * @param def le niveau de defense du hero
 	 * 
 	 */
 	public void setDefense(int def) {
@@ -329,11 +305,13 @@ public class Hero {
 	 * Donne la position du hero
 	 * @return (this.posheros.getX(),this.posheros.getY())
 	 */
+	// FIXME respecter les conventions d'écriture
 	public Position getPosheros() {
 		return this.posheros;
 	}
 
 
+	// FIXME compléter le commentaire
 	/**
 	 * change la position du heros
 	 * @param x Nouvelle abscisse
@@ -341,6 +319,7 @@ public class Hero {
 	 * @throws CoordonneesInvalideException 
 	 * 
 	 */
+	// FIXME respecter les conventions d'écriture
 	public void setPosheros(int x, int y) throws CoordonneesInvalideException {
 		this.posheros.setX(x);
 		this.posheros.setY(y);
@@ -352,6 +331,7 @@ public class Hero {
 	 * 
 	 * 
 	 */
+	// FIXME respecter les conventions d'écriture
 	public void setPosshero(Position p){
 		this.posheros=p;
 	}

@@ -63,7 +63,7 @@ public class Item {
 	// FIXME respecter les conventions d'écriture
 	private int prixitem;
 	
-	// FISME corriger le commentaire (parler de fichier texte n'a pas de sens ici)
+	// FIXME corriger le commentaire (parler de fichier texte n'a pas de sens ici)
 	/**
 	 * Constructeur
 	 * 
@@ -85,10 +85,9 @@ public class Item {
 		
 	}
 	
-	// FIXME corriger le commentaire
 	/**
 	 * Retourne le nom de l item
-	* @return nomitem
+	* @return le nom de l item
 	*  
 	*/
 	// FIXME respecter les conventions d'écriture
@@ -99,7 +98,7 @@ public class Item {
 
 	/**
 	 * retourne le type de l item
-	 * @return type_item
+	 * @return le type de l item
 	 * 	 
 	 */
 	//a completer quand la class typeitem sera complete
@@ -111,7 +110,7 @@ public class Item {
 
 	/**
 	 * Retourne le bonus de l item
-	 * @return bonus_item
+	 * @return le bonus de l item
 	 */
 	// FIXME respecter les conventions d'écriture
 	public int getBonusitem() {
@@ -122,7 +121,7 @@ public class Item {
 
 	/**
 	 * retourne la valeur de l item
-	 * @return val_item
+	 * @return  la valeur de l item
 	 */
 	// FIXME respecter les conventions d'écriture
 	public int getValitem() {
@@ -132,13 +131,14 @@ public class Item {
 
 	/**
 	 * retourne le prix de l item
-	 * @return prix_item
+	 * @return le prix de l item
 	 */
 	// FIXME respecter les conventions d'écriture
 	public int getPrixitem() {
 		return this.prixitem;
 	}
 
+	// FIXME cette méthode est déjà défénie plus haut !
 	/**
 	 * donne le type de l'item
 	 * @return typeitem

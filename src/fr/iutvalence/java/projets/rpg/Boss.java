@@ -1,88 +1,72 @@
 package fr.iutvalence.java.projets.rpg;
 
-
-// FIXME (FIXED)corriger le commentaire (ne pas utiliser le commentaire Javadoc pour indiquer comment on va faire évoluer la classe par la suite)
 /**
- * Boss/Monstre final du jeu 
- *
- *@author goncalvs
+ * Boss/Monstre final du jeu
+ * 
+ * @author goncalvs
  */
 public class Boss extends Monstre {
 
 	/**
-	 * Constantes de construction du boss
-	 */
-	/**
 	 * Nom du boss
 	 */
-	// FIXME (FIXED)indiquer une visibilité
-	public final static String NOM_BOSS="Dragon Lord";
-	
-	// FIXME (FIXED)indiquer une visibilité
+	public final static String NOM_BOSS = "Dragon Lord";
+
 	/**
 	 * Abscisse du boss sur la map
 	 */
-	public final static int ABSCISSE_BOSS=500;
-	
-	// FIXME (FIXED)indiquer une visibilité
+	public final static int ABSCISSE_BOSS = 500;
+
 	/**
 	 * Ordonnee du boss sur la map
 	 */
 	// FIXME renommer la constante
-	public final static int OORDONNE_BOSS=1000;
-	
+	public final static int OORDONNE_BOSS = 1000;
+
 	/**
 	 * Points de vie du boss
 	 */
-	public final static int HP_BOSS=350;
-	
+	public final static int HP_BOSS = 350;
+
 	/**
 	 * Niveau d'attaque et de defense du boss
 	 */
-	public final static int ATT_DEF_BOSS=110;
-	
+	public final static int ATT_DEF_BOSS = 110;
+
 	/**
 	 * Niveau d'or et d'xp donner par le boss
 	 */
-	public final static int OR_XP_BOSS=0;
-	
+	public final static int OR_XP_BOSS = 0;
+
 	/**
 	 * Position du boss sur le plateau de jeu
 	 */
 	private Position posboss;
-		
-		
 
-		
-		
-		/**
-		 * Construction du Boss par rapport aux constructeurs de monstre
-		 * nom:Lord Dragon
-		 * point de vie:350
-		 * attaque:110
-		 * defense:110
-		 * or:0
-		 * xp:0
-		 * Un seul et unique boss sera inclus dans le jeu
-		 * On integrera des sous boss pris dans la base de monstre
-		 * @throws CoordonneesInvalideException 
-		 */
-		public Boss() throws CoordonneesInvalideException{
-			super(NOM_BOSS,HP_BOSS,ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS, OR_XP_BOSS);
-			this.posboss= new Position(ABSCISSE_BOSS, OORDONNE_BOSS);
+	/**
+	 * Construction du Boss par rapport aux constructeurs de monstre nom:Lord
+	 * Dragon point de vie:350 attaque:110 defense:110 or:0 xp:0 Un seul et
+	 * unique boss sera inclus dans le jeu On integrera des sous boss pris dans
+	 * la base de monstre
+	 * 
+	 * @throws CoordonneesInvalideException
+	 */
+	public Boss() throws CoordonneesInvalideException {
+		super(NOM_BOSS, HP_BOSS, ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS,
+				OR_XP_BOSS);
+		this.posboss = new Position(ABSCISSE_BOSS, OORDONNE_BOSS);
 
-			
-			
-		}
+	}
 
+	// FIXME renommer la méthode en respectant les conventions d'écriture
+	/**
+	 * Donne la position du boss
+	 * 
+	 * @return posboss
+	 */
+	public Position getpossboss() {
+		return this.posboss;
+	}
 
-		/**
-		 * Donne la position du boss
-		 * @return posboss
-		 */
-		public Position getpossboss(){
-			return this.posboss;
-		}
-		
-		// FIXME redéfinir toString
+	// FIXME redéfinir toString
 }

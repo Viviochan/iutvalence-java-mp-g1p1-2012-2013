@@ -1,7 +1,6 @@
 package fr.iutvalence.java.projets.rpg;
 
 
-// FIXME essayer d'écrire correctement (quand même)(FIXED)
 /**
  * 
  *
@@ -9,15 +8,15 @@ package fr.iutvalence.java.projets.rpg;
  *soit de parler quand le heros le sollicite
  *soit de vendre de items avec l'extensions PNJVendeur
  *
- *Ils aideront le hero a comprendre le contexte/l'histoire/probleme dans lequelle il se situe
- *et le guideront dans sa quetes
+ *Ils aideront le hero a comprendre le contexte/l'histoire/probleme dans lequel il se situe
+ *et le guideront dans sa quete
  *
  *@author goncalvs
  *
  */
 public class PNJ {
 	
-	// FIXME regrouper abscisse et ordonnée dans une classe "Position"
+	// FIXME se servir du type Position
 
 	/**
 	 * Abscisse du pnj

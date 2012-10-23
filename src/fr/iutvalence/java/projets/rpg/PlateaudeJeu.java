@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.rpg;
 
 
+// FIXME compléter le commentaire
 /**
  * @author goncalvs
  *
@@ -8,7 +9,6 @@ package fr.iutvalence.java.projets.rpg;
 public class PlateaudeJeu {
 	
 	
-	// FIXME déplacer les définitions des constantes avant celles des attributs
 	/**
 	 * Valeurs des cases
 	 * A voi rsi on les geres avec un booleen ou pas
@@ -53,13 +53,6 @@ public class PlateaudeJeu {
 	private int[][] map;
 
 	
-
-
-	
-
-
-	
-	// FIXME corriger le commentaire (ne pas dire à quoi servent les variables locales !!)
 	/**
 	 * Constructeurs
 	 * On construit un plateau et on rend toutes les cases praticables pour le hero
@@ -79,7 +72,6 @@ public class PlateaudeJeu {
 	}
 	
 	
-	// FIXME compléter le commentaire(FIXED)
 	/**
 	 * Methode retournant la valeur de la case
 	 * - 1 si elle est praticable 
@@ -93,7 +85,6 @@ public class PlateaudeJeu {
 	
 	}
 
-	// FIXME compléter le commentaire(FIXED)
 	/**
 	 * Methode permettant de changer la valeur de la case
 	 * - si PRATICABLE on la change par NON_PRATICABLE
@@ -110,6 +101,9 @@ public class PlateaudeJeu {
 			this.map[x][y]=NON_PRATICABLE;
 		}
 	}
+	
+	
+	// FIXME redéfinir toString pour obtenir une représentation en ascii-art du plateau (et tester)
 
 
 }

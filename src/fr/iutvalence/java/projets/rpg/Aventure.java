@@ -12,7 +12,6 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Aventure {
 	
-	// FIXME regrouper les définitions de constantes (avant les attributs)(FIXED)
 	/**
 	 * Le niveau maximal que le heros pourra atteindre
 	 */
@@ -26,13 +25,11 @@ public class Aventure {
 	 */
 	public PlateaudeJeu carte;
 	
-
 	/**
 	 * Le Hero de notre aventure
 	 */
 	public Hero perso;
 	
-
 	/**
 	 *Boss de l'aventure
 	 */
@@ -49,20 +46,17 @@ public class Aventure {
 	 * On la consultera pour chaque combat pour definir qui affronte le hero
 	 */
 	// FIXME respecter les conventions d'écriture
-	// FIXME renommer l'attribut (il y a plusieurs monstres)
 	public Monstre[] TabMonstres;
 	
 	/**
 	 * Tableau des niveaux du jeu
 	 */
-	// FIXME renommer l'attribut (il y a plusieurs niveaux)
 	public Niveau[] levels;
 	
 	
 	/**
 	 * Tableau des competence du Jeu
 	 */
-	// FIXME renommer l'attribut (il y a plusieurs compétences)
 	public Skill[] competences;
 	
 	
@@ -75,7 +69,7 @@ public class Aventure {
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
 	 * @throws CoordonneesInvalideException 
 	 */
-	// FIXME (FIXED)(non résolu) gérer les erreurs en utilisant des exceptions
+	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions (à discuter !)
 	public Aventure() throws CoordonneesInvalideException { 
 		this.carte= new PlateaudeJeu();
 		this.perso= new Hero();
@@ -83,8 +77,8 @@ public class Aventure {
 		level();
 	}
 	
-	// FIXME (FIXED)corriger le commentaire (la méthode n'est pas un tableau), c'est trop ambigü pour être compris
-	// FIXME génerer la javadoc au moins une fois pour voir là où ça ne colle pas
+	
+	// FIXME cette méthode doit-elle être publique ?
 	/**
 	 * construis et remplie le tableau de niveaux avec leur taux d'xp respectif
 	 * 
@@ -97,6 +91,7 @@ public class Aventure {
 		this.levels[0]=new Niveau(0,0);
 		this.levels[1]=new Niveau();
 		for (i=2;i<NIVEAU_MAX;i++){
+			// FIXME à quoi correspond la valeur 99 ?
 			for (i=2;i<99;i++){
 				this.levels[i]= new Niveau(i,xp);
 				xp=(int) (xp + Math.floor(0.75*xp));
@@ -125,7 +120,7 @@ public class Aventure {
 		
 	}
 
-	// FIXME (FIXED)corriger/compléter le commentaire
+	// FIXME (non résolu) corriger/compléter le commentaire (à discuter)
 	/**
 	 * Modifie la position du hero
 	 * @param xarr 
@@ -134,7 +129,7 @@ public class Aventure {
 	 * @return Posheros
 	 * @throws CoordonneesInvalideException 
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture (nom méthode, paramètres)
+	// FIXME (non résolu) respecter les conventions d'écriture (nom méthode)
 	// FIXME (FIXED)gérer les erreurs avec des exceptions
 	public Position DeplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException{
 		if((xarr>PlateaudeJeu.LONGUEUR)||(xarr>PlateaudeJeu.LONGUEUR)){
@@ -154,6 +149,8 @@ public class Aventure {
 		return this.perso.getPosheros();
 	}
 	
+	
+	// FIXME compléter le commentaire (à discuter)
 	/**
 	 * Gere le deplacement du hero a partir d'une direction donnee
 	 * @param dir Une direction (GAUCHE,DROITE,HAUT,BAS)
@@ -164,7 +161,6 @@ public class Aventure {
 	 * @throws DirectionInvalideException 
 	 * @throws CoordonneesInvalideException 
 	 */
-	// FIXME (FIXED) gérer les erreurs avec des exceptions
 	public Position DeplacementHeros(int dir) throws DirectionInvalideException, CoordonneesInvalideException {
 		Position poshero= this.perso.getPosheros();
 		if(dir!=Direction.BAS){
