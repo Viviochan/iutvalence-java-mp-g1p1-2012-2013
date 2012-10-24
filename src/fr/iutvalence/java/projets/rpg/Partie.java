@@ -9,23 +9,17 @@ package fr.iutvalence.java.projets.rpg;
  * reste vide pour le moment elle permettra de faire certains test le moment voulue
  * 
  * @author goncalvs
- *
+ * 
  */
-public class Partie {
-	
-	
+public class Partie
+{
+
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		
+	public static void main(String[] args)
+	{
+
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

@@ -5,7 +5,8 @@ package fr.iutvalence.java.projets.rpg;
  * 
  * @author goncalvs
  */
-public class Boss extends Monstre {
+public class Boss extends Monstre
+{
 
 	/**
 	 * Nom du boss
@@ -44,16 +45,15 @@ public class Boss extends Monstre {
 	private Position posboss;
 
 	/**
-	 * Construction du Boss par rapport aux constructeurs de monstre nom:Lord
-	 * Dragon point de vie:350 attaque:110 defense:110 or:0 xp:0 Un seul et
-	 * unique boss sera inclus dans le jeu On integrera des sous boss pris dans
-	 * la base de monstre
+	 * Construction du Boss par rapport aux constructeurs de monstre nom:Lord Dragon point de vie:350 attaque:110
+	 * defense:110 or:0 xp:0 Un seul et unique boss sera inclus dans le jeu On integrera des sous boss pris dans la base
+	 * de monstre
 	 * 
 	 * @throws CoordonneesInvalideException
 	 */
-	public Boss() throws CoordonneesInvalideException {
-		super(NOM_BOSS, HP_BOSS, ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS,
-				OR_XP_BOSS);
+	public Boss() throws CoordonneesInvalideException
+	{
+		super(NOM_BOSS, HP_BOSS, ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS, OR_XP_BOSS);
 		this.posboss = new Position(ABSCISSE_BOSS, OORDONNE_BOSS);
 
 	}
@@ -64,7 +64,8 @@ public class Boss extends Monstre {
 	 * 
 	 * @return posboss
 	 */
-	public Position getpossboss() {
+	public Position getpossboss()
+	{
 		return this.posboss;
 	}
 
