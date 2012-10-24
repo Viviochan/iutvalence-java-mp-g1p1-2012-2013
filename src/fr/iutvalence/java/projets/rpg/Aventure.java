@@ -35,6 +35,13 @@ public class Aventure
 	 * il est de 2 qui correspond a 20%
 	 */
 	public final static int TAUX_RENCONTRE=2;
+	
+	/**
+	 * Le nombre d items maximal que l on peut porter sur soi
+	 */
+	public final static int CAPACITE_INVENTAIRE=20;
+	
+	
 	// FIXME (FIXED)écrire plus simplement le commentaire (à discuter)
 	/**
 	 * La carte du jeu
@@ -70,6 +77,11 @@ public class Aventure
 	public Monstre ennemi;
 	
 	/**
+	 * booleen permettant de differencier si le hero est en combat ou se deplace sur la carte
+	 */
+	public boolean modeCombat;
+	
+	/**
 	 * Tableau des niveaux du jeu
 	 */
 	public Niveau[] levels;
@@ -79,6 +91,11 @@ public class Aventure
 	 */
 	public Skill[] competences;
 
+	
+	/**
+	 * L inventaire du hero il  contiendras tous les items que celui-ci transporte
+	 */
+	public Item[] inventaire;
 
 	/**
 	 * Constructeur
@@ -96,6 +113,8 @@ public class Aventure
 		this.perso = new Hero();
 		this.demon = new Boss();
 		level();
+		TabMonstres();
+		this.modeCombat=false;
 	}
 
 	// FIXME cette méthode doit-elle être publique ?
@@ -150,10 +169,55 @@ public class Aventure
 
 	}
 	
+	/**
+	 * Methode permettent le remplissage du tableau de monstre en lisant la base de donnees a la table monstre
+	 * 
+	 * 
+	 * 
+	 * @return 0 si la table de monstre a ete bien lus et recopier
+	 */
+	public int TabMonstres(){
+		Monstre[] dataMonstre= new Monstre[NB_MAX_MONSTRE];
+		dataMonstre[0]= new Monstre();
+		dataMonstre[1]=new Monstre("SanguinisVache",13,12,6,4,7);
+		dataMonstre[2]=new Monstre("Vampivol",15,17,12,10,10);
+		dataMonstre[3]=new Monstre("GreenArrow",17,16,12,9,16);
+		dataMonstre[4]=new Monstre("SlimeRouge",19,23,18,20,22);
+		//dataMonstre[]=new Monstre();
+	this.tabMonstres=dataMonstre;
+	
+	return 0;
+	}
+	
+	/**
+	 * 
+	 */
+	public void initInventaire(){
+		Item[] sac= new Item[CAPACITE_INVENTAIRE];
+		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
+	}
 	
 
 	
-
+	/**
+	 * Methodes PNJ Placement du ou des pnj par defaut
+	 * 
+	 * 
+	 * 
+	 * @return 0
+	 */
+	public int placementPnj()
+	{
+		return 0;
+	}
+	
+	
+	
+	
 	// FIXME (non résolu) corriger/compléter le commentaire (à discuter)
 	/**
 	 * Modifie la position du hero
@@ -233,38 +297,8 @@ public class Aventure
 		return this.perso.getPosheros();
 	}
 
-	/**
-	 * Methodes PNJ Placement du ou des pnj par defaut
-	 * 
-	 * 
-	 * 
-	 * @return 0
-	 */
-	public int placementPnj()
-	{
-		return 0;
-	}
 
-	
-	/**
-	 * Methode permettent le remplissage du tableau de monstre en lisant la base de donnees a la table monstre
-	 * 
-	 * 
-	 * 
-	 * @return 0 si la table de monstre a ete bien lus et recopier
-	 */
-	public int TabMonstres(){
-		Monstre[] dataMonstre= new Monstre[NB_MAX_MONSTRE];
-		dataMonstre[0]= new Monstre();
-		dataMonstre[1]=new Monstre("SanguinisVache",13,12,6,4,7);
-		dataMonstre[2]=new Monstre("Vampivol",15,17,12,10,10);
-		dataMonstre[3]=new Monstre("GreenArrow",17,16,12,9,16);
-		dataMonstre[4]=new Monstre("SlimeRouge",19,23,18,20,22);
-		//dataMonstre[]=new Monstre();
-	this.tabMonstres=dataMonstre;
-	
-	return 0;
-	}
+
 	
 	
 	/**
@@ -278,6 +312,7 @@ public class Aventure
 		int nb = (int) (Math.random() * TAUX_MAX_RENCONTRE );
 		if (nb<=TAUX_RENCONTRE){
 			//on genere un combat
+			this.modeCombat=false;
 			Combat();
 		}
 		return 0;
@@ -286,9 +321,9 @@ public class Aventure
 	}
 	
 	/**
-	 * 
+	 * Methode gerant un combat avec un ennemi
 	 * @return string etat de la fin du combat 
-	 * @throws CoordonneesInvalideException 
+	 * @throws CoordonneesInvalideException  si le hero perd il est teleporter a une la position par defaut
 	 * 
 	 */
 	
@@ -298,7 +333,7 @@ public class Aventure
 	//on gere les differentes possibilites d action du perso et on adapte le calcul de dommage
 	public String Combat() throws CoordonneesInvalideException{
 		int hpcour=this.perso.getPointdevie();//niveau courantde point de vie si 0 perdue
-		int mpcour=this.perso.getPointdemana();//niveau courant de mp
+		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
 		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
 		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNommonstre(),this.tabMonstres[nbmonstre].getHpmonstre(),this.tabMonstres[nbmonstre].getAttmonstre(),this.tabMonstres[nbmonstre].getDefmonstre(),this.tabMonstres[nbmonstre].get_Xpmonstre(),this.tabMonstres[nbmonstre].getOrmonstre());
@@ -308,22 +343,35 @@ public class Aventure
 		while((hpcour>0)||(hpmob>0)||(chance==0)){
 			while(action==Action.rien){
 				//tant que le perso ne fais rien on attend
+				//gerer la modification de action en autre chose que rien
 			}
 				if(action==Action.Attaquer){
 					//Puissance = puissance d'attaque de A - (la défense de B ÷ 2)
-					hpmob=(hpmob-(this.perso.getAttaque()-(this.ennemi.getDefmonstre()/2)));
-					//gerer la reaction de l ennemie
+					if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
+					hpmob=(hpmob-(this.perso.getAttaque()-(this.ennemi.getDefmonstre()/2)));//attaque du hero
+					hpcour=(hpcour-(this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)));//attaque de l ennemi
+					
+					}
+					else{//l ennemie se defend la puissance dattaque diminue de moitie donc la perte de hp diminue aussi de moitie
+						hpmob=(hpmob-((this.perso.getAttaque()-(this.ennemi.getDefmonstre()/2)/2)));
+					}
 				}
 				if(action==Action.Defendre){
-					//gerer la reaction de l ennemie et sil attaque
-					hpcour=(hpcour-((this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)))/2);
+					if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
+						hpcour=(hpcour-((this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)))/2);
+					}
 				}
 				if(action==Action.fuite){
 					//on definit une methode fuite
-					chance= fuite();
+					chance=fuite();
+					if(chance==0){
+						if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
+							hpcour=(hpcour-(this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)));
+						}
+					}
 				}
 				if(action==Action.Inventaire){
-					//gestion des de linventaire a faire
+					//gestion des de linventaire a faire faire une methode de gestion d une action dans l inventaire
 				}
 				action=Action.rien;
 		}
@@ -338,24 +386,60 @@ public class Aventure
 			this.perso.setOrHero(this.perso.getOrHero()/2);
 		}
 		if(chance!=0){
-			//gerer labandont dun combat
+			//gerer l abandont dun combat
 		}
+		this.modeCombat=false;
 		return null;
 	
 	}
 
 	
 	/**
+	 * Methode determinant la chance de fuir un combat
 	 * @return int 
 	 */
 	public int fuite(){
 		int chancefuite = (int) (Math.random() * 6 );
 		if (chancefuite==0){
 			return 1;
-			
 		}
 		return 0;
 	}
+	
+	/**
+	 * Methode definisant le comportement de l ennemie en fonction de ces point de vie
+	 * 
+	 * @param hpmob  point de vie du moment au moment present
+	 * @param mob  type de monstre qui combat
+	 * @return une action produite
+	 */
+	public int IAmob(int hpmob, Monstre mob){
+		int tauxattdef = (int) (Math.random() * 10 );
+		if(hpmob>(mob.getHpmonstre()/2)){
+			if (tauxattdef>8){
+				return Action.Defendre;
+			}
+			return Action.Attaquer;
+		}
+		else{
+			if (tauxattdef>8){
+				return Action.Attaquer;
+			}
+			return Action.Defendre;
+		}
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
