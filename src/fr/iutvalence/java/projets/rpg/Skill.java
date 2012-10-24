@@ -89,7 +89,7 @@ public class Skill
 
 	public String getNom()
 	{
-		return nom;
+		return this.nom;
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class Skill
 	 */
 	public int getLvl()
 	{
-		return lvl;
+		return this.lvl;
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class Skill
 	// FIXME (non résolu) Respecter les conventions d'écriture
 	public int getCoutpm()
 	{
-		return coutpm;
+		return this.coutpm;
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class Skill
 	 */
 	public String getEffet()
 	{
-		return effet;
+		return this.effet;
 	}
 
 }

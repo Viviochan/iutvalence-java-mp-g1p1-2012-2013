@@ -1,4 +1,5 @@
 package fr.iutvalence.java.projets.rpg;
+import java.lang.Math;
 
 // FIXME corriger le commentaire (à discuter)
 /**
@@ -17,7 +18,23 @@ public class Aventure
 	 * Le niveau maximal que le heros pourra atteindre
 	 */
 	public final static int NIVEAU_MAX = 99;
+	
+	/**
+	 * Le nombre de monstres differents possible de rencontrer dans le jeu
+	 */
+	public final static int NB_MAX_MONSTRE=5;
 
+	
+	/**
+	 * Taux de rencontre maximum que le jeu peux atteindre
+	 * chaque pas generera un combat
+	 */
+	public final static int TAUX_MAX_RENCONTRE=10;
+	/**
+	 * Le taux de rencontre de monstre lors d'un deplacement
+	 * il est de 2 qui correspond a 20%
+	 */
+	public final static int TAUX_RENCONTRE=2;
 	// FIXME (FIXED)écrire plus simplement le commentaire (à discuter)
 	/**
 	 * La carte du jeu
@@ -45,8 +62,13 @@ public class Aventure
 	 * affronte le hero
 	 */
 	// FIXME respecter les conventions d'écriture
-	public Monstre[] TabMonstres;
-
+	public Monstre[] tabMonstres;
+	
+	/**
+	 * 
+	 */
+	public Monstre ennemi;
+	
 	/**
 	 * Tableau des niveaux du jeu
 	 */
@@ -57,6 +79,7 @@ public class Aventure
 	 */
 	public Skill[] competences;
 
+
 	/**
 	 * Constructeur
 	 * 
@@ -64,7 +87,7 @@ public class Aventure
 	 * 
 	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
 	 * 
-	 * @throws CoordonneesInvalideException
+	 * @throws CoordonneesInvalideException la position generer n est pas valide
 	 */
 	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions (à discuter !)
 	public Aventure() throws CoordonneesInvalideException
@@ -116,21 +139,30 @@ public class Aventure
 		}
 		while (lvlheros > this.perso.getNbxp())
 		{
+			//on augmente le niveau du hero et on augmente les stats en fonction du bonus par niveau definis en constante dans la classe hero
 			this.perso.setNiveauheros();
+			this.perso.setPointdevie(Hero.BONUS_HP);
+			this.perso.setPointdemana(Hero.BONUS_MP);
+			this.perso.setAttaque(Hero.BONUS_ATT);
+			this.perso.setDefense(Hero.BONUS_DEF);
 		}
 		return (this.perso.getNbxp());
 
 	}
+	
+	
+
+	
 
 	// FIXME (non résolu) corriger/compléter le commentaire (à discuter)
 	/**
 	 * Modifie la position du hero
 	 * 
-	 * @param xarr
-	 * @param yarr
+	 * @param xarr abscisse de la position souhaite
+	 * @param yarr oordonneer de la position souhaite
 	 * 
-	 * @return Posheros
-	 * @throws CoordonneesInvalideException
+	 * @return Posheros la nouvelle position du hero
+	 * @throws CoordonneesInvalideException la nouvelle position est non valide
 	 */
 	// FIXME (non résolu) respecter les conventions d'écriture (nom méthode)
 	// FIXME (FIXED)gérer les erreurs avec des exceptions
@@ -156,6 +188,7 @@ public class Aventure
 			}
 			throw new CoordonneesInvalideException();
 		}
+		DeclencheCombat();
 		return this.perso.getPosheros();
 	}
 
@@ -169,8 +202,8 @@ public class Aventure
 	 * 
 	 * @return poshero la nouvelle position du hero
 	 * 
-	 * @throws DirectionInvalideException
-	 * @throws CoordonneesInvalideException
+	 * @throws DirectionInvalideException la direction choisie n est pas valable
+	 * @throws CoordonneesInvalideException les coordonnees depassent les bornes de la cartes
 	 */
 	public Position DeplacementHeros(int dir) throws DirectionInvalideException, CoordonneesInvalideException
 	{
@@ -196,6 +229,7 @@ public class Aventure
 			throw new DirectionInvalideException();
 		}
 		this.perso.setPosshero(poshero);
+		DeclencheCombat();
 		return this.perso.getPosheros();
 	}
 
@@ -210,5 +244,125 @@ public class Aventure
 	{
 		return 0;
 	}
+
+	
+	/**
+	 * Methode permettent le remplissage du tableau de monstre en lisant la base de donnees a la table monstre
+	 * 
+	 * 
+	 * 
+	 * @return 0 si la table de monstre a ete bien lus et recopier
+	 */
+	public int TabMonstres(){
+		Monstre[] dataMonstre= new Monstre[NB_MAX_MONSTRE];
+		dataMonstre[0]= new Monstre();
+		dataMonstre[1]=new Monstre("SanguinisVache",13,12,6,4,7);
+		dataMonstre[2]=new Monstre("Vampivol",15,17,12,10,10);
+		dataMonstre[3]=new Monstre("GreenArrow",17,16,12,9,16);
+		dataMonstre[4]=new Monstre("SlimeRouge",19,23,18,20,22);
+		//dataMonstre[]=new Monstre();
+	this.tabMonstres=dataMonstre;
+	
+	return 0;
+	}
+	
+	
+	/**
+	 * Methode qui a permettra de definir si un deplacement provoque un combat avec un ennemi ou non
+	 * 
+	 *
+	 * @return 0 si le voila quoi !!!
+	 * @throws CoordonneesInvalideException 
+	 */
+	public int DeclencheCombat() throws CoordonneesInvalideException{
+		int nb = (int) (Math.random() * TAUX_MAX_RENCONTRE );
+		if (nb<=TAUX_RENCONTRE){
+			//on genere un combat
+			Combat();
+		}
+		return 0;
+		
+		
+	}
+	
+	/**
+	 * 
+	 * @return string etat de la fin du combat 
+	 * @throws CoordonneesInvalideException 
+	 * 
+	 */
+	
+	//on gere une collection de monstre egal a nbmonstre et on gere ensuite les differents
+	//monstre choisie poru que les stats soit adapter aux heros
+	//on met en place le reste des elements du combat
+	//on gere les differentes possibilites d action du perso et on adapte le calcul de dommage
+	public String Combat() throws CoordonneesInvalideException{
+		int hpcour=this.perso.getPointdevie();//niveau courantde point de vie si 0 perdue
+		int mpcour=this.perso.getPointdemana();//niveau courant de mp
+		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
+		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
+		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNommonstre(),this.tabMonstres[nbmonstre].getHpmonstre(),this.tabMonstres[nbmonstre].getAttmonstre(),this.tabMonstres[nbmonstre].getDefmonstre(),this.tabMonstres[nbmonstre].get_Xpmonstre(),this.tabMonstres[nbmonstre].getOrmonstre());
+		int hpmob=this.ennemi.getHpmonstre();
+		int chance=0;
+		int action= Action.rien;
+		while((hpcour>0)||(hpmob>0)||(chance==0)){
+			while(action==Action.rien){
+				//tant que le perso ne fais rien on attend
+			}
+				if(action==Action.Attaquer){
+					//Puissance = puissance d'attaque de A - (la défense de B ÷ 2)
+					hpmob=(hpmob-(this.perso.getAttaque()-(this.ennemi.getDefmonstre()/2)));
+					//gerer la reaction de l ennemie
+				}
+				if(action==Action.Defendre){
+					//gerer la reaction de l ennemie et sil attaque
+					hpcour=(hpcour-((this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)))/2);
+				}
+				if(action==Action.fuite){
+					//on definit une methode fuite
+					chance= fuite();
+				}
+				if(action==Action.Inventaire){
+					//gestion des de linventaire a faire
+				}
+				action=Action.rien;
+		}
+		if(hpmob==0){
+			this.perso.setNbxp(this.ennemi.get_Xpmonstre());
+			this.perso.setOrHero(this.ennemi.getOrmonstre());
+			levelup();
+		}
+		if(hpcour==0){
+			//gerer la mort du hero soit par un game over soit par un repop a la ville avec de largent en moins
+			this.perso.setPosheros(Hero.ABSCISSE_DEFAUT,Hero.ORDONNE_DEFAUT);
+			this.perso.setOrHero(this.perso.getOrHero()/2);
+		}
+		if(chance!=0){
+			//gerer labandont dun combat
+		}
+		return null;
+	
+	}
+
+	
+	/**
+	 * @return int 
+	 */
+	public int fuite(){
+		int chancefuite = (int) (Math.random() * 6 );
+		if (chancefuite==0){
+			return 1;
+			
+		}
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

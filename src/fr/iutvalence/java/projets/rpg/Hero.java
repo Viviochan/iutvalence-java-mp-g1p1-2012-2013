@@ -8,6 +8,13 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Hero
 {
+	
+	
+	public final static int BONUS_HP=5;
+	public final static int BONUS_MP=6;
+	public final static int BONUS_ATT=3;
+	public final static int BONUS_DEF=2;
+	
 
 	/**
 	 * Point d'abscisse de depart
