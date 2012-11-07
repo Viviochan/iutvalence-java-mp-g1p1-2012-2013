@@ -183,7 +183,7 @@ public class Hero
 		this.nomduheros = NOMHERO;
 		this.niveauheros = NIV_BASE;
 		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
-		this.setInventaire(new Item[INVENTAIRE_SIZE]);//definir les items de base lors de la creation dune partie ou laisserr vide
+		this.inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
 		this.tailleinventaire=0;
 	}
 
