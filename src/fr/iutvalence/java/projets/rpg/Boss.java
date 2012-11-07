@@ -43,13 +43,14 @@ public class Boss extends Monstre
 	 * Position du boss sur le plateau de jeu
 	 */
 	private Position posboss;
+	
 
 	/**
 	 * Construction du Boss par rapport aux constructeurs de monstre nom:Lord Dragon point de vie:350 attaque:110
 	 * defense:110 or:0 xp:0 Un seul et unique boss sera inclus dans le jeu On integrera des sous boss pris dans la base
 	 * de monstre
 	 * 
-	 * @throws CoordonneesInvalideException
+	 * @throws CoordonneesInvalideException 1
 	 */
 	public Boss() throws CoordonneesInvalideException
 	{

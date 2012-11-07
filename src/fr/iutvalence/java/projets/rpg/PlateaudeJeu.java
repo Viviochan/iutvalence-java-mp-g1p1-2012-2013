@@ -90,7 +90,7 @@ public class PlateaudeJeu
 	 *            Abscisse sur la map
 	 * @param y
 	 *            Oordonnes sur la map
-	 * @param Val
+	 * 
 	 *            La nouvel valeur de la case voir si on remplace cette valeur par un booleen ou pas
 	 */
 	public void setCase(int x, int y)

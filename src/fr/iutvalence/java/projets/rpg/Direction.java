@@ -1,6 +1,10 @@
 package fr.iutvalence.java.projets.rpg;
 
 // FIXME redéfinir Direction comme une énumération
+/**
+ * @author goncalvs
+ *
+ */
 public class Direction
 {
 

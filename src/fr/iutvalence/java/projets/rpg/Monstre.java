@@ -20,6 +20,10 @@ public class Monstre
 	public final static int HP_MOB = 10;
 
 	/**
+	 * Les monstre ne possede pas de point de mana
+	 */
+	public final static int MP_MOB = 0;
+	/**
 	 * attaque et defense du monstre par defaut
 	 */
 	public final static int ATT_DEF_MOB = 5;
@@ -36,35 +40,41 @@ public class Monstre
 	// FIXME respecter les conventions d'écriture
 	private String nommonstre;
 
+	
+	/**
+	 * 
+	 */
+	private Stats stat;
+	
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int hpmonstre;
+	//private int hpmonstre;
 
 	/**
 	 * niveau d'attaque du monstre
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int attaquemonstre;
+	//private int attaquemonstre;
 
 	/**
 	 * niveau de defense du monstre
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int defensemonstre;
+	//private int defensemonstre;
 
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int xpmonstre;
+	//private int xpmonstre;
 
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int ormonstre;
+	//private int ormonstre;
 
 	// FIXME corriger le commentaire
 	/**
@@ -77,11 +87,12 @@ public class Monstre
 	public Monstre()
 	{
 		this.nommonstre = NOM_MOB;
-		this.hpmonstre = HP_MOB;
-		this.attaquemonstre = ATT_DEF_MOB;
-		this.defensemonstre = ATT_DEF_MOB;
-		this.ormonstre = OR_XP_MOB;
-		this.xpmonstre = OR_XP_MOB;
+		//this.hpmonstre = HP_MOB;
+		//this.attaquemonstre = ATT_DEF_MOB;
+		//this.defensemonstre = ATT_DEF_MOB;
+		//this.ormonstre = OR_XP_MOB;
+		//this.xpmonstre = OR_XP_MOB;
+		this.stat= new Stats(0,HP_MOB,ATT_DEF_MOB,ATT_DEF_MOB,OR_XP_MOB,OR_XP_MOB);
 
 	}
 
@@ -106,12 +117,12 @@ public class Monstre
 	public Monstre(String nomM, int hpmob, int attmob, int defmob, int ormob, int xpmob)
 	{
 		this.nommonstre = nomM;
-		this.hpmonstre = hpmob;
-		this.attaquemonstre = attmob;
-		this.defensemonstre = defmob;
-		this.ormonstre = ormob;
-		this.xpmonstre = xpmob;
-
+		//this.hpmonstre = hpmob;
+		//this.attaquemonstre = attmob;
+		//this.defensemonstre = defmob;
+		//this.ormonstre = ormob;
+		//this.xpmonstre = xpmob;
+		this.stat= new Stats(0,hpmob,attmob,defmob,ormob,xpmob);
 	}
 
 	/**
@@ -125,59 +136,15 @@ public class Monstre
 		return this.nommonstre;
 	}
 
+	
+	
 	/**
-	 * retourne les point de vie du monstre
+	 * retourne les statistique du monstre
 	 * 
-	 * @return les point de vie du monstre
+	 * @return stat les stats du monstre
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int getHpmonstre()
-	{
-		return this.hpmonstre;
-	}
-
-	/**
-	 * retourne l'attaque du monstre
-	 * 
-	 * @return l'attaque du monstre nous permettant plus loin le calcul des degats et diminution de degats
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int getAttmonstre()
-	{
-		return this.attaquemonstre;
-	}
-
-	/**
-	 * retourne la defense du monstre
-	 * 
-	 * @return la defense du monstre nous permettant plus loin le calcul des degats et diminution de degats
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int getDefmonstre()
-	{
-		return this.defensemonstre;
-	}
-
-	/**
-	 * retourne la quantite d'or porter par le monstre
-	 * 
-	 * @return l'or porter par le monstre que le heros pourra ajouter a sa bourse
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int getOrmonstre()
-	{
-		return this.ormonstre;
-	}
-
-	/**
-	 * retourne le taux d'xp donner par le monstre
-	 * 
-	 * @return le taux d'xp que le monstre donne au heros
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int get_Xpmonstre()
-	{
-		return this.xpmonstre;
+	public Stats getStats(){
+		return this.stat;
 	}
 
 	// FIXME redéfinir toString

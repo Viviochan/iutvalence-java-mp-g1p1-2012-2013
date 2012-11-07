@@ -10,9 +10,21 @@ public class Hero
 {
 	
 	
+	/**
+	 * Bonus en point de vie gagner a chaque lvl up
+	 */
 	public final static int BONUS_HP=5;
+	/**
+	 * Bonus en point de mana gagner a chaque lvl up
+	 */
 	public final static int BONUS_MP=6;
+	/**
+	 * bonus en attaque gagner a chaque lvl up
+	 */
 	public final static int BONUS_ATT=3;
+	/**
+	 * bonus en defense gagner a chaque lvl up
+	 */
 	public final static int BONUS_DEF=2;
 	
 
@@ -55,6 +67,11 @@ public class Hero
 	 * Niveau d'or au depart
 	 */
 	public final static int OR_BASE = 500;
+	
+	/**
+	 * 
+	 */
+	public final static int INVENTAIRE_SIZE=50;
 
 	/**
 	 * Nom par defaut du Heros
@@ -73,27 +90,36 @@ public class Hero
 	// FIXME (non résolu) respecter les conventions d'écriture
 	private String nomduheros;
 
+	
+	
+	/**
+	 * Statistique du heros
+	 */
+	private Stats stats;
+	
+	
+	private Item[] Inventaire;
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int pointdevie;
+	//private int pointdevie;
 
 	/**
 	 * Niveau de magie du heros, permet le lancement de sort et autre magies
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int pointdemana;
+	//private int pointdemana;
 
 	/**
 	 * Niveau d'attaque du heros permet de determiner la force de frappe lors des combats
 	 */
-	private int attaque;
+	//private int attaque;
 
 	/**
 	 * Niveau de defense du heros permet de determiner la diminution des degat subis par l'adversaire
 	 */
-	private int defense;
+	//private int defense;
 
 	// FIXME respecter les conventions d'écriture
 	/**
@@ -105,12 +131,12 @@ public class Hero
 	 * Experience du heros. Certains palier d'xp permettent de debloquer un niveau avec les bonus lui correspondant
 	 */
 	// FIXME respecter les conventions d'écriture
-	private int nbxp;
+	//private int nbxp;
 
 	/**
 	 * Monnaie du heros. Permet l'achat de divers items dans le jeu
 	 */
-	private int or;
+	//private int or;
 
 	/**
 	 * Initialise le heros sans specifier de nom
@@ -118,19 +144,15 @@ public class Hero
 	 * poshero: (10,5) nomduhero: "Vivio" pointdevie: 35 pointdemana: 6 niveauheros: 1 attaque: 30 defense: 30 nbxp: 0
 	 * or: 500
 	 * 
-	 * @throws CoordonneesInvalideException
+	 * @throws CoordonneesInvalideException 1
 	 */
 	public Hero() throws CoordonneesInvalideException
 	{
 		this.posheros = new Position(ABSCISSE_DEFAUT, ORDONNE_DEFAUT);
 		this.nomduheros = NOMHERO;
-		this.pointdevie = HP_HERO;
-		this.pointdemana = MP_HERO;
 		this.niveauheros = NIV_BASE;
-		this.attaque = ATT_DEF_HERO;
-		this.defense = ATT_DEF_HERO;
-		this.nbxp = XP_BASE;
-		this.or = OR_BASE;
+		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
+		this.Inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
 
 	}
 
@@ -140,7 +162,7 @@ public class Hero
 	 * 
 	 * @param s
 	 *            Nom du heros
-	 * @throws CoordonneesInvalideException
+	 * @throws CoordonneesInvalideException 2
 	 * 
 	 */
 	public Hero(String s) throws CoordonneesInvalideException
@@ -150,52 +172,6 @@ public class Hero
 
 	}
 
-	/**
-	 * retourne le nombre d'xp du hero
-	 * 
-	 * @return l'xp que possede le hero
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int getNbxp()
-	{
-		return nbxp;
-	}
-
-	/**
-	 * On l'ajoute a l'xp que le hero possede deja
-	 * 
-	 * @param exp
-	 *            l'xp recue soit par un item soit apres un combat
-	 * 
-	 */
-	// FIXME respecter les conventions d'écriture
-	public void setNbxp(int exp)
-	{
-		this.nbxp = nbxp + exp;
-	}
-
-	/**
-	 * Retourne la quantite d'or que le hero possede
-	 * 
-	 * @return or Donne l'or que le hero porte
-	 */
-	public int getOrHero()
-	{
-		return or;
-	}
-
-	/**
-	 * on ajoute cet or a celui que le hero possede deja
-	 * 
-	 * @param piece
-	 *            l'or recue lors d'un combat ou trouver
-	 * 
-	 */
-
-	public void setOrHero(int piece)
-	{
-		this.or = this.or + piece;
-	}
 
 	/**
 	 * Retourne le niveau actuel du hero
@@ -204,7 +180,7 @@ public class Hero
 	 */
 	public int getNiveauHeros()
 	{
-		return niveauheros;
+		return this.niveauheros;
 	}
 
 	/**
@@ -224,7 +200,7 @@ public class Hero
 	// FIXME respecter les conventions d'écriture
 	public String getNomduheros()
 	{
-		return nomduheros;
+		return this.nomduheros;
 	}
 
 	/**
@@ -239,96 +215,7 @@ public class Hero
 		this.nomduheros = s;
 	}
 
-	/**
-	 * retourne les points de vie du hero
-	 * 
-	 * @return les points de vie du hero
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int getPointdevie()
-	{
-		return pointdevie;
-	}
 
-	/**
-	 * modifie les point de vie du hero
-	 * 
-	 * @param pdv
-	 *            les point de vie du hero
-	 */
-	// FIXME respecter les conventions d'écriture
-	public void setPointdevie(int pdv)
-	{
-		this.pointdevie = this.pointdevie + pdv;
-	}
-
-	// FIXME (FIXED)compléter le commentaire
-	/**
-	 * @return point_de_mana
-	 */
-	// FIXME respecter les conventions d'écriture
-	public int getPointdemana()
-	{
-		return pointdemana;
-	}
-
-	/**
-	 * Retourne les points de mana du hero
-	 * 
-	 * @param les
-	 *            points de mana du hero
-	 */
-	// FIXME respecter les conventions d'écriture
-	public void setPointdemana(int pdm)
-	{
-		this.pointdemana = this.pointdemana + pdm;
-	}
-
-	/**
-	 * Le niveau d'attaque du heros
-	 * 
-	 * @return le niveau d'attaque du heros
-	 * 
-	 */
-	public int getAttaque()
-	{
-		return attaque;
-	}
-
-	/**
-	 * Augemente l'attaque du hero
-	 * 
-	 * @param l
-	 *            'attaque du hero
-	 * 
-	 */
-	public void setAttaque(int att)
-	{
-		this.attaque = this.attaque + att;
-	}
-
-	/**
-	 * Le niveau de defense du heros
-	 * 
-	 * @return le niveau de defense du heros
-	 * 
-	 */
-	public int getDefense()
-	{
-		return defense;
-	}
-
-	/**
-	 * Augmente le niveau de defense du hero
-	 * 
-	 * @param def
-	 *            le niveau de defense du hero
-	 * 
-	 */
-	public void setDefense(int def)
-	{
-		this.defense = this.defense + def;
-	}
 
 	/**
 	 * Donne la position du hero
@@ -349,7 +236,7 @@ public class Hero
 	 *            Nouvelle abscisse
 	 * @param y
 	 *            Nouvelles Ordonnees
-	 * @throws CoordonneesInvalideException
+	 * @throws CoordonneesInvalideException 2
 	 * 
 	 */
 	// FIXME respecter les conventions d'écriture
@@ -373,6 +260,22 @@ public class Hero
 		this.posheros = p;
 	}
 
+	/**
+	 * @return stats statistique 
+	 */
+	public Stats getStats(){
+		return this.stats;
+	}
+
 	// FIXME redéfinir toString
 
+	
+	public String toString(){
+		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+")";
+	}
+	
+	
+	
+	
+	
 }

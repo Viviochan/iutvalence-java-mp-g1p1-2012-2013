@@ -149,23 +149,23 @@ public class Aventure
 	 */
 	public int levelup()
 	{
-		int lvlheros = this.perso.getNbxp();
+		int lvlheros = this.perso.getStats().getNbxp();
 		int tauxlvlsuiv = this.levels[lvlheros + 1].getTaux();
 		while (lvlheros >= tauxlvlsuiv)
 		{
 			lvlheros++;
 			tauxlvlsuiv = this.levels[lvlheros + 1].getTaux();
 		}
-		while (lvlheros > this.perso.getNbxp())
+		while (lvlheros > this.perso.getStats().getNbxp())
 		{
 			//on augmente le niveau du hero et on augmente les stats en fonction du bonus par niveau definis en constante dans la classe hero
 			this.perso.setNiveauheros();
-			this.perso.setPointdevie(Hero.BONUS_HP);
-			this.perso.setPointdemana(Hero.BONUS_MP);
-			this.perso.setAttaque(Hero.BONUS_ATT);
-			this.perso.setDefense(Hero.BONUS_DEF);
+			this.perso.getStats().setPointdevie(Hero.BONUS_HP);
+			this.perso.getStats().setPointdemana(Hero.BONUS_MP);
+			this.perso.getStats().setAttaque(Hero.BONUS_ATT);
+			this.perso.getStats().setDefense(Hero.BONUS_DEF);
 		}
-		return (this.perso.getNbxp());
+		return (this.perso.getStats().getNbxp());
 
 	}
 	
@@ -306,13 +306,13 @@ public class Aventure
 	 * 
 	 *
 	 * @return 0 si le voila quoi !!!
-	 * @throws CoordonneesInvalideException 
+	 * @throws CoordonneesInvalideException 2
 	 */
 	public int DeclencheCombat() throws CoordonneesInvalideException{
 		int nb = (int) (Math.random() * TAUX_MAX_RENCONTRE );
 		if (nb<=TAUX_RENCONTRE){
 			//on genere un combat
-			this.modeCombat=false;
+			this.modeCombat=true;
 			Combat();
 		}
 		return 0;
@@ -332,12 +332,12 @@ public class Aventure
 	//on met en place le reste des elements du combat
 	//on gere les differentes possibilites d action du perso et on adapte le calcul de dommage
 	public String Combat() throws CoordonneesInvalideException{
-		int hpcour=this.perso.getPointdevie();//niveau courantde point de vie si 0 perdue
+		int hpcour=this.perso.getStats().getPointdevie();//niveau courantde point de vie si 0 perdue
 		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
 		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
-		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNommonstre(),this.tabMonstres[nbmonstre].getHpmonstre(),this.tabMonstres[nbmonstre].getAttmonstre(),this.tabMonstres[nbmonstre].getDefmonstre(),this.tabMonstres[nbmonstre].get_Xpmonstre(),this.tabMonstres[nbmonstre].getOrmonstre());
-		int hpmob=this.ennemi.getHpmonstre();
+		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNommonstre(),this.tabMonstres[nbmonstre].getStats().getPointdevie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
+		int hpmob=this.ennemi.getStats().getPointdevie();
 		int chance=0;
 		int action= Action.rien;
 		while((hpcour>0)||(hpmob>0)||(chance==0)){
@@ -348,17 +348,17 @@ public class Aventure
 				if(action==Action.Attaquer){
 					//Puissance = puissance d'attaque de A - (la défense de B ÷ 2)
 					if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
-					hpmob=(hpmob-(this.perso.getAttaque()-(this.ennemi.getDefmonstre()/2)));//attaque du hero
-					hpcour=(hpcour-(this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)));//attaque de l ennemi
+					hpmob=(hpmob-(this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)));//attaque du hero
+					hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)));//attaque de l ennemi
 					
 					}
 					else{//l ennemie se defend la puissance dattaque diminue de moitie donc la perte de hp diminue aussi de moitie
-						hpmob=(hpmob-((this.perso.getAttaque()-(this.ennemi.getDefmonstre()/2)/2)));
+						hpmob=(hpmob-((this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)/2)));
 					}
 				}
 				if(action==Action.Defendre){
 					if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
-						hpcour=(hpcour-((this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)))/2);
+						hpcour=(hpcour-((this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)))/2);
 					}
 				}
 				if(action==Action.fuite){
@@ -366,7 +366,7 @@ public class Aventure
 					chance=fuite();
 					if(chance==0){
 						if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
-							hpcour=(hpcour-(this.ennemi.getAttmonstre()-(this.perso.getDefense()/2)));
+							hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)));
 						}
 					}
 				}
@@ -376,14 +376,14 @@ public class Aventure
 				action=Action.rien;
 		}
 		if(hpmob==0){
-			this.perso.setNbxp(this.ennemi.get_Xpmonstre());
-			this.perso.setOrHero(this.ennemi.getOrmonstre());
+			this.perso.getStats().setNbxp(this.ennemi.getStats().getNbxp());
+			this.perso.getStats().setOr(this.ennemi.getStats().getOr());
 			levelup();
 		}
 		if(hpcour==0){
 			//gerer la mort du hero soit par un game over soit par un repop a la ville avec de largent en moins
 			this.perso.setPosheros(Hero.ABSCISSE_DEFAUT,Hero.ORDONNE_DEFAUT);
-			this.perso.setOrHero(this.perso.getOrHero()/2);
+			this.perso.getStats().setOr(this.perso.getStats().getOr()/2);
 		}
 		if(chance!=0){
 			//gerer l abandont dun combat
@@ -415,7 +415,7 @@ public class Aventure
 	 */
 	public int IAmob(int hpmob, Monstre mob){
 		int tauxattdef = (int) (Math.random() * 10 );
-		if(hpmob>(mob.getHpmonstre()/2)){
+		if(hpmob>(mob.getStats().getPointdevie()/2)){
 			if (tauxattdef>8){
 				return Action.Defendre;
 			}
@@ -430,7 +430,52 @@ public class Aventure
 	}
 	
 	
+	
 
+	/**
+	 * @param objet
+	 */
+	public void ItemUse(Item objet){
+		if(objet.getTypeitem()==typeitem.objetdesoin){
+			
+		}
+		if(objet.getTypeitem()==typeitem.objetderecup){
+			
+		}
+		if(objet.getTypeitem()==typeitem.arme){
+			
+		}
+		if(objet.getTypeitem()==typeitem.bouclier){
+			
+		}
+		if(objet.getTypeitem()==typeitem.equipementbras){
+			
+		}
+		if(objet.getTypeitem()==typeitem.equipementcorps){
+			
+		}
+		if(objet.getTypeitem()==typeitem.equipementpied){
+			
+		}
+		if(objet.getTypeitem()==typeitem.equipementtete){
+			
+		}
+		if(objet.getTypeitem()==typeitem.objetdesoutien){
+			
+		}		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
