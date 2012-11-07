@@ -72,6 +72,7 @@ public class Hero
 	 * 
 	 */
 	public final static int INVENTAIRE_SIZE=50;
+	
 
 	/**
 	 * Nom par defaut du Heros
@@ -98,7 +99,37 @@ public class Hero
 	private Stats stats;
 	
 	
-	private Item[] Inventaire;
+	/**
+	 * 
+	 */
+	private Item[] inventaire;
+	
+	private int tailleinventaire;
+	
+	/**
+	 * 
+	 */
+	private Item armurecasque;
+	/**
+	 * 
+	 */
+	private Item armurebuste;
+	/**
+	 * 
+	 */
+	private Item armurebras;
+	/**
+	 * 
+	 */
+	private Item armurepied;
+	/**
+	 * 
+	 */
+	private Item bouclier;
+	/**
+	 * 
+	 */
+	private Item arme;
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
 	 */
@@ -152,8 +183,8 @@ public class Hero
 		this.nomduheros = NOMHERO;
 		this.niveauheros = NIV_BASE;
 		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
-		this.Inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
-
+		this.setInventaire(new Item[INVENTAIRE_SIZE]);//definir les items de base lors de la creation dune partie ou laisserr vide
+		this.tailleinventaire=0;
 	}
 
 	// FIXME compléter le commentaire (documenter @throws)
@@ -273,8 +304,98 @@ public class Hero
 	public String toString(){
 		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+")";
 	}
+
+	/**
+	 * retourne le casque que le heros porte
+	 * @return armurecasque 
+	 */
+	public Item getArmurecasque()
+	{
+		return this.armurecasque;
+	}
+
+	/**
+	 * Change le casque du hero
+	 * @param armurecasque un item de type casque
+	 */
+	public void setArmurecasque(Item armurecasque)
+	{
+		this.armurecasque = armurecasque;
+	}
+
+	/**
+	 * Retourne l armure que le hero porte
+	 * @return armure buste
+	 */
+	public Item getArmurebuste()
+	{
+		return this.armurebuste;
+	}
+
+	/**
+	 * Modifie le buste que le hero porte
+	 * @param armurebuste un item de type buste
+	 */
+	public void setArmurebuste(Item armurebuste)
+	{
+		this.armurebuste = armurebuste;
+	}
+
+	/**
+	 * Retourne les  gants que le hero porte
+	 * @return armurebras
+	 */
+	public Item getArmurebras()
+	{
+		return this.armurebras;
+	}
+
+	public void setArmurebras(Item armurebras)
+	{
+		this.armurebras = armurebras;
+	}
+
+	public Item getArmurepied()
+	{
+		return this.armurepied;
+	}
+
+	public void setArmurepied(Item armurepied)
+	{
+		this.armurepied = armurepied;
+	}
+
+	public Item getBouclier()
+	{
+		return bouclier;
+	}
+
+	public void setBouclier(Item bouclier)
+	{
+		this.bouclier = bouclier;
+	}
+
+	public Item getArme()
+	{
+		return this.arme;
+	}
+
+	public void setArme(Item arme)
+	{
+		this.arme = arme;
+	}
+
+	public Item getInventaire(int i)
+	{
+		return this.inventaire[i];
+	}
+
+	public void setInventaire(Item item)
+	{
+		this.inventaire[this.tailleinventaire] = item;
+	}
 	
-	
+
 	
 	
 	

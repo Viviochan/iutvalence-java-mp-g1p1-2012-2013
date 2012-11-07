@@ -326,18 +326,19 @@ public class Aventure
 	 * @throws CoordonneesInvalideException  si le hero perd il est teleporter a une la position par defaut
 	 * 
 	 */
+	//il manque a gere si le perso utilise un item
 	
 	//on gere une collection de monstre egal a nbmonstre et on gere ensuite les differents
 	//monstre choisie poru que les stats soit adapter aux heros
 	//on met en place le reste des elements du combat
 	//on gere les differentes possibilites d action du perso et on adapte le calcul de dommage
 	public String Combat() throws CoordonneesInvalideException{
-		int hpcour=this.perso.getStats().getPointdevie();//niveau courantde point de vie si 0 perdue
+		int hpcour=this.perso.getStats().getPdvcour();//niveau courantde point de vie si 0 perdue
 		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
 		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
 		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNommonstre(),this.tabMonstres[nbmonstre].getStats().getPointdevie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
-		int hpmob=this.ennemi.getStats().getPointdevie();
+		int hpmob=this.ennemi.getStats().getPdvcour();
 		int chance=0;
 		int action= Action.rien;
 		while((hpcour>0)||(hpmob>0)||(chance==0)){
@@ -388,6 +389,7 @@ public class Aventure
 		if(chance!=0){
 			//gerer l abandont dun combat
 		}
+		this.perso.getStats().setPdvcour(hpcour);
 		this.modeCombat=false;
 		return null;
 	
@@ -430,40 +432,87 @@ public class Aventure
 	}
 	
 	
-	
+	/**
+	 * 
+	 * 
+	 * @param indexItemInventaire l item selectionner dans l'inventaire
+	 * @throws ModeCombatInvalidException 2
+	 */
+	public void ItemSelect(int indexItemInventaire) throws ModeCombatInvalidException{
+		ItemUse(this.perso.getInventaire(indexItemInventaire));
+	}
 
 	/**
-	 * @param objet
+	 * @param objet l item utilise 
+	 * @throws ModeCombatInvalidException 1 
 	 */
-	public void ItemUse(Item objet){
+	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
+	public void ItemUse(Item objet) throws ModeCombatInvalidException{
 		if(objet.getTypeitem()==typeitem.objetdesoin){
-			
+			this.perso.getStats().setPdvcour(objet.getBonusitem());
 		}
 		if(objet.getTypeitem()==typeitem.objetderecup){
-			
+			this.perso.getStats().setPdmcour(objet.getBonusitem());
 		}
 		if(objet.getTypeitem()==typeitem.arme){
-			
+			if(this.modeCombat){
+				throw new ModeCombatInvalidException();
+			}
+			else{
+				this.perso.setArme(objet);
+				this.perso.getStats().setAttaque(objet.getBonusitem());
+			}
 		}
 		if(objet.getTypeitem()==typeitem.bouclier){
-			
+			if(this.modeCombat){
+				throw new ModeCombatInvalidException();
+			}
+			else{
+				this.perso.setBouclier(objet);
+				this.perso.getStats().setDefense(objet.getBonusitem());
+			}	
 		}
 		if(objet.getTypeitem()==typeitem.equipementbras){
-			
+			if(this.modeCombat){
+				throw new ModeCombatInvalidException();
+			}
+			else{
+				this.perso.setArmurebras(objet);
+				this.perso.getStats().setDefense(objet.getBonusitem());
+			}
 		}
 		if(objet.getTypeitem()==typeitem.equipementcorps){
-			
+			if(this.modeCombat){
+				throw new ModeCombatInvalidException();
+			}
+			else{
+				this.perso.setArmurebuste(objet);
+				this.perso.getStats().setDefense(objet.getBonusitem());
+			}
 		}
 		if(objet.getTypeitem()==typeitem.equipementpied){
-			
+			if(this.modeCombat){
+				throw new ModeCombatInvalidException();
+			}
+			else{
+				this.perso.setArmurepied(objet);
+				this.perso.getStats().setDefense(objet.getBonusitem());
+			}
 		}
 		if(objet.getTypeitem()==typeitem.equipementtete){
-			
+			if(this.modeCombat){
+				throw new ModeCombatInvalidException();
+			}
+			else{
+				this.perso.setArmurecasque(objet);
+				this.perso.getStats().setDefense(objet.getBonusitem());
+			}
 		}
 		if(objet.getTypeitem()==typeitem.objetdesoutien){
-			
-		}		
-	}
+
+		}
+}		
+	
 	
 	
 	
