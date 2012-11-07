@@ -19,7 +19,26 @@ public class Partie
 	 */
 	public static void main(String[] args)
 	{
+		System.out.print("coucou \n");
+	
+	
+	for(int i=0;i<50;i++){
 
+		for(int j=0;j<50;j++){
+			
+			if(j==0){
+				System.out.print("|");
+			}
+			if(i==0){
+				System.out.print("_");
+			}
+			if(j==50){
+				System.out.print("|\n");
+			}
+			if(i==50){
+				System.out.print("_\n");
+			}
+		}
 	}
-
+	}
 }

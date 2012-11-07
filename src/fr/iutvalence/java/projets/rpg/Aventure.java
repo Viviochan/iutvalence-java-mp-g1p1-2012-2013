@@ -511,36 +511,8 @@ public class Aventure
 		if(objet.getTypeitem()==typeitem.objetdesoutien){
 
 		}
-}		
+	}		
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
