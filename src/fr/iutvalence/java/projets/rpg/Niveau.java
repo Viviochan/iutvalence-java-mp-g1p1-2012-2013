@@ -11,13 +11,13 @@ public class Niveau
 	/**
 	 * Niveau de base du Jeu Toute aventure commence au niveau 1
 	 */
-	// FIXME (non résolu) visibilité
+	// FIXME  visibilité ?
 	final static int NIVEAU_DEPART = 1;
 
 	/**
 	 * Niveau d'xp au debut de l'aventure
 	 */
-	// FIXME (non résolu) visibilité
+	// FIXME visibilité ?
 	final static int XP_DEPART = 0;
 
 	/**

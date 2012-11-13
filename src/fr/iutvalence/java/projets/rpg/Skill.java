@@ -107,7 +107,7 @@ public class Skill
 	 * 
 	 * @return le cout en point de mana de la competence
 	 */
-	// FIXME (non résolu) Respecter les conventions d'écriture
+	// FIXME Respecter les conventions d'écriture
 	public int getCoutpm()
 	{
 		return this.coutpm;

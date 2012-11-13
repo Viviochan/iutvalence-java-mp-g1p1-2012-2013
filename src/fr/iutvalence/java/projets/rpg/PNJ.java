@@ -30,7 +30,7 @@ public class PNJ
 	/**
 	 * Les paroles que vous dira le pnj lorsque le hero le solicitera
 	 */
-	// FIXME (non résolu) le personnage ne prononce qu'une seule phrase ? (à discuter)
+	// FIXME le personnage ne prononce qu'une seule phrase ? (à discuter)
 	private String phrase;
 
 	/**

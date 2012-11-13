@@ -88,7 +88,7 @@ public class Hero
 	/**
 	 * Nom du hero
 	 */
-	// FIXME (non résolu) respecter les conventions d'écriture
+	// FIXME respecter les conventions d'écriture
 	private String nomduheros;
 
 	

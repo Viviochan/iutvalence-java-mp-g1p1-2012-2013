@@ -41,8 +41,6 @@ public class Aventure
 	 */
 	public final static int CAPACITE_INVENTAIRE=20;
 	
-	
-	// FIXME (FIXED)écrire plus simplement le commentaire (à discuter)
 	/**
 	 * La carte du jeu
 	 * 
@@ -106,7 +104,7 @@ public class Aventure
 	 * 
 	 * @throws CoordonneesInvalideException la position generer n est pas valide
 	 */
-	// FIXME (non résolu) gérer les erreurs en utilisant des exceptions (à discuter !)
+	// FIXME ici, il faudrait faire en sorte que si la position du heros et du boss n'est pas bonne, on doit la générer de nouveau
 	public Aventure() throws CoordonneesInvalideException
 	{
 		this.carte = new PlateaudeJeu();
@@ -218,7 +216,7 @@ public class Aventure
 	
 	
 	
-	// FIXME (non résolu) corriger/compléter le commentaire (à discuter)
+	// FIXME corriger/compléter le commentaire (à discuter)
 	/**
 	 * Modifie la position du hero
 	 * 
@@ -228,8 +226,7 @@ public class Aventure
 	 * @return Posheros la nouvelle position du hero
 	 * @throws CoordonneesInvalideException la nouvelle position est non valide
 	 */
-	// FIXME (non résolu) respecter les conventions d'écriture (nom méthode)
-	// FIXME (FIXED)gérer les erreurs avec des exceptions
+	// FIXME respecter les conventions d'écriture (nom méthode)
 	public Position DeplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
 	{
 		if ((xarr > PlateaudeJeu.LONGUEUR) || (xarr > PlateaudeJeu.LONGUEUR))

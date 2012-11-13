@@ -6,8 +6,6 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Position
 {
-
-	// FIXME (FIXED)regrouper les attribut y et x en une classe position
 	/**
 	 * Abscisse de l'objet
 	 */

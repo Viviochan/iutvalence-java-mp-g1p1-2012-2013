@@ -17,7 +17,7 @@ public class PNJVendeur extends PNJ
 	/**
 	 * Definie le nombre de item que peut vendre le PNJ Vendeur
 	 */
-	// FIXME (non résolu) respecter les conventions d'écriture
+	// FIXME respecter les conventions d'écriture
 	private int taillemag;
 
 	/**
