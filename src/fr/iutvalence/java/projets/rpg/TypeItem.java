@@ -6,63 +6,63 @@ package fr.iutvalence.java.projets.rpg;
  * @author goncalvs
  * 
  */
-// FIXME respecter les conventions d'écriture
+// FIXME (FIXED)respecter les conventions d'écriture
 public enum TypeItem
 {
 	/**
 	 * Definie le type d'objet: soin Augmente/Redonne les hp de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	objetdesoin,
+	Objet_de_Soin,
 	/**
 	 * Definie le type d'objet: recup Augmente/Redonne les mp de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	objetderecup,
+	Objet_de_Recup,
 	/**
-	 * FIXME respecter les conventions d'écriture Definie le type d'objet: soutien Augmente/Redonne les ' ' de la valeur
+	 * Definie le type d'objet: soutien Augmente/Redonne les ' ' de la valeur
 	 * bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	objetdesoutien,
+	Objet_de_Soutien,
 	/**
 	 * Definie le type d'objet: equipement poru la tete Augmente la defense du hero de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	equipementtete,
+	Equipement_Tete,
 	/**
 	 * Definie le type d'objet: equipement pour le bras Augmente la defense du hero de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	equipementbras,
+	Equipement_Bras,
 	/**
 	 * Definie le type d'objet: equipement pour le corps/buste Augmente la defense du hero de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	equipementcorps,
+	Equipement_Corps,
 	/**
 	 * Definie le type d'objet: equipement pour le pied Augmente la defense du hero de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	equipementpied,
+	Equipement_Pied,
 	/**
 	 * Definie le type d'objet: arme Augmente l'attaque du hero de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	arme,
+	Arme,
 	/**
 	 * Definie le type d'objet: bouclier Augmente la defense du hero de la valeur bonus_item
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	
-	bouclier;
+	Bouclier;
 
 }

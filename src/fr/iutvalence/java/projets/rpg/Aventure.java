@@ -192,11 +192,11 @@ public class Aventure
 	 */
 	public void initInventaire(){
 		Item[] sac= new Item[CAPACITE_INVENTAIRE];
-		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
 	}
 	
 
@@ -445,13 +445,13 @@ public class Aventure
 	 */
 	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
 	public void ItemUse(Item objet) throws ModeCombatInvalidException{
-		if(objet.getTypeItem()==TypeItem.objetdesoin){
+		if(objet.getTypeItem()==TypeItem.Objet_de_Soin){
 			this.perso.getStats().setPdvcour(objet.getBonusItem());
 		}
-		if(objet.getTypeItem()==TypeItem.objetderecup){
+		if(objet.getTypeItem()==TypeItem.Objet_de_Recup){
 			this.perso.getStats().setPdmcour(objet.getBonusItem());
 		}
-		if(objet.getTypeItem()==TypeItem.arme){
+		if(objet.getTypeItem()==TypeItem.Arme){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -460,7 +460,7 @@ public class Aventure
 				this.perso.getStats().setAttaque(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==TypeItem.bouclier){
+		if(objet.getTypeItem()==TypeItem.Bouclier){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -469,7 +469,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}	
 		}
-		if(objet.getTypeItem()==TypeItem.equipementbras){
+		if(objet.getTypeItem()==TypeItem.Equipement_Bras){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -478,7 +478,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==TypeItem.equipementcorps){
+		if(objet.getTypeItem()==TypeItem.Equipement_Corps){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -487,7 +487,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==TypeItem.equipementpied){
+		if(objet.getTypeItem()==TypeItem.Equipement_Pied){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -496,7 +496,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==TypeItem.equipementtete){
+		if(objet.getTypeItem()==TypeItem.Equipement_Tete){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -505,7 +505,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==TypeItem.objetdesoutien){
+		if(objet.getTypeItem()==TypeItem.Objet_de_Soutien){
 
 		}
 	}		
