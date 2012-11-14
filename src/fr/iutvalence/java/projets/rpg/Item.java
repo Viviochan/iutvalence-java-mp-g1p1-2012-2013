@@ -16,8 +16,8 @@ public class Item
 	/**
 	 * Nom de l'item
 	 */
-	// FIXME respecter les conventions d'écriture
-	private String nomitem;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private String nomItem;
 
 	/**
 	 * Type de l'item: Objet/Equipement
@@ -27,41 +27,34 @@ public class Item
 	 * Equipement pour le bras/ la tete/ le buste / les jambes
 	 */
 	// FIXME respecter les conventions d'écriture
-	private typeitem typeitem;
+	private typeitem typeItem;
 
-	// FIXME ne aps définir comme un commentaire JavaDoc(comment ecrire les commentaire concernant l'avancement du
+	// FIXME (FIXED)ne aps définir comme un commentaire JavaDoc(comment ecrire les commentaire concernant l'avancement du
 	// travail)
-	//
-	// Pour le type d'item on aura besoin d'un enum
-	//
-	// public enum type={"Equipement_Bras";"Equipement_Jambes";"Equipement_Tete";...};
-	// et type_item prendras une des valeurs contenue dans l'enum de type
-	//
-	// A definir dans une sous classe
-	//
+	
 
 	/**
 	 * bonus donné par l'item varie en fonction du type de celui-ci
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int bonusitem;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int bonusItem;
 
 	/**
 	 * Valeur marchande de l'item
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int valitem;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int valItem;
 
 	/**
 	 * Valeur de l'item s'il est vendue par un pnj vendeur
 	 * 
 	 * Certains items n auront un prix null il ne seront recuperable que par les montres
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int prixitem;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int prixItem;
 
-	// FIXME corriger le commentaire (parler de fichier texte n'a pas de sens ici)
+	// FIXME (FIXED)corriger le commentaire (parler de fichier texte n'a pas de sens ici)
 	/**
 	 * Constructeur
 	 * 
@@ -81,11 +74,11 @@ public class Item
 	// FIXME respecter les conventions d'écriture (paramètres)
 	public Item(String nI, typeitem type, int bonus, int prix, int valeur)
 	{
-		this.nomitem = nI;
-		this.typeitem = type;
-		this.bonusitem = bonus;
-		this.prixitem = prix;
-		this.valitem = valeur;
+		this.nomItem = nI;
+		this.typeItem = type;
+		this.bonusItem = bonus;
+		this.prixItem = prix;
+		this.valItem = valeur;
 
 	}
 
@@ -95,10 +88,10 @@ public class Item
 	 * @return le nom de l item
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	public String getNomitem()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public String getNomItem()
 	{
-		return this.nomitem;
+		return this.nomItem;
 	}
 
 	/**
@@ -108,10 +101,10 @@ public class Item
 	 * 
 	 */
 	// a completer quand la class typeitem sera complete
-	// FIXME respecter les conventions d'écriture
-	public typeitem gettypeitem()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public typeitem getTypeItem()
 	{
-		return this.typeitem;
+		return this.typeItem;
 	}
 
 	/**
@@ -119,10 +112,10 @@ public class Item
 	 * 
 	 * @return le bonus de l item
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int getBonusitem()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public int getBonusItem()
 	{
-		return this.bonusitem;
+		return this.bonusItem;
 	}
 
 	/**
@@ -130,10 +123,10 @@ public class Item
 	 * 
 	 * @return la valeur de l item
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int getValitem()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public int getValItem()
 	{
-		return this.valitem;
+		return this.valItem;
 	}
 
 	/**
@@ -141,22 +134,14 @@ public class Item
 	 * 
 	 * @return le prix de l item
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int getPrixitem()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public int getPrixItem()
 	{
-		return this.prixitem;
+		return this.prixItem;
 	}
 
-	// FIXME cette méthode est déjà défénie plus haut !
-	/**
-	 * donne le type de l'item
-	 * 
-	 * @return typeitem
-	 */
-	public typeitem getTypeitem()
-	{
-		return this.typeitem;
-	}
+	// FIXME (FIXED)cette méthode est déjà défénie plus haut !
+
 
 	// FIXME redéfinir toString
 }

@@ -21,8 +21,8 @@ public class Boss extends Monstre
 	/**
 	 * Ordonnee du boss sur la map
 	 */
-	// FIXME renommer la constante
-	public final static int OORDONNE_BOSS = 1000;
+	// FIXME (FIXED)renommer la constante
+	public final static int ORDONNE_BOSS = 1000;
 
 	/**
 	 * Points de vie du boss
@@ -55,17 +55,17 @@ public class Boss extends Monstre
 	public Boss() throws CoordonneesInvalideException
 	{
 		super(NOM_BOSS, HP_BOSS, ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS, OR_XP_BOSS);
-		this.posboss = new Position(ABSCISSE_BOSS, OORDONNE_BOSS);
+		this.posboss = new Position(ABSCISSE_BOSS, ORDONNE_BOSS);
 
 	}
 
-	// FIXME renommer la méthode en respectant les conventions d'écriture
+	// FIXME (FIXED)renommer la méthode en respectant les conventions d'écriture
 	/**
 	 * Donne la position du boss
 	 * 
 	 * @return posboss
 	 */
-	public Position getpossboss()
+	public Position getPossBoss()
 	{
 		return this.posboss;
 	}

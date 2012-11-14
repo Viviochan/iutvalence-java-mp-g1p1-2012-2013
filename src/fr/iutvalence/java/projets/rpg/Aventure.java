@@ -66,7 +66,7 @@ public class Aventure
 	 * Collection ou tableau servant de base de donnes de monstre On la consultera pour chaque combat pour definir qui
 	 * affronte le hero
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	public Monstre[] tabMonstres;
 	
 	/**
@@ -126,12 +126,12 @@ public class Aventure
 		int i = 1;
 		int xp = 20;
 		this.levels = new Niveau[NIVEAU_MAX + 1];
-		this.levels[0] = new Niveau(0, 0);
-		this.levels[1] = new Niveau();
+		this.levels[0] = new Niveau(0, 0);//Niveau 0
+		this.levels[1] = new Niveau();//Niveau 1
 		for (i = 2; i < NIVEAU_MAX; i++)
 		{
-			// FIXME à quoi correspond la valeur 99 ?
-			for (i = 2; i < 99; i++)
+			// FIXME(FIXED) à quoi correspond la valeur 99 ?
+			for (i = 2; i < Niveau.NIVEAU_MAX; i++)//On remplie du Niveau 2 jusqu'au niveau max ici 99
 			{
 				this.levels[i] = new Niveau(i, xp);
 				xp = (int) (xp + Math.floor(0.75 * xp));
@@ -157,7 +157,7 @@ public class Aventure
 		while (lvlheros > this.perso.getStats().getNbxp())
 		{
 			//on augmente le niveau du hero et on augmente les stats en fonction du bonus par niveau definis en constante dans la classe hero
-			this.perso.setNiveauheros();
+			this.perso.setNiveauHeros();
 			this.perso.getStats().setPointdevie(Hero.BONUS_HP);
 			this.perso.getStats().setPointdemana(Hero.BONUS_MP);
 			this.perso.getStats().setAttaque(Hero.BONUS_ATT);
@@ -226,23 +226,23 @@ public class Aventure
 	 * @return Posheros la nouvelle position du hero
 	 * @throws CoordonneesInvalideException la nouvelle position est non valide
 	 */
-	// FIXME respecter les conventions d'écriture (nom méthode)
-	public Position DeplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
+	// FIXME (FIXED)respecter les conventions d'écriture (nom méthode)
+	public Position deplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
 	{
 		if ((xarr > PlateaudeJeu.LONGUEUR) || (xarr > PlateaudeJeu.LONGUEUR))
 		{
 			throw new CoordonneesInvalideException();
 		}
-		if ((this.perso.getPosheros().getX() == xarr) || ((this.perso.getPosheros().getX()) + 1 == xarr)
-				|| ((this.perso.getPosheros().getX()) - 1 == xarr))
+		if ((this.perso.getPosHeros().getX() == xarr) || ((this.perso.getPosHeros().getX()) + 1 == xarr)
+				|| ((this.perso.getPosHeros().getX()) - 1 == xarr))
 		{
-			if ((this.perso.getPosheros().getY() == yarr) || ((this.perso.getPosheros().getY()) + 1 == yarr)
-					|| ((this.perso.getPosheros().getY()) - 1 == yarr))
+			if ((this.perso.getPosHeros().getY() == yarr) || ((this.perso.getPosHeros().getY()) + 1 == yarr)
+					|| ((this.perso.getPosHeros().getY()) - 1 == yarr))
 			{
 				if (this.carte.getCase(xarr, yarr) == 1)
 				{
-					this.perso.getPosheros().setX(xarr);
-					this.perso.getPosheros().setY(yarr);
+					this.perso.getPosHeros().setX(xarr);
+					this.perso.getPosHeros().setY(yarr);
 
 				}
 				throw new CoordonneesInvalideException();// case non praticable
@@ -250,7 +250,7 @@ public class Aventure
 			throw new CoordonneesInvalideException();
 		}
 		DeclencheCombat();
-		return this.perso.getPosheros();
+		return this.perso.getPosHeros();
 	}
 
 	// FIXME compléter le commentaire (à discuter)
@@ -266,9 +266,9 @@ public class Aventure
 	 * @throws DirectionInvalideException la direction choisie n est pas valable
 	 * @throws CoordonneesInvalideException les coordonnees depassent les bornes de la cartes
 	 */
-	public Position DeplacementHeros(int dir) throws DirectionInvalideException, CoordonneesInvalideException
+	public Position deplacementHeros(int dir) throws DirectionInvalideException, CoordonneesInvalideException
 	{
-		Position poshero = this.perso.getPosheros();
+		Position poshero = this.perso.getPosHeros();
 		if (dir != Direction.BAS)
 		{
 			poshero.setY(poshero.getY() - 1);
@@ -289,9 +289,9 @@ public class Aventure
 		{
 			throw new DirectionInvalideException();
 		}
-		this.perso.setPosshero(poshero);
+		this.perso.setPossHero(poshero);
 		DeclencheCombat();
-		return this.perso.getPosheros();
+		return this.perso.getPosHeros();
 	}
 
 
@@ -380,7 +380,7 @@ public class Aventure
 		}
 		if(hpcour==0){
 			//gerer la mort du hero soit par un game over soit par un repop a la ville avec de largent en moins
-			this.perso.setPosheros(Hero.ABSCISSE_DEFAUT,Hero.ORDONNE_DEFAUT);
+			this.perso.setPosHeros(Hero.ABSCISSE_DEFAUT,Hero.ORDONNE_DEFAUT);
 			this.perso.getStats().setOr(this.perso.getStats().getOr()/2);
 		}
 		if(chance!=0){
@@ -445,67 +445,67 @@ public class Aventure
 	 */
 	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
 	public void ItemUse(Item objet) throws ModeCombatInvalidException{
-		if(objet.getTypeitem()==typeitem.objetdesoin){
-			this.perso.getStats().setPdvcour(objet.getBonusitem());
+		if(objet.getTypeItem()==typeitem.objetdesoin){
+			this.perso.getStats().setPdvcour(objet.getBonusItem());
 		}
-		if(objet.getTypeitem()==typeitem.objetderecup){
-			this.perso.getStats().setPdmcour(objet.getBonusitem());
+		if(objet.getTypeItem()==typeitem.objetderecup){
+			this.perso.getStats().setPdmcour(objet.getBonusItem());
 		}
-		if(objet.getTypeitem()==typeitem.arme){
+		if(objet.getTypeItem()==typeitem.arme){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
 			else{
 				this.perso.setArme(objet);
-				this.perso.getStats().setAttaque(objet.getBonusitem());
+				this.perso.getStats().setAttaque(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeitem()==typeitem.bouclier){
+		if(objet.getTypeItem()==typeitem.bouclier){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
 			else{
 				this.perso.setBouclier(objet);
-				this.perso.getStats().setDefense(objet.getBonusitem());
+				this.perso.getStats().setDefense(objet.getBonusItem());
 			}	
 		}
-		if(objet.getTypeitem()==typeitem.equipementbras){
+		if(objet.getTypeItem()==typeitem.equipementbras){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
 			else{
 				this.perso.setArmurebras(objet);
-				this.perso.getStats().setDefense(objet.getBonusitem());
+				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeitem()==typeitem.equipementcorps){
+		if(objet.getTypeItem()==typeitem.equipementcorps){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
 			else{
 				this.perso.setArmurebuste(objet);
-				this.perso.getStats().setDefense(objet.getBonusitem());
+				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeitem()==typeitem.equipementpied){
+		if(objet.getTypeItem()==typeitem.equipementpied){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
 			else{
 				this.perso.setArmurepied(objet);
-				this.perso.getStats().setDefense(objet.getBonusitem());
+				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeitem()==typeitem.equipementtete){
+		if(objet.getTypeItem()==typeitem.equipementtete){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
 			else{
 				this.perso.setArmurecasque(objet);
-				this.perso.getStats().setDefense(objet.getBonusitem());
+				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeitem()==typeitem.objetdesoutien){
+		if(objet.getTypeItem()==typeitem.objetdesoutien){
 
 		}
 	}		

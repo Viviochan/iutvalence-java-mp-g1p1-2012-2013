@@ -79,7 +79,7 @@ public class Hero
 	 */
 	public final static String NOMHERO = "Vivio";
 
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	/**
 	 * Definie la position du hero sur le plateaudejeu
 	 */
@@ -88,7 +88,7 @@ public class Hero
 	/**
 	 * Nom du hero
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	private String nomduheros;
 
 	
@@ -133,13 +133,14 @@ public class Hero
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
+	//redefinie une classe stats
 	//private int pointdevie;
 
 	/**
 	 * Niveau de magie du heros, permet le lancement de sort et autre magies
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int pointdemana;
 
 	/**
@@ -152,7 +153,7 @@ public class Hero
 	 */
 	//private int defense;
 
-	// FIXME respecter les conventions d'écriture
+	// FIXME(FIXED) respecter les conventions d'écriture
 	/**
 	 * Niveau du heros.
 	 */
@@ -161,7 +162,7 @@ public class Hero
 	/**
 	 * Experience du heros. Certains palier d'xp permettent de debloquer un niveau avec les bonus lui correspondant
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int nbxp;
 
 	/**
@@ -217,10 +218,10 @@ public class Hero
 	/**
 	 * Monte le niveau du heros de 1
 	 */
-	// FIXME respecter les conventions d'écriture
-	public void setNiveauheros()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public void setNiveauHeros()
 	{
-		this.niveauheros++;
+		this.niveauheros=this.niveauheros+1;
 	}
 
 	/**
@@ -228,8 +229,8 @@ public class Hero
 	 * 
 	 * @return nom_du_heros Donne le nom du hero
 	 */
-	// FIXME respecter les conventions d'écriture
-	public String getNomduheros()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public String getNomHeros()
 	{
 		return this.nomduheros;
 	}
@@ -240,8 +241,8 @@ public class Hero
 	 * @param s
 	 *            Change le nom du hero
 	 */
-	// FIXME respecter les conventions d'écriture
-	public void setNomduheros(String s)
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public void setNomHeros(String s)
 	{
 		this.nomduheros = s;
 	}
@@ -253,8 +254,8 @@ public class Hero
 	 * 
 	 * @return (this.posheros.getX(),this.posheros.getY())
 	 */
-	// FIXME respecter les conventions d'écriture
-	public Position getPosheros()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public Position getPosHeros()
 	{
 		return this.posheros;
 	}
@@ -270,8 +271,8 @@ public class Hero
 	 * @throws CoordonneesInvalideException 2
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	public void setPosheros(int x, int y) throws CoordonneesInvalideException
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public void setPosHeros(int x, int y) throws CoordonneesInvalideException
 	{
 		this.posheros.setX(x);
 		this.posheros.setY(y);
@@ -285,8 +286,8 @@ public class Hero
 	 * 
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	public void setPosshero(Position p)
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public void setPossHero(Position p)
 	{
 		this.posheros = p;
 	}
