@@ -17,15 +17,65 @@ public class Partie
 	/**
 	 * @param args
 	 * @throws CoordonneesInvalideException 
+	 * @throws DirectionInvalideException 
 	 */
-	public static void main(String[] args) throws CoordonneesInvalideException
+	public static void main(String[] args) throws CoordonneesInvalideException, DirectionInvalideException
 	{
 		System.out.print("coucou \n");
 		System.out.print("le hero: \n");
 		Hero zero= new Hero("Reinhart");
-		System.out.print(zero);
+		//System.out.print(zero);
+		Boss gilg= new Boss();
+		//System.out.print(gilg);
 		System.out.print("\n la map: \n");
 		PlateaudeJeu carte= new PlateaudeJeu();
-		System.out.print(carte);
+		//System.out.print(carte);
+		Aventure aven= new Aventure();
+		System.out.print(aven.perso);
+		System.out.print(aven.demon);
+		Direction dir=Direction.Haut;
+		aven.deplacementHeros(dir);
+		System.out.print("le hero: \n");
+		System.out.print(aven.perso);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

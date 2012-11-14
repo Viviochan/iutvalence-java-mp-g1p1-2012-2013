@@ -434,7 +434,7 @@ public class Hero
 
 	
 	public String toString(){
-		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+")";
+		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+" Position:"+this.getPosHeros()+")";
 	}
 	
 	

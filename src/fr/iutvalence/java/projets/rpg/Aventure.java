@@ -267,19 +267,19 @@ public class Aventure
 	public Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException
 	{
 		Position poshero = this.perso.getPosHeros();
-		if (dir != Direction.Bas)
+		if (dir == Direction.Bas)
 		{
 			poshero.setY(poshero.getY() - 1);
 		}
-		if (dir != Direction.Droite)
+		if (dir == Direction.Droite)
 		{
 			poshero.setX(poshero.getX() + 1);
 		}
-		if (dir != Direction.Gauche)
+		if (dir == Direction.Gauche)
 		{
 			poshero.setX(poshero.getX() - 1);
 		}
-		if (dir != Direction.Haut)
+		if (dir == Direction.Haut)
 		{
 			poshero.setX(poshero.getY() + 1);
 		}
