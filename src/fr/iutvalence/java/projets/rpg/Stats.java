@@ -14,13 +14,13 @@ public class Stats
 	/**
 	 * Niveau de vie de la creature si elle tombe a zero elle sera considerer comme morte
 	 */
-	private int pointdevie;
+	private int pointDeVie;
 
 	/**
 	 * Niveau de magie de la creature, permet le lancement de sort et autre magies
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int pointdemana;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int pointDeMana;
 
 	
 	/**
@@ -65,8 +65,8 @@ public class Stats
 	 * 
 	 */
 	public Stats(int pdm, int pdv, int att, int def, int nbxp, int nbor){
-		this.pointdemana=pdm;
-		this.pointdevie=pdv;
+		this.pointDeMana=pdm;
+		this.pointDeVie=pdv;
 		this.pdmcour=pdm;
 		this.pdvcour=pdv;
 		this.attaque=att;
@@ -88,7 +88,7 @@ public class Stats
 
 	public int getPointdevie()
 	{
-		return this.pointdevie;
+		return this.pointDeVie;
 	}
 
 	/**
@@ -97,10 +97,10 @@ public class Stats
 	 * @param pdv
 	 *            le bonus de point de vie a ajouter a ceux  de la creature
 	 */
-	// FIXME respecter les conventions d'écriture
-	public void setPointdevie(int pdv)
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public void setPointDeVie(int pdv)
 	{
-		this.pointdevie = this.pointdevie + pdv;
+		this.pointDeVie = this.pointDeVie + pdv;
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class Stats
 	 */
 	public int getPointdemana()
 	{
-		return this.pointdemana;
+		return this.pointDeMana;
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class Stats
 	 */
 	public void setPointdemana(int pdm)
 	{
-		this.pointdemana = this.pointdemana + pdm;
+		this.pointDeMana = this.pointDeMana + pdm;
 	}
 
 	/**
@@ -188,8 +188,8 @@ public class Stats
 	 *            l'xp recue soit par un item soit apres un combat
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	public void setNbxp(int exp)
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public void setNbXp(int exp)
 	{
 		this.nbxp = this.nbxp + exp;
 	}
@@ -221,14 +221,15 @@ public class Stats
 	
 	
 	public String toString(){
-		return "( pdm:"+this.pointdemana+" pdv:"+this.pointdevie+" attaque:"+this.attaque+" defense:"+this.defense+" experience:"+this.nbxp+" or:"+this.or+")";
+		return "( pdm:"+this.pointDeMana+" pdv:"+this.pointDeVie+" attaque:"+this.attaque+" defense:"+this.defense+" experience:"+this.nbxp+" or:"+this.or+")";
 	}
 
 
 
 
 	/**
-	 * @return
+	 * Retourne les Point de vie courant 
+	 * @return pdvcour
 	 */
 	public int getPdvcour()
 	{
@@ -239,7 +240,8 @@ public class Stats
 
 
 	/**
-	 * @param pdvcour
+	 * Modifie les point de vie courant
+	 * @param pdvcour nouveau niveau de vie
 	 */
 	public void setPdvcour(int pdvcour)
 	{
@@ -250,7 +252,8 @@ public class Stats
 
 
 	/**
-	 * @return
+	 * Retourne les point de mana courant
+	 * @return pdmcour 
 	 */
 	public int getPdmcour()
 	{
@@ -261,7 +264,8 @@ public class Stats
 
 
 	/**
-	 * @param pdmcour
+	 * Modifie les point de mana courant
+	 * @param pdmcour nouveau niveau de pdmcour
 	 */
 	public void setPdmcour(int pdmcour)
 	{

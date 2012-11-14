@@ -142,7 +142,7 @@ public class Monstre
 	 * 
 	 * @return le nom du monstre
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	public String getNomMonstre()
 	{
 		return this.nomMonstre;
@@ -159,5 +159,24 @@ public class Monstre
 		return this.stat;
 	}
 
-	// FIXME redéfinir toString
+	// FIXME (FIXED)redéfinir toString
+	
+	public String toString(){
+		return "( Nom monstre: "+this.nomMonstre+" Stats: "+this.stat+")";
+			
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }

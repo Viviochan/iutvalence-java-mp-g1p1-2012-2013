@@ -15,17 +15,16 @@ package fr.iutvalence.java.projets.rpg;
 public class PNJ
 {
 
-	// FIXME se servir du type Position
-
 	/**
-	 * Abscisse du pnj
+	 * Abscice de base pour le constructeur sans parametre
 	 */
-	//private int pos_x_pnj;
-
+	public final static int Abscice_Base=9;
+	
 	/**
-	 * Oordonne du pnj
+	 * Ordonne de base pour le constructeur sans parametre
 	 */
-	//private int pos_y_pnj;
+	public final static int Ordonne_Base=5;
+	// FIXME(FIXED) se servir du type Position
 	
 	/**
 	 * Position du PNJ
@@ -42,29 +41,27 @@ public class PNJ
 	 * Constructeur
 	 * 
 	 * Pose un pnj a cote du hero lors de la creation de celui-ci Le pnj est statique il ne bougera pas
-	 * @throws CoordonneesInvalideException 
+	 * @throws CoordonneesInvalideException  si la position n est pas valide
 	 */
 	public PNJ() throws CoordonneesInvalideException
 	{
-		//this.pos_x_pnj = 9;
-		//this.pos_y_pnj = 5;
-		this.posPNJ= new Position(9,5);
+		this.posPNJ= new Position(Abscice_Base,Ordonne_Base);
 		this.phrase = "Hello World";
 
 	}
 
 	// FIXME compléter le commentaire
 	/**
-	 * 
-	 * @param pos_x
-	 *            Abscisse x du pnj
-	 * @param pos_y
-	 *            Ordonnes y du pnj
+	 * Permet de poser un PNJ avec une position et une phrase
+	 * @param posX Abscisse x du pnj
+	 *            
+	 * @param posY Ordonnes y du pnj
+	 *            
 	 * @param ph
 	 *            Phrase qu'il se gardera de dire
-	 * @throws CoordonneesInvalideException 
+	 * @throws CoordonneesInvalideException si la nouvelle position n est pas valide
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	public PNJ(int posX, int posY, String ph) throws CoordonneesInvalideException
 	{
 		//this.pos_x_pnj = pos_x;
@@ -100,14 +97,22 @@ public class PNJ
 	 */
 	public String getPhrase()
 	{
-		return phrase;
+		return this.phrase;
 	}
 
+	/**
+	 * Retourne la position du PNJ
+	 * @return posPNJ
+	 */
 	public Position getPosPNJ()
 	{
 		return this.posPNJ;
 	}
 
+	/**
+	 * Modifie la position du PNJ
+	 * @param posPNJ la nouvelle position
+	 */
 	public void setPosPNJ(Position posPNJ)
 	{
 		this.posPNJ = posPNJ;

@@ -16,15 +16,15 @@ public class Position
 	 */
 	private int y;
 
-	// FIXME compléter le commentaire (balises)
+	// FIXME (FIXED)compléter le commentaire (balises)
 
 	/**
 	 * Construit la position d'abscisse xd et d'ordonnees yd mais si xd ou yd depasse la LONGUEUR du tableau On retourne
 	 * une exception liee aux coordonnees
 	 * 
-	 * @param xd
-	 * @param yd
-	 * @throws CoordonneesInvalideException
+	 * @param xd la nouvelle abscisse
+	 * @param yd la nouvelle ordonne
+	 * @throws CoordonneesInvalideException si la nouvelle position genere n est pas valide
 	 * 
 	 */
 	public Position(int xd, int yd) throws CoordonneesInvalideException
@@ -47,14 +47,14 @@ public class Position
 	 */
 	public int getX()
 	{
-		return x;
+		return this.x;
 	}
 
 	/**
 	 * Modifie l'abscisse de la position
 	 * 
-	 * @param x
-	 * @throws CoordonneesInvalideException
+	 * @param x nouvelle abscisse
+	 * @throws CoordonneesInvalideException si la nouvelle position genere n est pas valide
 	 */
 	public void setX(int x) throws CoordonneesInvalideException
 	{
@@ -72,14 +72,14 @@ public class Position
 	 */
 	public int getY()
 	{
-		return y;
+		return this.y;
 	}
 
 	/**
 	 * Modifie l'ordonnee de la position
 	 * 
-	 * @param y
-	 * @throws CoordonneesInvalideException
+	 * @param y nouvelle ordonnes
+	 * @throws CoordonneesInvalideException si la nouvelle position genere n est pas valide
 	 */
 	public void setY(int y) throws CoordonneesInvalideException
 	{

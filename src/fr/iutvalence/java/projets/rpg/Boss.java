@@ -50,7 +50,7 @@ public class Boss extends Monstre
 	 * defense:110 or:0 xp:0 Un seul et unique boss sera inclus dans le jeu On integrera des sous boss pris dans la base
 	 * de monstre
 	 * 
-	 * @throws CoordonneesInvalideException 1
+	 * @throws CoordonneesInvalideException Si les coordonnes du Boss sorte de la map
 	 */
 	public Boss() throws CoordonneesInvalideException
 	{
@@ -70,5 +70,18 @@ public class Boss extends Monstre
 		return this.posboss;
 	}
 
-	// FIXME redéfinir toString
+	// FIXME (FIXED)redéfinir toString
+	
+	public String toString(){
+		return "( Nom monstre: "+this.getNomMonstre()+" Position: "+this.posboss+" Stats: "+this.getStats()+")";
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

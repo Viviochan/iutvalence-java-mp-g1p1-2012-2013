@@ -104,7 +104,10 @@ public class Hero
 	 */
 	private Item[] inventaire;
 	
-	private int tailleinventaire;
+	/**
+	 * 
+	 */
+	private int tailleInventaire;
 	
 	/**
 	 * 
@@ -185,16 +188,16 @@ public class Hero
 		this.niveauheros = NIV_BASE;
 		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
 		this.inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
-		this.tailleinventaire=0;
+		this.tailleInventaire=0;
 	}
 
-	// FIXME compléter le commentaire (documenter @throws)
+	// FIXME (FIXED)compléter le commentaire (documenter @throws)
 	/**
 	 * Initialisation a partir du constructeur par defaut
 	 * 
 	 * @param s
 	 *            Nom du heros
-	 * @throws CoordonneesInvalideException 2
+	 * @throws CoordonneesInvalideException si les coordonnes de creations du heros ne sont pas valide
 	 * 
 	 */
 	public Hero(String s) throws CoordonneesInvalideException
@@ -268,7 +271,7 @@ public class Hero
 	 *            Nouvelle abscisse
 	 * @param y
 	 *            Nouvelles Ordonnees
-	 * @throws CoordonneesInvalideException 2
+	 * @throws CoordonneesInvalideException si les nouvelles coordonnes ne sont pas valide
 	 * 
 	 */
 	// FIXME (FIXED)respecter les conventions d'écriture
@@ -299,12 +302,7 @@ public class Hero
 		return this.stats;
 	}
 
-	// FIXME redéfinir toString
 
-	
-	public String toString(){
-		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+")";
-	}
 
 	/**
 	 * retourne le casque que le heros porte
@@ -351,53 +349,93 @@ public class Hero
 		return this.armurebras;
 	}
 
+	/**
+	 * Modifie l armure du bras
+	 * @param armurebras  nouvelle piece a modifier
+	 */
 	public void setArmurebras(Item armurebras)
 	{
 		this.armurebras = armurebras;
 	}
 
-	public Item getArmurepied()
+	/**
+	 * Retourne l armure du pied
+	 * @return armurepied 
+	 */
+	public Item getArmurePied()
 	{
 		return this.armurepied;
 	}
 
+	/**
+	 * Modifie l armure du pied
+	 * @param armurepied nouvelle piece
+	 */
 	public void setArmurepied(Item armurepied)
 	{
 		this.armurepied = armurepied;
 	}
 
+	/**
+	 * Retourne le bouclier
+	 * @return bouclier
+	 */
 	public Item getBouclier()
 	{
-		return bouclier;
+		return this.bouclier;
 	}
 
+	/**
+	 * Modifie le bouclier
+	 * @param bouclier nouveau bouclier
+	 */
 	public void setBouclier(Item bouclier)
 	{
 		this.bouclier = bouclier;
 	}
 
+	/**
+	 * Retourne l arme
+	 * @return arme
+	 */
 	public Item getArme()
 	{
 		return this.arme;
 	}
 
+	/**
+	 * Modifie l arme
+	 * @param arme la nouvelle arme
+	 */
 	public void setArme(Item arme)
 	{
 		this.arme = arme;
 	}
 
+	/**
+	 * Retourne un item 
+	 * @param i indice de l item dans l inventaire
+	 * @return item a l emplacement i 
+	 */
 	public Item getInventaire(int i)
 	{
 		return this.inventaire[i];
 	}
 
+	/**
+	 * Rajoute un item dans l inventaire
+	 * @param item item utiliser
+	 */
 	public void setInventaire(Item item)
 	{
-		this.inventaire[this.tailleinventaire] = item;
+			this.inventaire[this.tailleInventaire] = item;
 	}
 	
 
 	
+	public String toString(){
+		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+")";
+	}
 	
 	
 }

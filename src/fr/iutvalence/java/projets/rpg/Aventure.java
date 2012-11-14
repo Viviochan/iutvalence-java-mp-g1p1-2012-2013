@@ -158,7 +158,7 @@ public class Aventure
 		{
 			//on augmente le niveau du hero et on augmente les stats en fonction du bonus par niveau definis en constante dans la classe hero
 			this.perso.setNiveauHeros();
-			this.perso.getStats().setPointdevie(Hero.BONUS_HP);
+			this.perso.getStats().setPointDeVie(Hero.BONUS_HP);
 			this.perso.getStats().setPointdemana(Hero.BONUS_MP);
 			this.perso.getStats().setAttaque(Hero.BONUS_ATT);
 			this.perso.getStats().setDefense(Hero.BONUS_DEF);
@@ -216,12 +216,12 @@ public class Aventure
 	
 	
 	
-	// FIXME corriger/compléter le commentaire (à discuter)
+	// FIXME (FIXED)corriger/compléter le commentaire (à discuter)
 	/**
-	 * Modifie la position du hero
+	 * Permet le deplacement du Hero a partir de coordonnees
 	 * 
 	 * @param xarr abscisse de la position souhaite
-	 * @param yarr oordonneer de la position souhaite
+	 * @param yarr ordonneer de la position souhaite
 	 * 
 	 * @return Posheros la nouvelle position du hero
 	 * @throws CoordonneesInvalideException la nouvelle position est non valide
@@ -257,31 +257,29 @@ public class Aventure
 	/**
 	 * Gere le deplacement du hero a partir d'une direction donnee
 	 * 
-	 * @param dir
-	 *            Une direction (GAUCHE,DROITE,HAUT,BAS)
-	 * 
-	 * 
+	 * @param dir Une direction (GAUCHE,DROITE,HAUT,BAS)
+	 *            
 	 * @return poshero la nouvelle position du hero
 	 * 
 	 * @throws DirectionInvalideException la direction choisie n est pas valable
 	 * @throws CoordonneesInvalideException les coordonnees depassent les bornes de la cartes
 	 */
-	public Position deplacementHeros(int dir) throws DirectionInvalideException, CoordonneesInvalideException
+	public Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException
 	{
 		Position poshero = this.perso.getPosHeros();
-		if (dir != Direction.BAS)
+		if (dir != Direction.Bas)
 		{
 			poshero.setY(poshero.getY() - 1);
 		}
-		if (dir != Direction.DROITE)
+		if (dir != Direction.Droite)
 		{
 			poshero.setX(poshero.getX() + 1);
 		}
-		if (dir != Direction.GAUCHE)
+		if (dir != Direction.Gauche)
 		{
 			poshero.setX(poshero.getX() - 1);
 		}
-		if (dir != Direction.HAUT)
+		if (dir != Direction.Haut)
 		{
 			poshero.setX(poshero.getY() + 1);
 		}
@@ -301,9 +299,8 @@ public class Aventure
 	/**
 	 * Methode qui a permettra de definir si un deplacement provoque un combat avec un ennemi ou non
 	 * 
-	 *
-	 * @return 0 si le voila quoi !!!
-	 * @throws CoordonneesInvalideException 2
+	 * @return 0 si la methode c est bien execute
+	 * @throws CoordonneesInvalideException si la position de repop du hero n est pas valide
 	 */
 	public int DeclencheCombat() throws CoordonneesInvalideException{
 		int nb = (int) (Math.random() * TAUX_MAX_RENCONTRE );
@@ -313,8 +310,6 @@ public class Aventure
 			Combat();
 		}
 		return 0;
-		
-		
 	}
 	
 	/**
@@ -374,7 +369,7 @@ public class Aventure
 				action=Action.rien;
 		}
 		if(hpmob==0){
-			this.perso.getStats().setNbxp(this.ennemi.getStats().getNbxp());
+			this.perso.getStats().setNbXp(this.ennemi.getStats().getNbxp());
 			this.perso.getStats().setOr(this.ennemi.getStats().getOr());
 			levelup();
 		}
@@ -433,7 +428,7 @@ public class Aventure
 	 * 
 	 * 
 	 * @param indexItemInventaire l item selectionner dans l'inventaire
-	 * @throws ModeCombatInvalidException 2
+	 * @throws ModeCombatInvalidException Si le Hero n est pas dans le bon mode 
 	 */
 	public void ItemSelect(int indexItemInventaire) throws ModeCombatInvalidException{
 		ItemUse(this.perso.getInventaire(indexItemInventaire));
@@ -441,7 +436,7 @@ public class Aventure
 
 	/**
 	 * @param objet l item utilise 
-	 * @throws ModeCombatInvalidException 1 
+	 * @throws ModeCombatInvalidException  si le mode de combat ne correspond pas 
 	 */
 	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
 	public void ItemUse(Item objet) throws ModeCombatInvalidException{

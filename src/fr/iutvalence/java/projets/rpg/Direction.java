@@ -1,31 +1,29 @@
 package fr.iutvalence.java.projets.rpg;
 
-// FIXME redéfinir Direction comme une énumération
+// FIXME (FIXED)redéfinir Direction comme une énumération
 /**
  * @author goncalvs
  *
  */
-public class Direction
+public enum Direction
 {
 
 	/**
 	 * Correspond a une direction que prend le hero Direction: Gauche
 	 */
-	public final static int GAUCHE = 4;
+	Gauche,
 
 	/**
 	 * Correspond a une direction que prend le hero Direction: Droite
 	 */
-	public final static int DROITE = 6;
-
+	Droite,
 	/**
 	 * Correspond a une direction que prend le hero Direction: Haut
 	 */
-	public final static int HAUT = 8;
+	Haut,
 
 	/**
 	 * Correspond a une direction que prend le hero Direction: Bas
 	 */
-	public final static int BAS = 2;
-
+	Bas
 }
