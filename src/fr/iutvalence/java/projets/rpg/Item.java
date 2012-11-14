@@ -26,8 +26,8 @@ public class Item
 	 * 
 	 * Equipement pour le bras/ la tete/ le buste / les jambes
 	 */
-	// FIXME respecter les conventions d'écriture
-	private typeitem typeItem;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private TypeItem typeItem;
 
 	// FIXME (FIXED)ne aps définir comme un commentaire JavaDoc(comment ecrire les commentaire concernant l'avancement du
 	// travail)
@@ -71,8 +71,8 @@ public class Item
 	 * @param valeur
 	 *            valeur de l item
 	 */
-	// FIXME respecter les conventions d'écriture (paramètres)
-	public Item(String nI, typeitem type, int bonus, int prix, int valeur)
+	// FIXME (FIXED)respecter les conventions d'écriture (paramètres)
+	public Item(String nI, TypeItem type, int bonus, int prix, int valeur)
 	{
 		this.nomItem = nI;
 		this.typeItem = type;
@@ -102,7 +102,7 @@ public class Item
 	 */
 	// a completer quand la class typeitem sera complete
 	// FIXME (FIXED)respecter les conventions d'écriture
-	public typeitem getTypeItem()
+	public TypeItem getTypeItem()
 	{
 		return this.typeItem;
 	}

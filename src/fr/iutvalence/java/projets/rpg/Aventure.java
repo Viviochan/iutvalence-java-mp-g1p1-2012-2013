@@ -192,11 +192,11 @@ public class Aventure
 	 */
 	public void initInventaire(){
 		Item[] sac= new Item[CAPACITE_INVENTAIRE];
-		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
-		sac[0]= new Item("herbes medicinal",typeitem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
+		sac[0]= new Item("herbes medicinal",TypeItem.objetdesoin,30,10,5);
 	}
 	
 
@@ -334,7 +334,7 @@ public class Aventure
 		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
 		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
-		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNommonstre(),this.tabMonstres[nbmonstre].getStats().getPointdevie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
+		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNomMonstre(),this.tabMonstres[nbmonstre].getStats().getPointdevie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
 		int hpmob=this.ennemi.getStats().getPdvcour();
 		int chance=0;
 		int action= Action.rien;
@@ -445,13 +445,13 @@ public class Aventure
 	 */
 	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
 	public void ItemUse(Item objet) throws ModeCombatInvalidException{
-		if(objet.getTypeItem()==typeitem.objetdesoin){
+		if(objet.getTypeItem()==TypeItem.objetdesoin){
 			this.perso.getStats().setPdvcour(objet.getBonusItem());
 		}
-		if(objet.getTypeItem()==typeitem.objetderecup){
+		if(objet.getTypeItem()==TypeItem.objetderecup){
 			this.perso.getStats().setPdmcour(objet.getBonusItem());
 		}
-		if(objet.getTypeItem()==typeitem.arme){
+		if(objet.getTypeItem()==TypeItem.arme){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -460,7 +460,7 @@ public class Aventure
 				this.perso.getStats().setAttaque(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==typeitem.bouclier){
+		if(objet.getTypeItem()==TypeItem.bouclier){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -469,7 +469,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}	
 		}
-		if(objet.getTypeItem()==typeitem.equipementbras){
+		if(objet.getTypeItem()==TypeItem.equipementbras){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -478,7 +478,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==typeitem.equipementcorps){
+		if(objet.getTypeItem()==TypeItem.equipementcorps){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -487,7 +487,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==typeitem.equipementpied){
+		if(objet.getTypeItem()==TypeItem.equipementpied){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -496,7 +496,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==typeitem.equipementtete){
+		if(objet.getTypeItem()==TypeItem.equipementtete){
 			if(this.modeCombat){
 				throw new ModeCombatInvalidException();
 			}
@@ -505,7 +505,7 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==typeitem.objetdesoutien){
+		if(objet.getTypeItem()==TypeItem.objetdesoutien){
 
 		}
 	}		

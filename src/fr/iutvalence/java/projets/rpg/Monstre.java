@@ -37,8 +37,8 @@ public class Monstre
 	 * 
 	 * Nom du montre en question
 	 */
-	// FIXME respecter les conventions d'écriture
-	private String nommonstre;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private String nomMonstre;
 
 	
 	/**
@@ -49,44 +49,56 @@ public class Monstre
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int hpmonstre;
 
 	/**
 	 * niveau d'attaque du monstre
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int attaquemonstre;
 
 	/**
 	 * niveau de defense du monstre
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int defensemonstre;
 
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int xpmonstre;
 
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int ormonstre;
 
-	// FIXME corriger le commentaire
+	// FIXME (FIXED)corriger le commentaire
 	/**
 	 * Constructeur
 	 * 
-	 * On definie deux constructeurs
 	 * 
-	 * Si aucun parametres n'est donnés on créer un monstre definie par les constantes Un Slim
+	 * Si aucun parametres n'est donnés on créer un monstre definie par les constantes 
+	 * 
+	 *  nomM: Slim
+	 *            Nom du monstre a creer
+	 *  hpmob: 10
+	 *            Niveau de vie du monstre a creer
+	 *  attmob: 5
+	 *            Niveau d'attaque du monstre a creer
+	 *  defmob: 5
+	 *            Niveau de defense du monstre a creer
+	 *  ormob: 3
+	 *            Or donner par le monstre a creer
+	 *  xpmob: 3
+	 *            xp donner par le monstre a creer
 	 */
 	public Monstre()
 	{
-		this.nommonstre = NOM_MOB;
+		this.nomMonstre = NOM_MOB;
 		//this.hpmonstre = HP_MOB;
 		//this.attaquemonstre = ATT_DEF_MOB;
 		//this.defensemonstre = ATT_DEF_MOB;
@@ -102,27 +114,27 @@ public class Monstre
 	 * 
 	 * @param nomM
 	 *            Nom du monstre a creer
-	 * @param hpmob
+	 * @param hpMob
 	 *            Niveau de vie du monstre a creer
-	 * @param attmob
+	 * @param attMob
 	 *            Niveau d'attaque du monstre a creer
-	 * @param defmob
+	 * @param defMob
 	 *            Niveau de defense du monstre a creer
-	 * @param ormob
+	 * @param orMob
 	 *            Or donner par le monstre a creer
-	 * @param xpmob
+	 * @param xpMob
 	 *            xp donner par le monstre a creer
 	 */
 	// FIXME respecter les conventions d'écriture (paramètres)
-	public Monstre(String nomM, int hpmob, int attmob, int defmob, int ormob, int xpmob)
+	public Monstre(String nomM, int hpMob, int attMob, int defMob, int orMob, int xpMob)
 	{
-		this.nommonstre = nomM;
+		this.nomMonstre = nomM;
 		//this.hpmonstre = hpmob;
 		//this.attaquemonstre = attmob;
 		//this.defensemonstre = defmob;
 		//this.ormonstre = ormob;
 		//this.xpmonstre = xpmob;
-		this.stat= new Stats(0,hpmob,attmob,defmob,ormob,xpmob);
+		this.stat= new Stats(0,hpMob,attMob,defMob,orMob,xpMob);
 	}
 
 	/**
@@ -131,9 +143,9 @@ public class Monstre
 	 * @return le nom du monstre
 	 */
 	// FIXME respecter les conventions d'écriture
-	public String getNommonstre()
+	public String getNomMonstre()
 	{
-		return this.nommonstre;
+		return this.nomMonstre;
 	}
 
 	

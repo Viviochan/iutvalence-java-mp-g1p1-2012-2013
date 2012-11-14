@@ -7,7 +7,7 @@ package fr.iutvalence.java.projets.rpg;
  * 
  */
 // FIXME respecter les conventions d'écriture
-public enum typeitem
+public enum TypeItem
 {
 	/**
 	 * Definie le type d'objet: soin Augmente/Redonne les hp de la valeur bonus_item

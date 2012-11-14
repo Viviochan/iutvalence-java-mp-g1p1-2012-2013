@@ -40,8 +40,8 @@ public class Skill
 	/**
 	 * Cout en point de mana de la competence
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int coutpm;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int coutPm;
 
 	/**
 	 * Effet du skill
@@ -66,7 +66,7 @@ public class Skill
 	{
 		this.nom = s;
 		this.lvl = n;
-		this.coutpm = pm;
+		this.coutPm = pm;
 		this.effet = nomEff;
 	}
 
@@ -77,7 +77,7 @@ public class Skill
 	{
 		this.nom = NOM_DEFAUT;
 		this.lvl = NIV_COMT_BASE;
-		this.coutpm = COUT_COMPT_BASE;
+		this.coutPm = COUT_COMPT_BASE;
 		this.effet = EFF_COMPT_BASE;
 	}
 
@@ -107,10 +107,10 @@ public class Skill
 	 * 
 	 * @return le cout en point de mana de la competence
 	 */
-	// FIXME Respecter les conventions d'écriture
-	public int getCoutpm()
+	// FIXME (FIXED)Respecter les conventions d'écriture
+	public int getCoutPm()
 	{
-		return this.coutpm;
+		return this.coutPm;
 	}
 
 	/**

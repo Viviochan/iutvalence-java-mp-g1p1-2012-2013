@@ -17,8 +17,8 @@ public class PNJVendeur extends PNJ
 	/**
 	 * Definie le nombre de item que peut vendre le PNJ Vendeur
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int taillemag;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int tailleMag;
 
 	/**
 	 * Le PNJ Vendeur vend des items figurant dans le tableau d item vend
@@ -41,7 +41,7 @@ public class PNJVendeur extends PNJ
 	public PNJVendeur(int posx, int posy, String ph, int nbitem)
 	{
 		super(posx, posy, ph);
-		this.taillemag = nbitem;
+		this.tailleMag = nbitem;
 	}
 
 	// FIXME ajouter une méthode permettant d'ajouter un objet à vendre
@@ -51,9 +51,9 @@ public class PNJVendeur extends PNJ
 	 */
 	public void vend()
 	{
-		this.vend = new Item[taillemag];
+		this.vend = new Item[tailleMag];
 		int i = 0;
-		while (i <= taillemag)
+		while (i <= tailleMag)
 		{
 			// on construits des items predefinies dans une base ou un autre elements qui stocke
 		}
@@ -65,10 +65,10 @@ public class PNJVendeur extends PNJ
 	 * 
 	 * @return taillmag
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int gettaillemag()
+	// FIXME (FIXED)respecter les conventions d'écriture
+	public int getTailleMag()
 	{
-		return this.taillemag;
+		return this.tailleMag;
 	}
 
 	/**

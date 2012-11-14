@@ -1,7 +1,9 @@
 package fr.iutvalence.java.projets.rpg;
 
-// FIXME compléter le commentaire
+// FIXME (FIXED)compléter le commentaire
 /**
+ * Plateau qui servira de base a notre jeu
+ * 
  * @author goncalvs
  * 
  */
