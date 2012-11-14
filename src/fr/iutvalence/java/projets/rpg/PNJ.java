@@ -20,12 +20,17 @@ public class PNJ
 	/**
 	 * Abscisse du pnj
 	 */
-	private int pos_x_pnj;
+	//private int pos_x_pnj;
 
 	/**
 	 * Oordonne du pnj
 	 */
-	private int pos_y_pnj;
+	//private int pos_y_pnj;
+	
+	/**
+	 * Position du PNJ
+	 */
+	private Position posPNJ;
 
 	/**
 	 * Les paroles que vous dira le pnj lorsque le hero le solicitera
@@ -37,13 +42,13 @@ public class PNJ
 	 * Constructeur
 	 * 
 	 * Pose un pnj a cote du hero lors de la creation de celui-ci Le pnj est statique il ne bougera pas
+	 * @throws CoordonneesInvalideException 
 	 */
-	public PNJ()
+	public PNJ() throws CoordonneesInvalideException
 	{
-		this.pos_x_pnj = 9;
-		this.pos_y_pnj = 5;
-		this.pos_x_pnj = 9;
-		this.pos_y_pnj = 5;
+		//this.pos_x_pnj = 9;
+		//this.pos_y_pnj = 5;
+		this.posPNJ= new Position(9,5);
 		this.phrase = "Hello World";
 
 	}
@@ -57,12 +62,14 @@ public class PNJ
 	 *            Ordonnes y du pnj
 	 * @param ph
 	 *            Phrase qu'il se gardera de dire
+	 * @throws CoordonneesInvalideException 
 	 */
 	// FIXME respecter les conventions d'écriture
-	public PNJ(int pos_x, int pos_y, String ph)
+	public PNJ(int posX, int posY, String ph) throws CoordonneesInvalideException
 	{
-		this.pos_x_pnj = pos_x;
-		this.pos_y_pnj = pos_y;
+		//this.pos_x_pnj = pos_x;
+		//this.pos_y_pnj = pos_y;
+		this.posPNJ= new Position(posX,posY);
 		this.phrase = ph;
 	}
 
@@ -72,11 +79,7 @@ public class PNJ
 	 * @return pos_x_pnj
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int getPosxpnj()
-	{
-		return pos_x_pnj;
-	}
+	// FIXME (FIXED)respecter les conventions d'écriture
 
 	/**
 	 * Ordonnee du PNJ
@@ -84,11 +87,8 @@ public class PNJ
 	 * @return pos_y_pnj
 	 * 
 	 */
-	// FIXME respecter les conventions d'écriture
-	public int getPosypnj()
-	{
-		return pos_y_pnj;
-	}
+	// FIXME (FIXED)respecter les conventions d'écriture
+
 
 	// FIXME corriger le commentaire (regarder ce que cela produit en sortie de Javadoc)
 	/**
@@ -101,6 +101,16 @@ public class PNJ
 	public String getPhrase()
 	{
 		return phrase;
+	}
+
+	public Position getPosPNJ()
+	{
+		return this.posPNJ;
+	}
+
+	public void setPosPNJ(Position posPNJ)
+	{
+		this.posPNJ = posPNJ;
 	}
 
 }

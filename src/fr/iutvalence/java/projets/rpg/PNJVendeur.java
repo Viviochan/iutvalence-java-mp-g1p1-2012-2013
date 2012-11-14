@@ -37,8 +37,9 @@ public class PNJVendeur extends PNJ
 	 *            Phrase qu'il se gardera de dire
 	 * @param nbitem
 	 *            nombre d'items differents a vendre
+	 * @throws CoordonneesInvalideException 
 	 */
-	public PNJVendeur(int posx, int posy, String ph, int nbitem)
+	public PNJVendeur(int posx, int posy, String ph, int nbitem) throws CoordonneesInvalideException
 	{
 		super(posx, posy, ph);
 		this.tailleMag = nbitem;
