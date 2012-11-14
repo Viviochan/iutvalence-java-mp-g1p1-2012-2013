@@ -24,8 +24,8 @@ public class Partie
 		System.out.print("le hero: \n");
 		Hero zero= new Hero("Reinhart");
 		System.out.print(zero);
-		System.out.print("\nle boss: \n");
-		Boss Gilgamesh= new Boss();
-		System.out.print(Gilgamesh);
+		System.out.print("\n la map: \n");
+		PlateaudeJeu carte= new PlateaudeJeu();
+		System.out.print(carte);
 	}
 }

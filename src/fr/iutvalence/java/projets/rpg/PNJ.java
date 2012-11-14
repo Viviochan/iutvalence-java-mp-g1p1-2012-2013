@@ -50,7 +50,7 @@ public class PNJ
 
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * Permet de poser un PNJ avec une position et une phrase
 	 * @param posX Abscisse x du pnj
@@ -70,29 +70,18 @@ public class PNJ
 		this.phrase = ph;
 	}
 
-	/**
-	 * Abscisse du PNJ
-	 * 
-	 * @return pos_x_pnj
-	 * 
-	 */
+
 	// FIXME (FIXED)respecter les conventions d'écriture
 
-	/**
-	 * Ordonnee du PNJ
-	 * 
-	 * @return pos_y_pnj
-	 * 
-	 */
+
 	// FIXME (FIXED)respecter les conventions d'écriture
 
 
 	// FIXME corriger le commentaire (regarder ce que cela produit en sortie de Javadoc)
 	/**
-	 * La phrase que le pnj dira lorsque on interrargira avec celui-ci
+	 * Retourne la phrase que le PNJ vous dira
 	 * 
 	 * @return phrase
-	 * 
 	 * 
 	 */
 	public String getPhrase()

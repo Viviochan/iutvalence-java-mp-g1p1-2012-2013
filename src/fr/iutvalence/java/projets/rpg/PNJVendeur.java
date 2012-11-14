@@ -37,7 +37,7 @@ public class PNJVendeur extends PNJ
 	 *            Phrase qu'il se gardera de dire
 	 * @param nbitem
 	 *            nombre d'items differents a vendre
-	 * @throws CoordonneesInvalideException 
+	 * @throws CoordonneesInvalideException si la position n est pas valide
 	 */
 	public PNJVendeur(int posx, int posy, String ph, int nbitem) throws CoordonneesInvalideException
 	{
@@ -52,9 +52,9 @@ public class PNJVendeur extends PNJ
 	 */
 	public void vend()
 	{
-		this.vend = new Item[tailleMag];
+		this.vend = new Item[this.tailleMag];
 		int i = 0;
-		while (i <= tailleMag)
+		while (i <= this.tailleMag)
 		{
 			// on construits des items predefinies dans une base ou un autre elements qui stocke
 		}

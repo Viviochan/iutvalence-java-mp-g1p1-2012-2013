@@ -109,4 +109,38 @@ public class PlateaudeJeu
 
 	// FIXME redéfinir toString pour obtenir une représentation en ascii-art du plateau (et tester)
 
+	public String toString(){
+		String s = "Map generer";
+		for(int i=0;i<LONGUEUR;i++){
+			//System.out.print(i);
+			for(int j=0;j<LONGUEUR;j++){
+				System.out.print(this.map[i][j]);
+			}
+			
+			System.out.print("\n");
+		}
+		return s;
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
