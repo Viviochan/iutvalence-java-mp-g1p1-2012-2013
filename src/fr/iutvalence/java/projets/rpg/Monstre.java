@@ -37,7 +37,6 @@ public class Monstre
 	 * 
 	 * Nom du montre en question
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private String nomMonstre;
 
 	
@@ -49,39 +48,33 @@ public class Monstre
 	/**
 	 * Point de vie du monstre si 0 => mort
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int hpmonstre;
 
 	/**
 	 * niveau d'attaque du monstre
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int attaquemonstre;
 
 	/**
 	 * niveau de defense du monstre
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int defensemonstre;
 
 	/**
 	 * xp donner par le monstre lors de sa mort
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int xpmonstre;
 
 	/**
 	 * or donner par le monstre lors de sa mort
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int ormonstre;
 
-	// FIXME (FIXED)corriger le commentaire
 	/**
 	 * Constructeur
 	 * 
 	 * 
-	 * Si aucun parametres n'est donnés on créer un monstre definie par les constantes 
+	 * Si aucun parametre n'est donné on créer un monstre defini par les constantes 
 	 * 
 	 *  nomM: Slim
 	 *            Nom du monstre a creer
@@ -142,7 +135,6 @@ public class Monstre
 	 * 
 	 * @return le nom du monstre
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public String getNomMonstre()
 	{
 		return this.nomMonstre;
@@ -159,8 +151,10 @@ public class Monstre
 		return this.stat;
 	}
 
-	// FIXME (FIXED)redéfinir toString
 	
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString(){
 		return "( Nom monstre: "+this.nomMonstre+" Stats: "+this.stat+")";
 			

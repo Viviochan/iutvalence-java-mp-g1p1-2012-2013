@@ -1,6 +1,5 @@
 package fr.iutvalence.java.projets.rpg;
 
-// FIXME (FIXED)compléter le commentaire
 /**
  * Plateau qui servira de base a notre jeu
  * 
@@ -10,6 +9,7 @@ package fr.iutvalence.java.projets.rpg;
 public class PlateaudeJeu
 {
 
+	// FIXME s'il n'y a que 2 états, on peut supprimer les 2 constantes et les remplacer par une valuer booléenne
 	/**
 	 * Valeurs des cases A voi rsi on les geres avec un booleen ou pas
 	 * 
@@ -97,6 +97,8 @@ public class PlateaudeJeu
 	 */
 	public void setCase(int x, int y)
 	{
+		
+		// FIXME simplifier en utilisant une valeur booleenne au lieu des constantes
 		if (this.map[x][y] == NON_PRATICABLE)
 		{
 			this.map[x][y] = PRATICABLE;
@@ -107,8 +109,10 @@ public class PlateaudeJeu
 		}
 	}
 
-	// FIXME redéfinir toString pour obtenir une représentation en ascii-art du plateau (et tester)
 
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString(){
 		String s = "Map generer";
 		for(int i=0;i<LONGUEUR;i++){

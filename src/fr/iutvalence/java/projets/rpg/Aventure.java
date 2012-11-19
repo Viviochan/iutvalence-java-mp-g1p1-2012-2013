@@ -66,7 +66,6 @@ public class Aventure
 	 * Collection ou tableau servant de base de donnes de monstre On la consultera pour chaque combat pour definir qui
 	 * affronte le hero
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public Monstre[] tabMonstres;
 	
 	/**
@@ -130,7 +129,6 @@ public class Aventure
 		this.levels[1] = new Niveau();//Niveau 1
 		for (i = 2; i < NIVEAU_MAX; i++)
 		{
-			// FIXME(FIXED) à quoi correspond la valeur 99 ?
 			for (i = 2; i < Niveau.NIVEAU_MAX; i++)//On remplie du Niveau 2 jusqu'au niveau max ici 99
 			{
 				this.levels[i] = new Niveau(i, xp);
@@ -158,7 +156,7 @@ public class Aventure
 		{
 			//on augmente le niveau du hero et on augmente les stats en fonction du bonus par niveau definis en constante dans la classe hero
 			this.perso.setNiveauHeros();
-			this.perso.getStats().setPointDeVie(Hero.BONUS_HP);
+			this.perso.getStats().setPointsDeVie(Hero.BONUS_HP);
 			this.perso.getStats().setPointdemana(Hero.BONUS_MP);
 			this.perso.getStats().setAttaque(Hero.BONUS_ATT);
 			this.perso.getStats().setDefense(Hero.BONUS_DEF);
@@ -216,7 +214,6 @@ public class Aventure
 	
 	
 	
-	// FIXME (FIXED)corriger/compléter le commentaire (à discuter)
 	/**
 	 * Permet le deplacement du Hero a partir de coordonnees
 	 * 
@@ -226,7 +223,6 @@ public class Aventure
 	 * @return Posheros la nouvelle position du hero
 	 * @throws CoordonneesInvalideException la nouvelle position est non valide
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture (nom méthode)
 	public Position deplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
 	{
 		if ((xarr > PlateaudeJeu.LONGUEUR) || (xarr > PlateaudeJeu.LONGUEUR))
@@ -253,7 +249,6 @@ public class Aventure
 		return this.perso.getPosHeros();
 	}
 
-	// FIXME compléter le commentaire (à discuter)
 	/**
 	 * Gere le deplacement du hero a partir d'une direction donnee
 	 * 
@@ -267,19 +262,19 @@ public class Aventure
 	public Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException
 	{
 		Position poshero = this.perso.getPosHeros();
-		if (dir == Direction.Bas)
+		if (dir == Direction.BAS)
 		{
 			poshero.setY(poshero.getY() - 1);
 		}
-		if (dir == Direction.Droite)
+		if (dir == Direction.DROITE)
 		{
 			poshero.setX(poshero.getX() + 1);
 		}
-		if (dir == Direction.Gauche)
+		if (dir == Direction.GAUCHE)
 		{
 			poshero.setX(poshero.getX() - 1);
 		}
-		if (dir == Direction.Haut)
+		if (dir == Direction.HAUT)
 		{
 			poshero.setX(poshero.getY() + 1);
 		}
@@ -287,14 +282,10 @@ public class Aventure
 		{
 			throw new DirectionInvalideException();
 		}
-		this.perso.setPossHero(poshero);
+		this.perso.setPosHero(poshero);
 		DeclencheCombat();
 		return this.perso.getPosHeros();
 	}
-
-
-
-	
 	
 	/**
 	 * Methode qui a permettra de definir si un deplacement provoque un combat avec un ennemi ou non
@@ -329,7 +320,7 @@ public class Aventure
 		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
 		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
-		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNomMonstre(),this.tabMonstres[nbmonstre].getStats().getPointdevie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
+		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNomMonstre(),this.tabMonstres[nbmonstre].getStats().getPointsDeVie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
 		int hpmob=this.ennemi.getStats().getPdvcour();
 		int chance=0;
 		int action= Action.rien;
@@ -409,7 +400,7 @@ public class Aventure
 	 */
 	public int IAmob(int hpmob, Monstre mob){
 		int tauxattdef = (int) (Math.random() * 10 );
-		if(hpmob>(mob.getStats().getPointdevie()/2)){
+		if(hpmob>(mob.getStats().getPointsDeVie()/2)){
 			if (tauxattdef>8){
 				return Action.Defendre;
 			}

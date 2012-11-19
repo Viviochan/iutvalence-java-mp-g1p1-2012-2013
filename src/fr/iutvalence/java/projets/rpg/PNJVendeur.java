@@ -17,7 +17,6 @@ public class PNJVendeur extends PNJ
 	/**
 	 * Definie le nombre de item que peut vendre le PNJ Vendeur
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int tailleMag;
 
 	/**
@@ -66,7 +65,6 @@ public class PNJVendeur extends PNJ
 	 * 
 	 * @return taillmag
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public int getTailleMag()
 	{
 		return this.tailleMag;

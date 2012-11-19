@@ -12,11 +12,9 @@ package fr.iutvalence.java.projets.rpg;
  */
 public class Item
 {
-
 	/**
 	 * Nom de l'item
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private String nomItem;
 
 	/**
@@ -26,24 +24,17 @@ public class Item
 	 * 
 	 * Equipement pour le bras/ la tete/ le buste / les jambes
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
-	private TypeItem typeItem;
-
-	// FIXME (FIXED)ne aps définir comme un commentaire JavaDoc(comment ecrire les commentaire concernant l'avancement du
-	// travail)
-	
+	private TypeItem typeItem;	
 
 	/**
 	 * bonus donné par l'item varie en fonction du type de celui-ci
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int bonusItem;
 
 	/**
 	 * Valeur marchande de l'item
 	 * 
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int valItem;
 
 	/**
@@ -51,14 +42,12 @@ public class Item
 	 * 
 	 * Certains items n auront un prix null il ne seront recuperable que par les montres
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int prixItem;
 
-	// FIXME (FIXED)corriger le commentaire (parler de fichier texte n'a pas de sens ici)
 	/**
 	 * Constructeur
 	 * 
-	 * Construit l'item selon les parametres donnees
+	 * Construit l'item selon les parametres donnes
 	 * 
 	 * @param nI
 	 *            nom de l item
@@ -71,7 +60,6 @@ public class Item
 	 * @param valeur
 	 *            valeur de l item
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture (paramètres)
 	public Item(String nI, TypeItem type, int bonus, int prix, int valeur)
 	{
 		this.nomItem = nI;
@@ -88,7 +76,6 @@ public class Item
 	 * @return le nom de l item
 	 * 
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public String getNomItem()
 	{
 		return this.nomItem;
@@ -101,7 +88,6 @@ public class Item
 	 * 
 	 */
 	// a completer quand la class typeitem sera complete
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public TypeItem getTypeItem()
 	{
 		return this.typeItem;
@@ -112,7 +98,6 @@ public class Item
 	 * 
 	 * @return le bonus de l item
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public int getBonusItem()
 	{
 		return this.bonusItem;
@@ -123,7 +108,6 @@ public class Item
 	 * 
 	 * @return la valeur de l item
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public int getValItem()
 	{
 		return this.valItem;
@@ -134,14 +118,10 @@ public class Item
 	 * 
 	 * @return le prix de l item
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public int getPrixItem()
 	{
 		return this.prixItem;
 	}
-
-	// FIXME (FIXED)cette méthode est déjà défénie plus haut !
-
 
 	// FIXME redéfinir toString
 }

@@ -40,7 +40,6 @@ public class Skill
 	/**
 	 * Cout en point de mana de la competence
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int coutPm;
 
 	/**
@@ -107,7 +106,6 @@ public class Skill
 	 * 
 	 * @return le cout en point de mana de la competence
 	 */
-	// FIXME (FIXED)Respecter les conventions d'écriture
 	public int getCoutPm()
 	{
 		return this.coutPm;

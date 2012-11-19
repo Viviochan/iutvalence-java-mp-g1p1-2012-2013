@@ -18,13 +18,12 @@ public class PNJ
 	/**
 	 * Abscice de base pour le constructeur sans parametre
 	 */
-	public final static int Abscice_Base=9;
+	public final static int ABSCISSE_BASE=9;
 	
 	/**
 	 * Ordonne de base pour le constructeur sans parametre
 	 */
-	public final static int Ordonne_Base=5;
-	// FIXME(FIXED) se servir du type Position
+	public final static int ORDONNEE_BASE=5;
 	
 	/**
 	 * Position du PNJ
@@ -45,12 +44,11 @@ public class PNJ
 	 */
 	public PNJ() throws CoordonneesInvalideException
 	{
-		this.posPNJ= new Position(Abscice_Base,Ordonne_Base);
+		this.posPNJ= new Position(ABSCISSE_BASE,ORDONNEE_BASE);
 		this.phrase = "Hello World";
 
 	}
 
-	// FIXME (FIXED)compléter le commentaire
 	/**
 	 * Permet de poser un PNJ avec une position et une phrase
 	 * @param posX Abscisse x du pnj
@@ -61,7 +59,6 @@ public class PNJ
 	 *            Phrase qu'il se gardera de dire
 	 * @throws CoordonneesInvalideException si la nouvelle position n est pas valide
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public PNJ(int posX, int posY, String ph) throws CoordonneesInvalideException
 	{
 		//this.pos_x_pnj = pos_x;
@@ -70,14 +67,6 @@ public class PNJ
 		this.phrase = ph;
 	}
 
-
-	// FIXME (FIXED)respecter les conventions d'écriture
-
-
-	// FIXME (FIXED)respecter les conventions d'écriture
-
-
-	// FIXME corriger le commentaire (regarder ce que cela produit en sortie de Javadoc)
 	/**
 	 * Retourne la phrase que le PNJ vous dira
 	 * 

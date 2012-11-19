@@ -14,22 +14,17 @@ public class Stats
 	/**
 	 * Niveau de vie de la creature si elle tombe a zero elle sera considerer comme morte
 	 */
-	private int pointDeVie;
+	private int pointsDeVie;
 
 	/**
 	 * Niveau de magie de la creature, permet le lancement de sort et autre magies
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int pointDeMana;
 
-	
-	/**
-	 * 
-	 */
+	// FIXME commentaire ?
 	private int pdvcour;
-	/**
-	 * 
-	 */
+
+	// FIXME commentaire ?
 	private int pdmcour;
 	
 	/**
@@ -66,19 +61,14 @@ public class Stats
 	 */
 	public Stats(int pdm, int pdv, int att, int def, int nbxp, int nbor){
 		this.pointDeMana=pdm;
-		this.pointDeVie=pdv;
+		this.pointsDeVie=pdv;
 		this.pdmcour=pdm;
 		this.pdvcour=pdv;
 		this.attaque=att;
 		this.defense=def;
 		this.nbxp=nbxp;
 		this.or=nbor;
-		
-		
 	}
-	
-	
-	
 	
 	/**
 	 * retourne les points de la creature
@@ -86,9 +76,9 @@ public class Stats
 	 * @return les points de la creature
 	 */
 
-	public int getPointdevie()
+	public int getPointsDeVie()
 	{
-		return this.pointDeVie;
+		return this.pointsDeVie;
 	}
 
 	/**
@@ -97,17 +87,16 @@ public class Stats
 	 * @param pdv
 	 *            le bonus de point de vie a ajouter a ceux  de la creature
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
-	public void setPointDeVie(int pdv)
+	public void setPointsDeVie(int pdv)
 	{
-		this.pointDeVie = this.pointDeVie + pdv;
+		this.pointsDeVie = this.pointsDeVie + pdv;
 	}
 
 	/**
 	 * retourne les point de mana de la creature
 	 * @return point_de_mana
 	 */
-	public int getPointdemana()
+	public int getPointsDeMana()
 	{
 		return this.pointDeMana;
 	}
@@ -120,7 +109,7 @@ public class Stats
 	 * 
 	 * 
 	 */
-	public void setPointdemana(int pdm)
+	public void setPointsDeMana(int pdm)
 	{
 		this.pointDeMana = this.pointDeMana + pdm;
 	}
@@ -188,7 +177,6 @@ public class Stats
 	 *            l'xp recue soit par un item soit apres un combat
 	 * 
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	public void setNbXp(int exp)
 	{
 		this.nbxp = this.nbxp + exp;
@@ -221,7 +209,7 @@ public class Stats
 	
 	
 	public String toString(){
-		return "( pdm:"+this.pointDeMana+" pdv:"+this.pointDeVie+" attaque:"+this.attaque+" defense:"+this.defense+" experience:"+this.nbxp+" or:"+this.or+")";
+		return "( pdm:"+this.pointDeMana+" pdv:"+this.pointsDeVie+" attaque:"+this.attaque+" defense:"+this.defense+" experience:"+this.nbxp+" or:"+this.or+")";
 	}
 
 

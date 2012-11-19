@@ -33,7 +33,7 @@ public class Partie
 		Aventure aven= new Aventure();
 		System.out.print(aven.perso);
 		System.out.print(aven.demon);
-		Direction dir=Direction.Haut;
+		Direction dir=Direction.HAUT;
 		aven.deplacementHeros(dir);
 		System.out.print("le hero: \n");
 		System.out.print(aven.perso);

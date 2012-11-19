@@ -16,8 +16,8 @@ public class Position
 	 */
 	private int y;
 
-	// FIXME (FIXED)compléter le commentaire (balises)
-
+	
+	// FIXME ne pas soulever d'exception ici, mais plutot dans la partie (à discuter)
 	/**
 	 * Construit la position d'abscisse xd et d'ordonnees yd mais si xd ou yd depasse la LONGUEUR du tableau On retourne
 	 * une exception liee aux coordonnees
