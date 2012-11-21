@@ -215,7 +215,7 @@ public class Stats
 	
 	
 	public String toString(){
-		return "( pdm:"+this.pointDeMana+" pdv:"+this.pointsDeVie+" attaque:"+this.attaque+" defense:"+this.defense+" experience:"+this.nbxp+" or:"+this.or+")";
+		return "( pdm:"+this.pdmcour+"/pdmMAX:"+this.pointDeMana+" pdv: "+this.pdvcour+"/pdvMAX:"+this.pointsDeVie+" attaque:"+this.attaque+" defense:"+this.defense+" experience:"+this.nbxp+" or:"+this.or+")";
 	}
 
 

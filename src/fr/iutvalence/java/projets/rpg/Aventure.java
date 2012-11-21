@@ -93,7 +93,34 @@ public class Aventure
 	 * L inventaire du hero il  contiendras tous les items que celui-ci transporte
 	 */
 	public Item[] inventaire;
+	
+	
+	
+	public static void main(String[] args) throws CoordonneesInvalideException, DirectionInvalideException, ModeCombatInvalidException{
+		Aventure aven= new Aventure();
+		int x=9;
+		int y=5;
+		int i=0;
+		int pdvcour=20;
+		Direction dir= Direction.GAUCHE;
+		Item objet= new Item("Fléau des dragons",TypeItem.Arme,73,10,5);
+		Item debut= new Item("Lame du Faucon",TypeItem.Arme,12,10,5);
+		aven.deplacementHeros(x,y);
+		aven.deplacementHeros(x,4);
+		aven.deplacementHeros(8,4);
+		//aven.itemUse2(debut);
+		//aven.itemUse2(objet);
+		while(i<10){
+			aven.deplacementHeros(Direction.HAUT);
+			aven.perso.getStats().setPdvcour(pdvcour);
 
+			System.out.print("\n le hero: \n");
+			System.out.print(aven.perso);
+			i++;
+		}
+	}
+	
+	
 	/**
 	 * Constructeur
 	 * 
@@ -113,6 +140,24 @@ public class Aventure
 		TabMonstres();
 		this.modeCombat=false;
 	}
+	
+	/**
+	 * Demarreur
+	 * 
+	 * Initialise les elements necessaire pour debuter une aventure
+	 * 
+	 * error_code servira juste de teste d'erreur et on affichera le probleme selon la valeur de error_code
+	 * 
+	 * @throws CoordonneesInvalideException la position generer n est pas valide
+	 */
+	public void demarrer() throws CoordonneesInvalideException{
+		this.carte = new PlateaudeJeu();
+		this.perso = new Hero();
+		this.demon = new Boss();
+		level();
+		TabMonstres();
+		this.modeCombat=false;
+	}
 
 	// FIXME cette méthode doit-elle être publique ?
 	/**
@@ -120,7 +165,7 @@ public class Aventure
 	 * 
 	 * Pour chaque niveau on aura besoin de 75% d'xp en plus
 	 */
-	public void level()
+	private void level()
 	{
 		int i = 1;
 		int xp = 20;
@@ -143,7 +188,7 @@ public class Aventure
 	 * 
 	 * @return le nouveau niveau du heros
 	 */
-	public int levelup()
+	private int levelup()
 	{
 		int lvlheros = this.perso.getStats().getNbxp();
 		int tauxlvlsuiv = this.levels[lvlheros + 1].getTaux();
@@ -172,7 +217,7 @@ public class Aventure
 	 * 
 	 * @return 0 si la table de monstre a ete bien lus et recopier
 	 */
-	public int TabMonstres(){
+	private int TabMonstres(){
 		Monstre[] dataMonstre= new Monstre[NB_MAX_MONSTRE];
 		dataMonstre[0]= new Monstre();
 		dataMonstre[1]=new Monstre("SanguinisVache",13,12,6,4,7);
@@ -188,7 +233,7 @@ public class Aventure
 	/**
 	 * 
 	 */
-	public void initInventaire(){
+	private void initInventaire(){
 		Item[] sac= new Item[CAPACITE_INVENTAIRE];
 		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
 		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
@@ -206,7 +251,7 @@ public class Aventure
 	 * 
 	 * @return 0
 	 */
-	public int placementPnj()
+	private int placementPnj()
 	{
 		return 0;
 	}
@@ -223,7 +268,7 @@ public class Aventure
 	 * @return Posheros la nouvelle position du hero
 	 * @throws CoordonneesInvalideException la nouvelle position est non valide
 	 */
-	public Position deplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
+	private Position deplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
 	{
 		if ((xarr > PlateaudeJeu.LONGUEUR) || (yarr > PlateaudeJeu.LONGUEUR))
 		{
@@ -267,11 +312,11 @@ public class Aventure
 	 * @throws CoordonneesInvalideException les coordonnees depassent les bornes de la cartes
 	 */
 
-	public Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException{
+	private Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException{
 		Position poshero = this.perso.getPosHeros();
 		switch(dir){
 			case HAUT:
-				poshero.setX(poshero.getY() + 1);
+				poshero.setY(poshero.getY() + 1);
 				break;
 			case BAS:
 				poshero.setY(poshero.getY() - 1);
@@ -283,7 +328,8 @@ public class Aventure
 				poshero.setX(poshero.getX() - 1);
 				break;
 		}
-		this.perso.setPosHero(poshero);
+		Position mew= new Position(poshero.getX(),poshero.getY());
+		this.perso.setPosHero(mew);
 		//DeclencheCombat();//a decommenter
 		return this.perso.getPosHeros();
 	}
@@ -296,12 +342,12 @@ public class Aventure
 	 * @return 0 si la methode c est bien execute
 	 * @throws CoordonneesInvalideException si la position de repop du hero n est pas valide
 	 */
-	public int DeclencheCombat() throws CoordonneesInvalideException{
+	private int declencheCombat() throws CoordonneesInvalideException{
 		int nb = (int) (Math.random() * TAUX_MAX_RENCONTRE );
 		if (nb<=TAUX_RENCONTRE){
 			//on genere un combat
 			this.modeCombat=true;
-			Combat();
+			combat();
 		}
 		return 0;
 	}
@@ -318,7 +364,7 @@ public class Aventure
 	//monstre choisie poru que les stats soit adapter aux heros
 	//on met en place le reste des elements du combat
 	//on gere les differentes possibilites d action du perso et on adapte le calcul de dommage
-	public String Combat() throws CoordonneesInvalideException{
+	private String combat() throws CoordonneesInvalideException{
 		int hpcour=this.perso.getStats().getPdvcour();//niveau courantde point de vie si 0 perdue
 		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
@@ -334,7 +380,7 @@ public class Aventure
 			}
 				if(action==Action.Attaquer){
 					//Puissance = puissance d'attaque de A - (la défense de B ÷ 2)
-					if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
+					if(this.iAmob(hpmob, this.ennemi)==Action.Attaquer){
 					hpmob=(hpmob-(this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)));//attaque du hero
 					hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)));//attaque de l ennemi
 					
@@ -344,7 +390,7 @@ public class Aventure
 					}
 				}
 				if(action==Action.Defendre){
-					if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
+					if(this.iAmob(hpmob, this.ennemi)==Action.Attaquer){
 						hpcour=(hpcour-((this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)))/2);
 					}
 				}
@@ -352,7 +398,7 @@ public class Aventure
 					//on definit une methode fuite
 					chance=fuite();
 					if(chance==0){
-						if(this.IAmob(hpmob, this.ennemi)==Action.Attaquer){
+						if(this.iAmob(hpmob, this.ennemi)==Action.Attaquer){
 							hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)));
 						}
 					}
@@ -386,7 +432,7 @@ public class Aventure
 	 * Methode determinant la chance de fuir un combat
 	 * @return int 
 	 */
-	public int fuite(){
+	private int fuite(){
 		int chancefuite = (int) (Math.random() * 6 );
 		if (chancefuite==0){
 			return 1;
@@ -401,7 +447,7 @@ public class Aventure
 	 * @param mob  type de monstre qui combat
 	 * @return une action produite
 	 */
-	public int IAmob(int hpmob, Monstre mob){
+	private int iAmob(int hpmob, Monstre mob){
 		int tauxattdef = (int) (Math.random() * 10 );
 		if(hpmob>(mob.getStats().getPointsDeVie()/2)){
 			if (tauxattdef>8){
@@ -424,8 +470,8 @@ public class Aventure
 	 * @param indexItemInventaire l item selectionner dans l'inventaire
 	 * @throws ModeCombatInvalidException Si le Hero n est pas dans le bon mode 
 	 */
-	public void ItemSelect(int indexItemInventaire) throws ModeCombatInvalidException{
-		ItemUse(this.perso.getInventaire(indexItemInventaire));
+	private void itemSelect(int indexItemInventaire) throws ModeCombatInvalidException{
+		itemUse(this.perso.getInventaire(indexItemInventaire));
 	}
 
 	/**
@@ -433,7 +479,7 @@ public class Aventure
 	 * @throws ModeCombatInvalidException  si le mode de combat ne correspond pas 
 	 */
 	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
-	public void ItemUse(Item objet) throws ModeCombatInvalidException{
+	private void itemUse(Item objet) throws ModeCombatInvalidException{
 		if(objet.getTypeItem()==TypeItem.Objet_de_Soin){
 			this.perso.getStats().setPdvcour(objet.getBonusItem());
 		}
@@ -501,7 +547,7 @@ public class Aventure
 	 * @throws ModeCombatInvalidException si le personnage se trouve en mode combat
 	 */
 	//A tester et voir laquelle des deux methodes marchent
-	public void ItemUse2(Item objet) throws ModeCombatInvalidException{
+	private void itemUse2(Item objet) throws ModeCombatInvalidException{
 		TypeItem type=objet.getTypeItem();
 		switch(type){
 			case Objet_de_Soin:
@@ -515,8 +561,11 @@ public class Aventure
 					throw new ModeCombatInvalidException();
 				}
 				else{
-					this.perso.setArmurebras(objet);
-					this.perso.getStats().setDefense(objet.getBonusItem());
+					Item arme= this.perso.getArme();
+					this.perso.setArme(objet);
+					int bonus=arme.getBonusItem()*(-1);
+					this.perso.getStats().setAttaque(bonus);
+					this.perso.getStats().setAttaque(objet.getBonusItem());
 				}
 				break;
 			case Bouclier:
@@ -524,7 +573,9 @@ public class Aventure
 					throw new ModeCombatInvalidException();
 				}
 				else{
+					Item boubou= this.perso.getBouclier();
 					this.perso.setBouclier(objet);
+					this.perso.getStats().setAttaque(-boubou.getBonusItem());
 					this.perso.getStats().setDefense(objet.getBonusItem());
 				}
 				break;
@@ -566,17 +617,7 @@ public class Aventure
 				break;
 			case Objet_de_Soutien:
 				break;
-	
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	
@@ -589,34 +630,7 @@ public class Aventure
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 
 }

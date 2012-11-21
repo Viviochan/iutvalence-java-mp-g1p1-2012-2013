@@ -29,7 +29,7 @@ public class Position
 	 */
 	public Position(int xd, int yd) throws CoordonneesInvalideException
 	{
-		if ((xd > PlateaudeJeu.LONGUEUR) || (yd > PlateaudeJeu.LONGUEUR))
+		if ((xd > PlateaudeJeu.LONGUEUR) || (yd > PlateaudeJeu.LONGUEUR)||(xd<0)||(yd<0))
 		{
 			throw new CoordonneesInvalideException();
 		}
