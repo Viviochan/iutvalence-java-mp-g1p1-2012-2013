@@ -45,30 +45,6 @@ public class Monstre
 	 */
 	private Stats stat;
 	
-	/**
-	 * Point de vie du monstre si 0 => mort
-	 */
-	//private int hpmonstre;
-
-	/**
-	 * niveau d'attaque du monstre
-	 */
-	//private int attaquemonstre;
-
-	/**
-	 * niveau de defense du monstre
-	 */
-	//private int defensemonstre;
-
-	/**
-	 * xp donner par le monstre lors de sa mort
-	 */
-	//private int xpmonstre;
-
-	/**
-	 * or donner par le monstre lors de sa mort
-	 */
-	//private int ormonstre;
 
 	/**
 	 * Constructeur
@@ -92,11 +68,6 @@ public class Monstre
 	public Monstre()
 	{
 		this.nomMonstre = NOM_MOB;
-		//this.hpmonstre = HP_MOB;
-		//this.attaquemonstre = ATT_DEF_MOB;
-		//this.defensemonstre = ATT_DEF_MOB;
-		//this.ormonstre = OR_XP_MOB;
-		//this.xpmonstre = OR_XP_MOB;
 		this.stat= new Stats(0,HP_MOB,ATT_DEF_MOB,ATT_DEF_MOB,OR_XP_MOB,OR_XP_MOB);
 
 	}
@@ -122,11 +93,6 @@ public class Monstre
 	public Monstre(String nomM, int hpMob, int attMob, int defMob, int orMob, int xpMob)
 	{
 		this.nomMonstre = nomM;
-		//this.hpmonstre = hpmob;
-		//this.attaquemonstre = attmob;
-		//this.defensemonstre = defmob;
-		//this.ormonstre = ormob;
-		//this.xpmonstre = xpmob;
 		this.stat= new Stats(0,hpMob,attMob,defMob,orMob,xpMob);
 	}
 

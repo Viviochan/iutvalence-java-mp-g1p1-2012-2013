@@ -157,7 +157,7 @@ public class Aventure
 			//on augmente le niveau du hero et on augmente les stats en fonction du bonus par niveau definis en constante dans la classe hero
 			this.perso.setNiveauHeros();
 			this.perso.getStats().setPointsDeVie(Hero.BONUS_HP);
-			this.perso.getStats().setPointdemana(Hero.BONUS_MP);
+			this.perso.getStats().setPointsDeMana(Hero.BONUS_MP);
 			this.perso.getStats().setAttaque(Hero.BONUS_ATT);
 			this.perso.getStats().setDefense(Hero.BONUS_DEF);
 		}
@@ -225,7 +225,7 @@ public class Aventure
 	 */
 	public Position deplacementHeros(int xarr, int yarr) throws CoordonneesInvalideException
 	{
-		if ((xarr > PlateaudeJeu.LONGUEUR) || (xarr > PlateaudeJeu.LONGUEUR))
+		if ((xarr > PlateaudeJeu.LONGUEUR) || (yarr > PlateaudeJeu.LONGUEUR))
 		{
 			throw new CoordonneesInvalideException();
 		}
@@ -241,11 +241,18 @@ public class Aventure
 					this.perso.getPosHeros().setY(yarr);
 
 				}
-				throw new CoordonneesInvalideException();// case non praticable
+				else{
+					throw new CoordonneesInvalideException();// case non praticable
+				}
 			}
+			else{
 			throw new CoordonneesInvalideException();
+			}
 		}
-		DeclencheCombat();
+		else{
+		throw new CoordonneesInvalideException();
+		}
+		//DeclencheCombat();//a decommenter
 		return this.perso.getPosHeros();
 	}
 
@@ -259,33 +266,29 @@ public class Aventure
 	 * @throws DirectionInvalideException la direction choisie n est pas valable
 	 * @throws CoordonneesInvalideException les coordonnees depassent les bornes de la cartes
 	 */
-	public Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException
-	{
+
+	public Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException{
 		Position poshero = this.perso.getPosHeros();
-		if (dir == Direction.BAS)
-		{
-			poshero.setY(poshero.getY() - 1);
-		}
-		if (dir == Direction.DROITE)
-		{
-			poshero.setX(poshero.getX() + 1);
-		}
-		if (dir == Direction.GAUCHE)
-		{
-			poshero.setX(poshero.getX() - 1);
-		}
-		if (dir == Direction.HAUT)
-		{
-			poshero.setX(poshero.getY() + 1);
-		}
-		else
-		{
-			throw new DirectionInvalideException();
+		switch(dir){
+			case HAUT:
+				poshero.setX(poshero.getY() + 1);
+				break;
+			case BAS:
+				poshero.setY(poshero.getY() - 1);
+				break;
+			case DROITE:
+				poshero.setX(poshero.getX() + 1);
+				break;
+			case GAUCHE:
+				poshero.setX(poshero.getX() - 1);
+				break;
 		}
 		this.perso.setPosHero(poshero);
-		DeclencheCombat();
+		//DeclencheCombat();//a decommenter
 		return this.perso.getPosHeros();
 	}
+	
+	
 	
 	/**
 	 * Methode qui a permettra de definir si un deplacement provoque un combat avec un ennemi ou non
@@ -491,10 +494,128 @@ public class Aventure
 				this.perso.getStats().setDefense(objet.getBonusItem());
 			}
 		}
-		if(objet.getTypeItem()==TypeItem.Objet_de_Soutien){
-
+	}
+	
+	/**
+	 * @param objet item utiliser
+	 * @throws ModeCombatInvalidException si le personnage se trouve en mode combat
+	 */
+	//A tester et voir laquelle des deux methodes marchent
+	public void ItemUse2(Item objet) throws ModeCombatInvalidException{
+		TypeItem type=objet.getTypeItem();
+		switch(type){
+			case Objet_de_Soin:
+				this.perso.getStats().setPdvcour(objet.getBonusItem());
+				break;
+			case Objet_de_Recup:
+				this.perso.getStats().setPdmcour(objet.getBonusItem());
+				break;
+			case Arme:
+				if(this.modeCombat){
+					throw new ModeCombatInvalidException();
+				}
+				else{
+					this.perso.setArmurebras(objet);
+					this.perso.getStats().setDefense(objet.getBonusItem());
+				}
+				break;
+			case Bouclier:
+				if(this.modeCombat){
+					throw new ModeCombatInvalidException();
+				}
+				else{
+					this.perso.setBouclier(objet);
+					this.perso.getStats().setDefense(objet.getBonusItem());
+				}
+				break;
+			case Equipement_Bras:
+				if(this.modeCombat){
+					throw new ModeCombatInvalidException();
+				}
+				else{
+					this.perso.setArmurebras(objet);
+					this.perso.getStats().setDefense(objet.getBonusItem());
+				}
+				break;
+			case Equipement_Corps:
+				if(this.modeCombat){
+					throw new ModeCombatInvalidException();
+				}
+				else{
+					this.perso.setArmurebuste(objet);
+					this.perso.getStats().setDefense(objet.getBonusItem());
+				}
+				break;
+			case Equipement_Pied:
+				if(this.modeCombat){
+					throw new ModeCombatInvalidException();
+				}
+				else{
+					this.perso.setArmurepied(objet);
+					this.perso.getStats().setDefense(objet.getBonusItem());
+				}
+				break;
+			case Equipement_Tete:
+				if(this.modeCombat){
+					throw new ModeCombatInvalidException();
+				}
+				else{
+					this.perso.setArmurecasque(objet);
+					this.perso.getStats().setDefense(objet.getBonusItem());
+				}
+				break;
+			case Objet_de_Soutien:
+				break;
+	
 		}
-	}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 

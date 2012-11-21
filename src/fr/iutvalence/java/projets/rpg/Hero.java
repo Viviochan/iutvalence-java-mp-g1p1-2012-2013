@@ -79,17 +79,17 @@ public class Hero
 	 */
 	public final static String NOMHERO = "Vivio";
 
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	/**
 	 * Definie la position du hero sur le plateaudejeu
 	 */
-	private Position posheros;
+	private Position posHeros;
 
 	/**
 	 * Nom du hero
 	 */
-	// FIXME respecter les conventions d'écriture
-	private String nomduheros;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private String nomDuHeros;
 
 	
 	
@@ -136,14 +136,14 @@ public class Hero
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//redefinie une classe stats
 	//private int pointdevie;
 
 	/**
 	 * Niveau de magie du heros, permet le lancement de sort et autre magies
 	 */
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	//private int pointdemana;
 
 	/**
@@ -183,8 +183,8 @@ public class Hero
 	 */
 	public Hero() throws CoordonneesInvalideException
 	{
-		this.posheros = new Position(ABSCISSE_DEFAUT, ORDONNE_DEFAUT);
-		this.nomduheros = NOMHERO;
+		this.posHeros = new Position(ABSCISSE_DEFAUT, ORDONNE_DEFAUT);
+		this.nomDuHeros = NOMHERO;
 		this.niveauheros = NIV_BASE;
 		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
 		this.inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
@@ -202,7 +202,7 @@ public class Hero
 	public Hero(String s) throws CoordonneesInvalideException
 	{
 		this();
-		this.nomduheros = s;
+		this.nomDuHeros = s;
 
 	}
 
@@ -232,7 +232,7 @@ public class Hero
 	 */
 	public String getNomHeros()
 	{
-		return this.nomduheros;
+		return this.nomDuHeros;
 	}
 
 	/**
@@ -243,7 +243,7 @@ public class Hero
 	 */
 	public void setNomHeros(String s)
 	{
-		this.nomduheros = s;
+		this.nomDuHeros = s;
 	}
 
 
@@ -255,7 +255,7 @@ public class Hero
 	 */
 	public Position getPosHeros()
 	{
-		return this.posheros;
+		return this.posHeros;
 	}
 
 	/**
@@ -270,8 +270,8 @@ public class Hero
 	 */
 	public void setPosHeros(int x, int y) throws CoordonneesInvalideException
 	{
-		this.posheros.setX(x);
-		this.posheros.setY(y);
+		this.posHeros.setX(x);
+		this.posHeros.setY(y);
 	}
 
 	/**
@@ -284,7 +284,7 @@ public class Hero
 	 */
 	public void setPosHero(Position p)
 	{
-		this.posheros = p;
+		this.posHeros = p;
 	}
 
 	/**
@@ -426,7 +426,7 @@ public class Hero
 
 	
 	public String toString(){
-		return "(nom:"+this.nomduheros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+" Position:"+this.getPosHeros()+")";
+		return "(nom:"+this.nomDuHeros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+" Position:"+this.getPosHeros()+")";
 	}
 	
 	

@@ -26,22 +26,22 @@ public class Niveau
 	/**
 	 * numero du level atteint
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int numlvl;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int numLvl;
 
 	/**
 	 * xp necessaire pour atteindre le lvl
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int tauxxp;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	private int tauxXp;
 
 	/**
 	 * Initialisation du NIVEAU_DEPART avec XP_DEPART
 	 */
 	public Niveau()
 	{
-		this.numlvl = NIVEAU_DEPART;
-		this.tauxxp = XP_DEPART;
+		this.numLvl = NIVEAU_DEPART;
+		this.tauxXp = XP_DEPART;
 	}
 
 	/**
@@ -54,8 +54,8 @@ public class Niveau
 	 */
 	public Niveau(int num, int taux)
 	{
-		this.numlvl = num;
-		this.tauxxp = taux;
+		this.numLvl = num;
+		this.tauxXp = taux;
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class Niveau
 	 */
 	public int getNiveau()
 	{
-		return this.numlvl;
+		return this.numLvl;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class Niveau
 	 */
 	public int getTaux()
 	{
-		return this.tauxxp;
+		return this.tauxXp;
 	}
 
 }

@@ -10,6 +10,7 @@ public class PlateaudeJeu
 {
 
 	// FIXME s'il n'y a que 2 états, on peut supprimer les 2 constantes et les remplacer par une valuer booléenne
+	//Pour le moment on a deux etats mais il se peut que j en insere un 3eme pour differencier si c est un pnj ou un simple decors qui bloque
 	/**
 	 * Valeurs des cases A voi rsi on les geres avec un booleen ou pas
 	 * 

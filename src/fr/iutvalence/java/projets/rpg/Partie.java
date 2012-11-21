@@ -21,22 +21,25 @@ public class Partie
 	 */
 	public static void main(String[] args) throws CoordonneesInvalideException, DirectionInvalideException
 	{
+		int x=9;
+		int y=5;
+		Direction dir=Direction.BAS;
 		System.out.print("coucou \n");
 		System.out.print("le hero: \n");
-		Hero zero= new Hero("Reinhart");
-		//System.out.print(zero);
-		Boss gilg= new Boss();
-		//System.out.print(gilg);
-		System.out.print("\n la map: \n");
-		PlateaudeJeu carte= new PlateaudeJeu();
-		//System.out.print(carte);
 		Aventure aven= new Aventure();
 		System.out.print(aven.perso);
-		System.out.print(aven.demon);
-		Direction dir=Direction.HAUT;
-		aven.deplacementHeros(dir);
-		System.out.print("le hero: \n");
+		System.out.print("\n le hero: \n");
+		aven.deplacementHeros(x,y);
 		System.out.print(aven.perso);
+		aven.deplacementHeros(x,4);
+		aven.deplacementHeros(8,4);
+		System.out.print("\n le hero: \n");
+		System.out.print(aven.perso);
+		System.out.print("\n le hero: \n");
+		aven.deplacementHeros(Direction.GAUCHE);
+		System.out.print(aven.perso);
+
+
 	
 	
 	
