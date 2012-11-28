@@ -175,6 +175,7 @@ public class Aventure
 		this.demon = new Boss();
 		level();
 		TabMonstres();
+		initInventaire();
 		this.modeCombat=false;
 	}
 
@@ -261,6 +262,8 @@ public class Aventure
 		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
 		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
 		sac[0]= new Item("herbes medicinal",TypeItem.Objet_de_Soin,30,10,5);
+		this.inventaire=sac;
+		return;
 	}
 	
 
