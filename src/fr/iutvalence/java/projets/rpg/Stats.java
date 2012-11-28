@@ -21,13 +21,14 @@ public class Stats
 	 */
 	private int pointDeMana;
 
-	// FIXME (FIXED)commentaire ?
+
 	/**
 	 * Niveau de point de vie courant
 	 */
+	// FIXME conventions d'écriture
 	private int pdvcour;
 
-	// FIXME (FIXED)commentaire ?
+	// FIXME conventions d'écriture
 	/**
 	 * Niveau de point de mana courant
 	 */

@@ -79,7 +79,6 @@ public class Hero
 	 */
 	public final static String NOMHERO = "Vivio";
 
-	// FIXME (FIXED)respecter les conventions d'écriture
 	/**
 	 * Definie la position du hero sur le plateaudejeu
 	 */
@@ -88,62 +87,73 @@ public class Hero
 	/**
 	 * Nom du hero
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
-	private String nomDuHeros;
-
-	
+	private String nomDuHeros;	
 	
 	/**
 	 * Statistique du heros
 	 */
 	private Stats stats;
 	
-	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item[] inventaire;
-	
+
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private int tailleInventaire;
 	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item armurecasque;
+	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item armurebuste;
+	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item armurebras;
+	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item armurepied;
+	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item bouclier;
+	
+	// FIXME commentaire
 	/**
 	 * 
 	 */
 	private Item arme;
+	
+	
 	/**
 	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
+	// FIXME respecter les conventions d'écriture
 	//redefinie une classe stats
 	//private int pointdevie;
 
 	/**
 	 * Niveau de magie du heros, permet le lancement de sort et autre magies
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
+	// FIXME respecter les conventions d'écriture
 	//private int pointdemana;
 
 	/**

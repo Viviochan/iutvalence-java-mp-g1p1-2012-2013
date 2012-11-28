@@ -26,13 +26,11 @@ public class Niveau
 	/**
 	 * numero du level atteint
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int numLvl;
 
 	/**
 	 * xp necessaire pour atteindre le lvl
 	 */
-	// FIXME (FIXED)respecter les conventions d'écriture
 	private int tauxXp;
 
 	/**
