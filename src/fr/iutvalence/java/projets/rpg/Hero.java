@@ -189,6 +189,8 @@ public class Hero
 		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
 		this.inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
 		this.tailleInventaire=0;
+		Item debut= new Item("Lame du Faucon",TypeItem.Arme,12,10,5);
+		this.arme=debut;
 	}
 
 	/**

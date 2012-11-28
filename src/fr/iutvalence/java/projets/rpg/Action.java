@@ -6,22 +6,22 @@ package fr.iutvalence.java.projets.rpg;
  * @author goncalvs
  *
  */
-public class Action
+public enum Action
 {
 	/**
 	 * 
 	 */
-	public final static int Attaquer = 1;
+	ATTAQUER,
 
 	
 	/**
 	 * 
 	 */
-	public final static int Defendre = 2;
+	DEFENDRE,
 	/**
 	 * 
 	 */
-	public final static int Inventaire = 3;
+	INVENTAIRE,
 
 
 	
@@ -29,11 +29,11 @@ public class Action
 	/**
 	 *
 	 */
-	public final static int fuite = 4;
+	FUITE,
 
 	/**
 	 * 
 	 */
-	public final static int rien =0;
+	RIEN
 	
 }

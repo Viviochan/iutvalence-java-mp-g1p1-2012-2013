@@ -1,4 +1,6 @@
 package fr.iutvalence.java.projets.rpg;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.lang.Math;
 
 // FIXME corriger le commentaire (à discuter)
@@ -69,6 +71,10 @@ public class Aventure
 	public Monstre[] tabMonstres;
 	
 	/**
+	 * Indique le nombre de monstre different que le jeu contient 
+	 */
+	public int nbMonstreInBase;
+	/**
 	 * 
 	 */
 	public Monstre ennemi;
@@ -96,28 +102,41 @@ public class Aventure
 	
 	
 	
-	public static void main(String[] args) throws CoordonneesInvalideException, DirectionInvalideException, ModeCombatInvalidException{
+	/**
+	 * @param args
+	 * @throws CoordonneesInvalideException
+	 * @throws DirectionInvalideException
+	 * @throws ModeCombatInvalidException
+	 * @throws IOException 
+	 */
+	public static void main(String[] args) throws CoordonneesInvalideException, DirectionInvalideException, ModeCombatInvalidException, IOException{
 		Aventure aven= new Aventure();
-		int x=9;
-		int y=5;
-		int i=0;
-		int pdvcour=20;
-		Direction dir= Direction.GAUCHE;
-		Item objet= new Item("Fléau des dragons",TypeItem.Arme,73,10,5);
-		Item debut= new Item("Lame du Faucon",TypeItem.Arme,12,10,5);
-		aven.deplacementHeros(x,y);
-		aven.deplacementHeros(x,4);
-		aven.deplacementHeros(8,4);
-		//aven.itemUse2(debut);
-		//aven.itemUse2(objet);
-		while(i<10){
-			aven.deplacementHeros(Direction.HAUT);
-			aven.perso.getStats().setPdvcour(pdvcour);
-
-			System.out.print("\n le hero: \n");
-			System.out.print(aven.perso);
-			i++;
+		while(aven.demon.getStats().getPdvcour()!=0){
+			Direction dir=null;
+			while(true){
+				while(dir==null){
+					//il faut maintenant gerer la manipulation du clavier pour modifier la direction
+					char c=(char)System.in.read();
+					if ((c=='z') | (c=='Z')){
+						dir=Direction.HAUT;
+					}
+					if ((c=='s') | (c=='S')){
+						dir=Direction.BAS;
+					}
+					if ((c=='q') | (c=='Q')){
+						dir=Direction.GAUCHE;
+					}
+					if ((c=='d') | (c=='D')){
+						dir=Direction.DROITE;
+					}
+				}
+				aven.deplacementHeros(dir);
+				System.out.print(" \n");
+				System.out.print(aven.perso);
+				dir=null;
+			}
 		}
+		//generique puis un new game+ ou recommencer
 	}
 	
 	
@@ -159,7 +178,7 @@ public class Aventure
 		this.modeCombat=false;
 	}
 
-	// FIXME cette méthode doit-elle être publique ?
+	// FIXME (FIXED)cette méthode doit-elle être publique ?
 	/**
 	 * construis et remplie le tableau de niveaux avec leur taux d'xp respectif
 	 * 
@@ -226,6 +245,8 @@ public class Aventure
 		dataMonstre[4]=new Monstre("SlimeRouge",19,23,18,20,22);
 		//dataMonstre[]=new Monstre();
 	this.tabMonstres=dataMonstre;
+	this.nbMonstreInBase=4;
+	this.nbMonstreInBase++;
 	
 	return 0;
 	}
@@ -310,9 +331,11 @@ public class Aventure
 	 * 
 	 * @throws DirectionInvalideException la direction choisie n est pas valable
 	 * @throws CoordonneesInvalideException les coordonnees depassent les bornes de la cartes
+	 * @throws IOException 
+	 * @throws ModeCombatInvalidException 
 	 */
 
-	private Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException{
+	private Position deplacementHeros(Direction dir) throws DirectionInvalideException, CoordonneesInvalideException, ModeCombatInvalidException, IOException{
 		Position poshero = this.perso.getPosHeros();
 		switch(dir){
 			case HAUT:
@@ -330,7 +353,7 @@ public class Aventure
 		}
 		Position mew= new Position(poshero.getX(),poshero.getY());
 		this.perso.setPosHero(mew);
-		//DeclencheCombat();//a decommenter
+		this.declencheCombat();//a decommenter
 		return this.perso.getPosHeros();
 	}
 	
@@ -341,8 +364,10 @@ public class Aventure
 	 * 
 	 * @return 0 si la methode c est bien execute
 	 * @throws CoordonneesInvalideException si la position de repop du hero n est pas valide
+	 * @throws ModeCombatInvalidException 
+	 * @throws IOException 
 	 */
-	private int declencheCombat() throws CoordonneesInvalideException{
+	private int declencheCombat() throws CoordonneesInvalideException, ModeCombatInvalidException, IOException{
 		int nb = (int) (Math.random() * TAUX_MAX_RENCONTRE );
 		if (nb<=TAUX_RENCONTRE){
 			//on genere un combat
@@ -354,8 +379,10 @@ public class Aventure
 	
 	/**
 	 * Methode gerant un combat avec un ennemi
-	 * @return string etat de la fin du combat 
 	 * @throws CoordonneesInvalideException  si le hero perd il est teleporter a une la position par defaut
+	 * @throws ModeCombatInvalidException 
+	 * @throws IOException 
+	 * 
 	 * 
 	 */
 	//il manque a gere si le perso utilise un item
@@ -364,49 +391,86 @@ public class Aventure
 	//monstre choisie poru que les stats soit adapter aux heros
 	//on met en place le reste des elements du combat
 	//on gere les differentes possibilites d action du perso et on adapte le calcul de dommage
-	private String combat() throws CoordonneesInvalideException{
+	private void combat() throws CoordonneesInvalideException, ModeCombatInvalidException, IOException{
+		System.out.print(" Mode combat:\n");
 		int hpcour=this.perso.getStats().getPdvcour();//niveau courantde point de vie si 0 perdue
 		//int mpcour=this.perso.getPointdemana();//niveau courant de mp
 		//on choisie un monstre au hasard dans la base de monstre en fonction du niveau du hero
-		int nbmonstre= (int) (Math.random() * this.perso.getNiveauHeros() );
+		int nbmonstre= (int) ((Math.random() * this.perso.getNiveauHeros())%this.nbMonstreInBase );
 		this.ennemi= new Monstre(this.tabMonstres[nbmonstre].getNomMonstre(),this.tabMonstres[nbmonstre].getStats().getPointsDeVie(),this.tabMonstres[nbmonstre].getStats().getAttaque(),this.tabMonstres[nbmonstre].getStats().getDefense(),this.tabMonstres[nbmonstre].getStats().getNbxp(),this.tabMonstres[nbmonstre].getStats().getOr());
 		int hpmob=this.ennemi.getStats().getPdvcour();
 		int chance=0;
-		int action= Action.rien;
-		while((hpcour>0)||(hpmob>0)||(chance==0)){
-			while(action==Action.rien){
+		Action action= Action.RIEN;
+		while((hpcour>0)&&(hpmob>0)&&(chance==0)){
+			while(action==Action.RIEN){
 				//tant que le perso ne fais rien on attend
 				//gerer la modification de action en autre chose que rien
+				action=this.saisieAction();
 			}
-				if(action==Action.Attaquer){
-					//Puissance = puissance d'attaque de A - (la défense de B ÷ 2)
-					if(this.iAmob(hpmob, this.ennemi)==Action.Attaquer){
-					hpmob=(hpmob-(this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)));//attaque du hero
-					hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)));//attaque de l ennemi
+			switch(action){
+				case ATTAQUER:
 					
+					//Puissance = puissance d'attaque de A - (la défense de B ÷ 2)
+					switch (this.iAmob(hpmob, this.ennemi)){
+						case ATTAQUER:
+							hpmob=(hpmob-(this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)));//attaque du hero
+							hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()%this.ennemi.getStats().getAttaque())));//attaque de l ennemi
+							this.perso.getStats().setPdvcour(hpcour);
+							this.ennemi.getStats().setPdvcour(hpmob);
+							System.out.print(" \n");
+							System.out.print(this.perso);
+							System.out.print(" \n");
+							System.out.print(this.ennemi);
+						break;
+					
+						case DEFENDRE://l ennemie se defend la puissance dattaque diminue de moitie donc la perte de hp diminue aussi de moitie
+							hpmob=(hpmob-((this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)/2)));
+							this.perso.getStats().setPdvcour(hpcour);
+							System.out.print(" \n");
+							System.out.print(this.perso);
+							System.out.print(" \n");
+							System.out.print(this.ennemi);
+						break;
 					}
-					else{//l ennemie se defend la puissance dattaque diminue de moitie donc la perte de hp diminue aussi de moitie
-						hpmob=(hpmob-((this.perso.getStats().getAttaque()-(this.ennemi.getStats().getDefense()/2)/2)));
+					break;
+				case DEFENDRE:
+					switch (this.iAmob(hpmob, this.ennemi)){
+						case ATTAQUER:
+							hpcour=(hpcour-((this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)))/2);
+							System.out.print(" \n");
+							System.out.print(this.perso);
+							System.out.print(" \n");
+							System.out.print(this.ennemi);
+						break;
 					}
-				}
-				if(action==Action.Defendre){
-					if(this.iAmob(hpmob, this.ennemi)==Action.Attaquer){
-						hpcour=(hpcour-((this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)))/2);
-					}
-				}
-				if(action==Action.fuite){
+				break;
+				case FUITE:
 					//on definit une methode fuite
 					chance=fuite();
 					if(chance==0){
-						if(this.iAmob(hpmob, this.ennemi)==Action.Attaquer){
+						switch (this.iAmob(hpmob, this.ennemi)){
+							case ATTAQUER:
 							hpcour=(hpcour-(this.ennemi.getStats().getAttaque()-(this.perso.getStats().getDefense()/2)));
+						break;
 						}
 					}
-				}
-				if(action==Action.Inventaire){
+				break;
+				case INVENTAIRE:
 					//gestion des de linventaire a faire faire une methode de gestion d une action dans l inventaire
+					int usage=0;
+					while(usage==0){
+						int index=(int) Math.random()%CAPACITE_INVENTAIRE+1;
+						//Pour le moment usage aleatoire definir une selection d item
+						if(this.inventaire[index]!=null){
+							this.itemSelect(index);
+							usage++;
+						}
+					break;
+					
 				}
-				action=Action.rien;
+				action=Action.RIEN;
+			}
+			action=Action.RIEN;
 		}
 		if(hpmob==0){
 			this.perso.getStats().setNbXp(this.ennemi.getStats().getNbxp());
@@ -419,13 +483,13 @@ public class Aventure
 			this.perso.getStats().setOr(this.perso.getStats().getOr()/2);
 		}
 		if(chance!=0){
-			//gerer l abandont dun combat
+			//si on abandonne le combat on a rien a faire de plus
 		}
 		this.perso.getStats().setPdvcour(hpcour);
 		this.modeCombat=false;
-		return null;
-	
-	}
+		System.out.print("sortie mode combat \n");
+		return;
+		}
 
 	
 	/**
@@ -447,19 +511,19 @@ public class Aventure
 	 * @param mob  type de monstre qui combat
 	 * @return une action produite
 	 */
-	private int iAmob(int hpmob, Monstre mob){
+	private Action iAmob(int hpmob, Monstre mob){
 		int tauxattdef = (int) (Math.random() * 10 );
 		if(hpmob>(mob.getStats().getPointsDeVie()/2)){
 			if (tauxattdef>8){
-				return Action.Defendre;
+				return Action.DEFENDRE;
 			}
-			return Action.Attaquer;
+			return Action.ATTAQUER;
 		}
 		else{
 			if (tauxattdef>8){
-				return Action.Attaquer;
+				return Action.ATTAQUER;
 			}
-			return Action.Defendre;
+			return Action.DEFENDRE;
 		}
 	}
 	
@@ -474,80 +538,14 @@ public class Aventure
 		itemUse(this.perso.getInventaire(indexItemInventaire));
 	}
 
-	/**
-	 * @param objet l item utilise 
-	 * @throws ModeCombatInvalidException  si le mode de combat ne correspond pas 
-	 */
-	//adapter maintenant a une autre fonction qui determine l item utilise enfin l item que lon souhaite utiliser et incruster cette fonction dans la fonction combat 
-	private void itemUse(Item objet) throws ModeCombatInvalidException{
-		if(objet.getTypeItem()==TypeItem.Objet_de_Soin){
-			this.perso.getStats().setPdvcour(objet.getBonusItem());
-		}
-		if(objet.getTypeItem()==TypeItem.Objet_de_Recup){
-			this.perso.getStats().setPdmcour(objet.getBonusItem());
-		}
-		if(objet.getTypeItem()==TypeItem.Arme){
-			if(this.modeCombat){
-				throw new ModeCombatInvalidException();
-			}
-			else{
-				this.perso.setArme(objet);
-				this.perso.getStats().setAttaque(objet.getBonusItem());
-			}
-		}
-		if(objet.getTypeItem()==TypeItem.Bouclier){
-			if(this.modeCombat){
-				throw new ModeCombatInvalidException();
-			}
-			else{
-				this.perso.setBouclier(objet);
-				this.perso.getStats().setDefense(objet.getBonusItem());
-			}	
-		}
-		if(objet.getTypeItem()==TypeItem.Equipement_Bras){
-			if(this.modeCombat){
-				throw new ModeCombatInvalidException();
-			}
-			else{
-				this.perso.setArmurebras(objet);
-				this.perso.getStats().setDefense(objet.getBonusItem());
-			}
-		}
-		if(objet.getTypeItem()==TypeItem.Equipement_Corps){
-			if(this.modeCombat){
-				throw new ModeCombatInvalidException();
-			}
-			else{
-				this.perso.setArmurebuste(objet);
-				this.perso.getStats().setDefense(objet.getBonusItem());
-			}
-		}
-		if(objet.getTypeItem()==TypeItem.Equipement_Pied){
-			if(this.modeCombat){
-				throw new ModeCombatInvalidException();
-			}
-			else{
-				this.perso.setArmurepied(objet);
-				this.perso.getStats().setDefense(objet.getBonusItem());
-			}
-		}
-		if(objet.getTypeItem()==TypeItem.Equipement_Tete){
-			if(this.modeCombat){
-				throw new ModeCombatInvalidException();
-			}
-			else{
-				this.perso.setArmurecasque(objet);
-				this.perso.getStats().setDefense(objet.getBonusItem());
-			}
-		}
-	}
+	
 	
 	/**
 	 * @param objet item utiliser
 	 * @throws ModeCombatInvalidException si le personnage se trouve en mode combat
 	 */
-	//A tester et voir laquelle des deux methodes marchent
-	private void itemUse2(Item objet) throws ModeCombatInvalidException{
+	//Trouver la methode pour definir l objet que l on utilise
+	private void itemUse(Item objet) throws ModeCombatInvalidException{
 		TypeItem type=objet.getTypeItem();
 		switch(type){
 			case Objet_de_Soin:
@@ -561,10 +559,9 @@ public class Aventure
 					throw new ModeCombatInvalidException();
 				}
 				else{
-					Item arme= this.perso.getArme();
+					int arme= this.perso.getArme().getBonusItem();
 					this.perso.setArme(objet);
-					int bonus=arme.getBonusItem()*(-1);
-					this.perso.getStats().setAttaque(bonus);
+					this.perso.getStats().setAttaque(arme*(-1));
 					this.perso.getStats().setAttaque(objet.getBonusItem());
 				}
 				break;
@@ -623,8 +620,24 @@ public class Aventure
 	
 	
 	
-	
-	
+	private Action saisieAction() throws IOException{
+		Action action=Action.RIEN;
+		char c=(char)System.in.read();
+		if ((c=='l') | (c=='L')){
+			action=Action.ATTAQUER;
+		}
+		if ((c=='m') | (c=='M')){
+			action=Action.DEFENDRE;
+		}
+		if ((c=='o') | (c=='O')){
+			action=Action.INVENTAIRE;
+		}
+		if ((c=='p') | (c=='P')){
+			action=Action.FUITE;
+		}
+		return action;
+		
+	}
 	
 	
 	
