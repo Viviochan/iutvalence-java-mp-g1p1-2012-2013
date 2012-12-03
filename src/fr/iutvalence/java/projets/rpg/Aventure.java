@@ -462,6 +462,7 @@ public class Aventure
 					//gestion des de linventaire a faire faire une methode de gestion d une action dans l inventaire
 					int usage=0;
 					while(usage==0){
+						// FIXME vérifier par le test la génération du nombre aléatoire 
 						int index=(int) Math.random()%CAPACITE_INVENTAIRE+1;
 						//Pour le moment usage aleatoire definir une selection d item
 						if(this.inventaire[index]!=null){
@@ -473,6 +474,7 @@ public class Aventure
 				}
 				action=Action.RIEN;
 			}
+			// FIXME inutile
 			action=Action.RIEN;
 		}
 		if(hpmob==0){
