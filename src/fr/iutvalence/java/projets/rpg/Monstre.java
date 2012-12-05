@@ -12,7 +12,7 @@ public class Monstre
 	/**
 	 * Nom du monstre creer par defaut
 	 */
-	public final static String NOM_MOB = "Slim";
+	public final static String NOM_MOB = "Slime";
 
 	/**
 	 * Niveau de vie du monstre par defaut

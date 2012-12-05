@@ -94,94 +94,68 @@ public class Hero
 	 */
 	private Stats stats;
 	
-	// FIXME commentaire
+	// FIXME (FIXED)commentaire
 	/**
-	 * 
+	 * Inventaire du Hero qui contiendra tous ces items trouver dans l'aventure
 	 */
 	private Item[] inventaire;
 
-	// FIXME commentaire
+	// FIXME (FIXED) commentaire
 	/**
-	 * 
+	 * La taille de l'inventaire
 	 */
 	private int tailleInventaire;
 	
-	// FIXME commentaire
+	// FIXME (FIXED)commentaire
 	/**
-	 * 
+	 * Un item du type casque porter par le Hero
 	 */
 	private Item armurecasque;
 	
-	// FIXME commentaire
+	// FIXME (FIXED)commentaire
 	/**
-	 * 
+	 * Un item du type armure pour le buste porter par le Hero
 	 */
 	private Item armurebuste;
 	
-	// FIXME commentaire
+	// FIXME(FIXED) commentaire
 	/**
-	 * 
+	 * Un item du type armure bras porter par le Hero
 	 */
 	private Item armurebras;
 	
-	// FIXME commentaire
+	// FIXME (FIXED)commentaire
 	/**
-	 * 
+	 * Un item du type armure pied porter par le Hero
 	 */
 	private Item armurepied;
 	
-	// FIXME commentaire
+	// FIXME (FIXED)commentaire
 	/**
-	 * 
+	 * Un item du type bouclier porter par le Hero
 	 */
 	private Item bouclier;
 	
-	// FIXME commentaire
+	// FIXME (FIXED)commentaire
 	/**
-	 * 
+	 * Un item de type arme porter par le Hero
 	 */
 	private Item arme;
 	
 	
-	/**
-	 * Niveau de vie du heros, si elle tombe a 0 "GAME OVER"
-	 */
-	// FIXME respecter les conventions d'écriture
-	//redefinie une classe stats
-	//private int pointdevie;
+	// FIXME (FIXED)respecter les conventions d'écriture
+	//element redefine dans la classe stat
 
-	/**
-	 * Niveau de magie du heros, permet le lancement de sort et autre magies
-	 */
-	// FIXME respecter les conventions d'écriture
-	//private int pointdemana;
 
-	/**
-	 * Niveau d'attaque du heros permet de determiner la force de frappe lors des combats
-	 */
-	//private int attaque;
+	// FIXME(FIXED)respecter les conventions d'écriture
+	//element redefine dans la classe stat
 
-	/**
-	 * Niveau de defense du heros permet de determiner la diminution des degat subis par l'adversaire
-	 */
-	//private int defense;
-
-	// FIXME respecter les conventions d'écriture
+	// FIXME (FIXED)respecter les conventions d'écriture
 	/**
 	 * Niveau du heros.
 	 */
-	private int niveauheros;
+	private int niveauHeros;
 
-	/**
-	 * Experience du heros. Certains palier d'xp permettent de debloquer un niveau avec les bonus lui correspondant
-	 */
-	// FIXME respecter les conventions d'écriture
-	//private int nbxp;
-
-	/**
-	 * Monnaie du heros. Permet l'achat de divers items dans le jeu
-	 */
-	//private int or;
 
 	/**
 	 * Initialise le heros sans specifier de nom
@@ -195,13 +169,17 @@ public class Hero
 	{
 		this.posHeros = new Position(ABSCISSE_DEFAUT, ORDONNE_DEFAUT);
 		this.nomDuHeros = NOMHERO;
-		this.niveauheros = NIV_BASE;
+		this.niveauHeros = NIV_BASE;
 		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
 		this.inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
 		this.tailleInventaire=0;
 		Item debut= new Item("Lame du Faucon",TypeItem.Arme,12,10,5);
 		this.arme=debut;
 	}
+	
+	
+	
+	
 
 	/**
 	 * Initialisation a partir du constructeur par defaut
@@ -219,6 +197,28 @@ public class Hero
 	}
 
 
+	
+	/**
+	 * Initialise une Hero a partir d'une position et d'un nom saisie
+	 * @param s le nom du hero
+	 * @param x l'abscisse du Hero
+	 * @param y l'ordonnes du Heor
+	 * @throws CoordonneesInvalideException si les coordonnes de creations du heros ne sont pas valide
+	 */
+	public Hero(String s, int x, int y) throws CoordonneesInvalideException
+	{
+		this.nomDuHeros = s;
+		this.posHeros = new Position(x, y);
+		this.nomDuHeros = NOMHERO;
+		this.niveauHeros = NIV_BASE;
+		this.stats=new Stats(MP_HERO,HP_HERO,ATT_DEF_HERO,ATT_DEF_HERO,XP_BASE,OR_BASE);
+		this.inventaire= new Item[INVENTAIRE_SIZE];//definir les items de base lors de la creation dune partie ou laisserr vide
+		this.tailleInventaire=0;
+		Item debut= new Item("Lame du Faucon",TypeItem.Arme,12,10,5);
+		this.arme=debut;
+	}
+	
+	
 	/**
 	 * Retourne le niveau actuel du hero
 	 * 
@@ -226,7 +226,7 @@ public class Hero
 	 */
 	public int getNiveauHeros()
 	{
-		return this.niveauheros;
+		return this.niveauHeros;
 	}
 
 	/**
@@ -234,7 +234,7 @@ public class Hero
 	 */
 	public void setNiveauHeros()
 	{
-		this.niveauheros=this.niveauheros+1;
+		this.niveauHeros=this.niveauHeros+1;
 	}
 
 	/**
@@ -438,7 +438,7 @@ public class Hero
 
 	
 	public String toString(){
-		return "(nom:"+this.nomDuHeros+" niveau:"+this.niveauheros+" Statistiques;"+this.stats+" Position:"+this.getPosHeros()+")";
+		return "(nom:"+this.nomDuHeros+" niveau:"+this.niveauHeros+" Statistiques;"+this.stats+" Position:"+this.getPosHeros()+")";
 	}
 	
 	

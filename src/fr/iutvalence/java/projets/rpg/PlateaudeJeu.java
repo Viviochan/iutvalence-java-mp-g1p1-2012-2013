@@ -14,14 +14,14 @@ public class PlateaudeJeu
 	/**
 	 * Valeurs des cases A voi rsi on les geres avec un booleen ou pas
 	 * 
-	 * 0: si le hero ne peux pas etre possitionner sur la case un autre objet est deja dessus (PNJ,decor,...)
+	 * false: si le hero ne peux pas etre possitionner sur la case un autre objet est deja dessus (PNJ,decor,...)
 	 */
-	public final static int NON_PRATICABLE = 0;
+	public final static boolean NON_PRATICABLE = false;
 
 	/**
-	 * 1: si le hero peux etre positionner sur la case
+	 * true: si le hero peux etre positionner sur la case
 	 */
-	public final static int PRATICABLE = 1;
+	public final static boolean PRATICABLE = true;
 
 	/**
 	 * Definira la dimmension de notre map
@@ -44,11 +44,11 @@ public class PlateaudeJeu
 	 * Au niveau graphique elle seront colorer et definiront un style de lieu precis(prairie, montagne,....)
 	 * 
 	 * 
-	 * map[x][y]=1 ->case praticable map[x][y]=0 -> case non praticable (un obstacle gene le hero du genre rocher arbre
+	 * map[x][y]=True ->case praticable map[x][y]=false -> case non praticable (un obstacle gene le hero du genre rocher arbre
 	 * pnj,...)
 	 * 
 	 */
-	private int[][] map;
+	private boolean[][] map;
 
 	/**
 	 * Constructeurs On construit un plateau et on rend toutes les cases praticables pour le hero Certaines deviendront
@@ -59,12 +59,30 @@ public class PlateaudeJeu
 	 */
 	public PlateaudeJeu()
 	{
-		this.map = new int[LONGUEUR][LONGUEUR];
+		this.map = new boolean[LONGUEUR][LONGUEUR];
 		for (int i = 0; i < LONGUEUR; i++)
 		{
 			for (int j = 0; j < LONGUEUR; j++)
 			{
-				this.map[i][j] = PRATICABLE;
+				this.map[i][j] = true;
+			}
+		}
+
+	}
+	/**
+	 * Constructeur:
+	 * Permet de concevoir un plateau de jeu en fonction d'une longueur et d'une largeur données
+	 * @param x longueur du plateau
+	 * @param y largeur du plateau
+	 */
+	public PlateaudeJeu(int x, int y)
+	{
+		this.map = new boolean[x][y];
+		for (int i = 0; i < x; i++)
+		{
+			for (int j = 0; j < y; j++)
+			{
+				this.map[i][j] = true;
 			}
 		}
 
@@ -79,7 +97,7 @@ public class PlateaudeJeu
 	 *            Oordonnes sur la map
 	 * @return la valeur de la case 1 si elle est praticable 0 si un pnj ou un objet est poser dessus
 	 */
-	public int getCase(int x, int y)
+	public boolean getCase(int x, int y)
 	{
 		return this.map[x][y];
 
@@ -99,7 +117,8 @@ public class PlateaudeJeu
 	public void setCase(int x, int y)
 	{
 		
-		// FIXME simplifier en utilisant une valeur booleenne au lieu des constantes
+		// FIXME (FIXED)simplifier en utilisant une valeur booleenne au lieu des constantes
+		//Voir dans les attributs
 		if (this.map[x][y] == NON_PRATICABLE)
 		{
 			this.map[x][y] = PRATICABLE;

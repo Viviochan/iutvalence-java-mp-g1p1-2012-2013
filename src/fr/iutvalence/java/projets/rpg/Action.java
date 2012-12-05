@@ -9,30 +9,31 @@ package fr.iutvalence.java.projets.rpg;
 public enum Action
 {
 	/**
-	 * 
+	 * Correspond a l'ordre d'attaquer
 	 */
 	ATTAQUER,
 
 	
 	/**
-	 * 
+	 * Correspond a l'ordre defendre
 	 */
 	DEFENDRE,
 	/**
-	 * 
+	 * Correspond a l'utilisation de l'inventaire
 	 */
 	INVENTAIRE,
 
-
-	
-
 	/**
-	 *
+	 * Correspond a une demande d'interaction avec un element du Plateau de Jeu
+	 */
+	INTERAGIR,
+	/**
+	 *Correspond a l'ordre fuite
 	 */
 	FUITE,
 
 	/**
-	 * 
+	 * Correspond a une action vide
 	 */
 	RIEN
 	

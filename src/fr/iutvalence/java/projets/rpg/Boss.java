@@ -57,6 +57,23 @@ public class Boss extends Monstre
 		this.posboss = new Position(ABSCISSE_BOSS, ORDONNEE_BOSS);
 
 	}
+	
+	
+	/**
+	 * Construction du Boss en fonction de coordonnes par rapport aux constructeurs de monstre nom:Lord Dragon point de vie:350 attaque:110
+	 * defense:110 or:0 xp:0 Un seul et unique boss sera inclus dans le jeu On integrera des sous boss pris dans la base
+	 * de monstre
+	 * @param x Abscisse du boss
+	 * @param y Ordonnes du boss
+	 * 
+	 * @throws CoordonneesInvalideException Si les coordonnes du Boss sorte de la map
+	 */
+	public Boss(int x, int y ) throws CoordonneesInvalideException
+	{
+		super(NOM_BOSS, HP_BOSS, ATT_DEF_BOSS, ATT_DEF_BOSS, OR_XP_BOSS, OR_XP_BOSS);
+		this.posboss = new Position(x,y);
+
+	}
 
 	/**
 	 * Donne la position du boss
